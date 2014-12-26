@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>156D3A3E-598D-415E-BF91-5DB73D34EDF7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iOS-LearningSamples</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>27F17048DEEE3330822ED088567DE5D5C7BD10CA</key>
+		<string>https://github.com/PeterWang0124/iOS-LearningSamples.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS-LearningSamples.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>27F17048DEEE3330822ED088567DE5D5C7BD10CA</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/PeterWang0124/iOS-LearningSamples.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>27F17048DEEE3330822ED088567DE5D5C7BD10CA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>27F17048DEEE3330822ED088567DE5D5C7BD10CA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-LearningSamples</string>
+		</dict>
+	</array>
+</dict>
+</plist>
