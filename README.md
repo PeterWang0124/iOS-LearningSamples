@@ -6,7 +6,7 @@ These samples are the learning practices for iOS.
 ## Introduction
 Each sample is the practice sample for me to learn the usage of element, UI, or framework...etc.
 
-* SQLiteLearning Project  
+* SQLiteLearning Project - (now practice)  
 	This is the practice project for SQLite on iOS.  
 	I follow Ray Wenderlich's "SQLite Tutorial for iOS: Creating and Scripting" to do the practice.
 
