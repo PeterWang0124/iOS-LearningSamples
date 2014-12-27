@@ -19,15 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    //Convert date object to desired output format
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MMMM. d, YYYY"];
-    
     //Init database of national park infos.
-    NSArray *nationalParkInfos = [[SQLNationalParkDatabase sharedDatabase] nationalParkInfos];
-    for (SQLNationalParkInfo *info in nationalParkInfos) {
-        NSLog(@"id : %zd, name : %@, type : %@, code : %@, note : %@, updateTime : %@", info.uniqueId, info.name, info.type, info.code, info.note, [dateFormat stringFromDate:info.updateTime]);
-    }
+    [[SQLNationalParkDatabase sharedDatabase] loadNationalParkInfos];
 
     return YES;
 }

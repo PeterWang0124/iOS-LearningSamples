@@ -20,6 +20,8 @@ sqlite3 *database;
 
 }
 
+@property (strong, nonatomic) NSMutableArray *nationalParkInfos;
+
 @end
 
 @implementation SQLNationalParkDatabase
@@ -47,12 +49,16 @@ sqlite3 *database;
     return self;
 }
 
-- (NSArray *)nationalParkInfos {
-    //Out put infos.
-    NSMutableArray *retval = [[NSMutableArray alloc] init];
+- (void)loadNationalParkInfos {
+    if (!_nationalParkInfos) {
+        _nationalParkInfos = [[NSMutableArray alloc] init];
+    }
+    else {
+        [_nationalParkInfos removeAllObjects];
+    }
     
     //sqlite command to fetch the infos.
-    NSString *query = [NSString stringWithFormat:@"SELECT uid, name, type, code, note, update_time FROM %@;", SQLNationalParkDbTableName];
+    NSString *query = [NSString stringWithFormat:@"SELECT uid, name, type, code, note, update_time FROM %@ ORDER BY name ASC;", SQLNationalParkDbTableName];
     sqlite3_stmt *statement;
     int errorCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil);
     if (errorCode == SQLITE_OK) {
@@ -72,15 +78,17 @@ sqlite3 *database;
             [dateFormat setDateFormat:@"yyyy/MM/dd"];
             NSDate *date = [dateFormat dateFromString:updateTimeString];
             SQLNationalParkInfo *info = [[SQLNationalParkInfo alloc]initWithUniqueId:uniqueId name:name type:type code:code note:note updateTime:date];
-            [retval addObject:info];
+            [_nationalParkInfos addObject:info];
         }
         sqlite3_finalize(statement);
     }
     else {
         NSLog(@"Error code : %d", errorCode);
     }
-    
-    return retval;
+}
+
+- (NSArray *)nationalParkInfos {
+    return _nationalParkInfos;
 }
 
 @end

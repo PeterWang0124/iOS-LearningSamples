@@ -20,12 +20,17 @@ extern NSString * const SQLNationalParkDbTableName;
 /**
  *  Singleton instance of database.
  *
- *  @return Singleton instance of database
+ *  @return Singleton instance of database.
  */
 + (instancetype)sharedDatabase;
 
 /**
- *  Fetch the national park infos
+ *  Load national park info data from database.
+ */
+- (void)loadNationalParkInfos;
+
+/**
+ *  Fetch the national park infos.
  *
  *  @return A array of national park infos.
  */
