@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "SQLNationalParkDatabase.h"
+#import "SQLNationalParkInfo.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    //Convert date object to desired output format
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMMM. d, YYYY"];
+    
+    //Init database of national park infos.
+    NSArray *nationalParkInfos = [[SQLNationalParkDatabase sharedDatabase] nationalParkInfos];
+    for (SQLNationalParkInfo *info in nationalParkInfos) {
+        NSLog(@"id : %zd, name : %@, type : %@, code : %@, note : %@, updateTime : %@", info.uniqueId, info.name, info.type, info.code, info.note, [dateFormat stringFromDate:info.updateTime]);
+    }
+
     return YES;
 }
 

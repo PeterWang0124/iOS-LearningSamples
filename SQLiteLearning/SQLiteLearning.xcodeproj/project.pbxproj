@@ -16,6 +16,8 @@
 		92D03A561A4E7B5F0027BE9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A511A4E7B5F0027BE9C /* LaunchScreen.xib */; };
 		92D03A571A4E7B5F0027BE9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A521A4E7B5F0027BE9C /* Main.storyboard */; };
 		92D03A591A4E7B660027BE9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A581A4E7B660027BE9C /* main.m */; };
+		92D03A5C1A4E7D9E0027BE9C /* SQLNationalParkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A5B1A4E7D9E0027BE9C /* SQLNationalParkInfo.m */; };
+		92D03A5F1A4E85220027BE9C /* SQLNationalParkDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		92D03A511A4E7B5F0027BE9C /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		92D03A521A4E7B5F0027BE9C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		92D03A581A4E7B660027BE9C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		92D03A5A1A4E7D9E0027BE9C /* SQLNationalParkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalParkInfo.h; sourceTree = "<group>"; };
+		92D03A5B1A4E7D9E0027BE9C /* SQLNationalParkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalParkInfo.m; sourceTree = "<group>"; };
+		92D03A5D1A4E85220027BE9C /* SQLNationalParkDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalParkDatabase.h; sourceTree = "<group>"; };
+		92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalParkDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,10 @@
 		92D03A4E1A4E7B5F0027BE9C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92D03A5A1A4E7D9E0027BE9C /* SQLNationalParkInfo.h */,
+				92D03A5B1A4E7D9E0027BE9C /* SQLNationalParkInfo.m */,
+				92D03A5D1A4E85220027BE9C /* SQLNationalParkDatabase.h */,
+				92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,9 +211,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D03A5C1A4E7D9E0027BE9C /* SQLNationalParkInfo.m in Sources */,
 				92D03A541A4E7B5F0027BE9C /* ViewController.m in Sources */,
 				92D03A591A4E7B660027BE9C /* main.m in Sources */,
 				92D03A531A4E7B5F0027BE9C /* AppDelegate.m in Sources */,
+				92D03A5F1A4E85220027BE9C /* SQLNationalParkDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
