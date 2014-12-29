@@ -1,0 +1,15 @@
+//
+//  SQLiteLearning-PrefixHeader.pch
+//  SQLiteLearning
+//
+//  Created by PeterWang on 12/29/14.
+//  Copyright (c) 2014 PeterWang. All rights reserved.
+//
+
+#ifndef SQLiteLearning_SQLiteLearning_PrefixHeader_pch
+#define SQLiteLearning_SQLiteLearning_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
