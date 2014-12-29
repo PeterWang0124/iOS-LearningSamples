@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		9229AEE91A4D56010032D34D /* SQLiteLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9229AEED1A4D56010032D34D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9290F6931A5158D3005D1E91 /* SQLiteLearning-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLiteLearning-PrefixHeader.pch"; sourceTree = "<group>"; };
 		92D03A221A4E78910027BE9C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		92D03A251A4E78F10027BE9C /* nps_boundary.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nps_boundary.csv; sourceTree = "<group>"; };
 		92D03A261A4E78F10027BE9C /* nps_boundary_csv.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nps_boundary_csv.sqlite3; sourceTree = "<group>"; };
@@ -55,8 +56,10 @@
 		9229AEE01A4D56010032D34D = {
 			isa = PBXGroup;
 			children = (
-				92D03A221A4E78910027BE9C /* libsqlite3.dylib */,
-				9229AEEB1A4D56010032D34D /* SQLiteLearning */,
+				92D03A481A4E7B5F0027BE9C /* Classes */,
+				92D03A241A4E78F10027BE9C /* SQLiteDatabase */,
+				9229AEEC1A4D56010032D34D /* Supporting Files */,
+				9290F6921A51588D005D1E91 /* Frameworks */,
 				9229AEEA1A4D56010032D34D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,23 +72,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9229AEEB1A4D56010032D34D /* SQLiteLearning */ = {
-			isa = PBXGroup;
-			children = (
-				92D03A481A4E7B5F0027BE9C /* Classes */,
-				92D03A241A4E78F10027BE9C /* SQLiteDatabase */,
-				9229AEEC1A4D56010032D34D /* Supporting Files */,
-			);
-			path = SQLiteLearning;
-			sourceTree = "<group>";
-		};
 		9229AEEC1A4D56010032D34D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				9229AEED1A4D56010032D34D /* Info.plist */,
 				92D03A581A4E7B660027BE9C /* main.m */,
+				9290F6931A5158D3005D1E91 /* SQLiteLearning-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			path = SQLiteLearning;
+			sourceTree = "<group>";
+		};
+		9290F6921A51588D005D1E91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92D03A221A4E78910027BE9C /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		92D03A241A4E78F10027BE9C /* SQLiteDatabase */ = {
@@ -94,7 +97,8 @@
 				92D03A251A4E78F10027BE9C /* nps_boundary.csv */,
 				92D03A261A4E78F10027BE9C /* nps_boundary_csv.sqlite3 */,
 			);
-			path = SQLiteDatabase;
+			name = SQLiteDatabase;
+			path = SQLiteLearning/SQLiteDatabase;
 			sourceTree = "<group>";
 		};
 		92D03A481A4E7B5F0027BE9C /* Classes */ = {
@@ -106,7 +110,8 @@
 				92D03A4E1A4E7B5F0027BE9C /* Model */,
 				92D03A4F1A4E7B5F0027BE9C /* View */,
 			);
-			path = Classes;
+			name = Classes;
+			path = SQLiteLearning/Classes;
 			sourceTree = "<group>";
 		};
 		92D03A4B1A4E7B5F0027BE9C /* Controller */ = {
@@ -245,6 +250,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -285,6 +291,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -302,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "SQLiteLearning/SQLiteLearning-PrefixHeader.pch";
 				INFOPLIST_FILE = SQLiteLearning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "SQLiteLearning/SQLiteLearning-PrefixHeader.pch";
 				INFOPLIST_FILE = SQLiteLearning/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
