@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		92F8B3A31A527FC30051C150 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3A21A527FC30051C150 /* main.m */; };
 		92F8B3DE1A5280D90051C150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3CF1A5280D90051C150 /* AppDelegate.m */; };
-		92F8B3DF1A5280D90051C150 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3D21A5280D90051C150 /* DetailViewController.m */; };
-		92F8B3E01A5280D90051C150 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3D41A5280D90051C150 /* MasterViewController.m */; };
 		92F8B3E11A5280D90051C150 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D71A5280D90051C150 /* Images.xcassets */; };
 		92F8B3E21A5280D90051C150 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D81A5280D90051C150 /* LaunchScreen.xib */; };
 		92F8B3E31A5280D90051C150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D91A5280D90051C150 /* Main.storyboard */; };
 		92F8B3E41A5280D90051C150 /* CoreDataLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3DA1A5280D90051C150 /* CoreDataLearning.xcdatamodeld */; };
+		92F8B40F1A5284F20051C150 /* CDLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B40E1A5284F20051C150 /* CDLMainViewController.m */; };
+		92F8B4121A5285070051C150 /* CDLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4111A5285070051C150 /* CDLDetailViewController.m */; };
+		92F8B4651A52A53B0051C150 /* CDLNationalParkDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4641A52A53B0051C150 /* CDLNationalParkDetail.m */; };
+		92F8B4681A52A53B0051C150 /* CDLNationalParkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4671A52A53B0051C150 /* CDLNationalParkInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,14 +25,18 @@
 		92F8B3A21A527FC30051C150 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92F8B3CE1A5280D90051C150 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92F8B3CF1A5280D90051C150 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		92F8B3D11A5280D90051C150 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		92F8B3D21A5280D90051C150 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		92F8B3D31A5280D90051C150 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		92F8B3D41A5280D90051C150 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		92F8B3D71A5280D90051C150 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92F8B3D81A5280D90051C150 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		92F8B3D91A5280D90051C150 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		92F8B3DB1A5280D90051C150 /* CoreDataLearning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataLearning.xcdatamodel; sourceTree = "<group>"; };
+		92F8B40D1A5284F20051C150 /* CDLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLMainViewController.h; sourceTree = "<group>"; };
+		92F8B40E1A5284F20051C150 /* CDLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLMainViewController.m; sourceTree = "<group>"; };
+		92F8B4101A5285070051C150 /* CDLDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLDetailViewController.h; sourceTree = "<group>"; };
+		92F8B4111A5285070051C150 /* CDLDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLDetailViewController.m; sourceTree = "<group>"; };
+		92F8B4631A52A53B0051C150 /* CDLNationalParkDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLNationalParkDetail.h; sourceTree = "<group>"; };
+		92F8B4641A52A53B0051C150 /* CDLNationalParkDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLNationalParkDetail.m; sourceTree = "<group>"; };
+		92F8B4661A52A53B0051C150 /* CDLNationalParkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLNationalParkInfo.h; sourceTree = "<group>"; };
+		92F8B4671A52A53B0051C150 /* CDLNationalParkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLNationalParkInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +100,10 @@
 		92F8B3D01A5280D90051C150 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92F8B3D11A5280D90051C150 /* DetailViewController.h */,
-				92F8B3D21A5280D90051C150 /* DetailViewController.m */,
-				92F8B3D31A5280D90051C150 /* MasterViewController.h */,
-				92F8B3D41A5280D90051C150 /* MasterViewController.m */,
+				92F8B40D1A5284F20051C150 /* CDLMainViewController.h */,
+				92F8B40E1A5284F20051C150 /* CDLMainViewController.m */,
+				92F8B4101A5285070051C150 /* CDLDetailViewController.h */,
+				92F8B4111A5285070051C150 /* CDLDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +111,10 @@
 		92F8B3D51A5280D90051C150 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				92F8B4661A52A53B0051C150 /* CDLNationalParkInfo.h */,
+				92F8B4671A52A53B0051C150 /* CDLNationalParkInfo.m */,
+				92F8B4631A52A53B0051C150 /* CDLNationalParkDetail.h */,
+				92F8B4641A52A53B0051C150 /* CDLNationalParkDetail.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,10 +200,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				92F8B3A31A527FC30051C150 /* main.m in Sources */,
-				92F8B3E01A5280D90051C150 /* MasterViewController.m in Sources */,
+				92F8B40F1A5284F20051C150 /* CDLMainViewController.m in Sources */,
+				92F8B4681A52A53B0051C150 /* CDLNationalParkInfo.m in Sources */,
+				92F8B4651A52A53B0051C150 /* CDLNationalParkDetail.m in Sources */,
+				92F8B4121A5285070051C150 /* CDLDetailViewController.m in Sources */,
 				92F8B3DE1A5280D90051C150 /* AppDelegate.m in Sources */,
 				92F8B3E41A5280D90051C150 /* CoreDataLearning.xcdatamodeld in Sources */,
-				92F8B3DF1A5280D90051C150 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +327,7 @@
 				92F8B3C81A527FC30051C150 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

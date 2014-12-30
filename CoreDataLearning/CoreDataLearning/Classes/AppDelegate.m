@@ -7,8 +7,14 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
-#import "MasterViewController.h"
+
+//Model
+#import "CDLNationalParkInfo.h"
+#import "CDLNationalParkDetail.h"
+
+//Controller
+#import "CDLMainViewController.h"
+#import "CDLDetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,12 +22,43 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Create test data.
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *nationalParkInfo = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:context];
+    NSManagedObject *failedBankDetails = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CDLNationalParkDetail class]) inManagedObjectContext:context];
+
+    [nationalParkInfo setValue:@"Test Park" forKey:@"name"];
+    [nationalParkInfo setValue:@"National" forKey:@"type"];
+    [nationalParkInfo setValue:@"TPTT" forKey:@"code"];
+    [nationalParkInfo setValue:failedBankDetails forKey:@"detail"];
+    
+    [failedBankDetails setValue:@"Test note." forKey:@"note"];
+    [failedBankDetails setValue:[NSDate date] forKey:@"updateTime"];
+    [failedBankDetails setValue:nationalParkInfo forKey:@"info"];
+    
+    //Save test data.
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    //List all test data from the store.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (CDLNationalParkInfo *info in fetchedObjects) {
+        NSLog(@"Name: %@", info.name);
+        CDLNationalParkDetail *details = info.detail;
+        NSLog(@"Note: %@", details.note);
+    }
+    
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
+    CDLMainViewController *controller = (CDLMainViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+
     return YES;
 }
 
