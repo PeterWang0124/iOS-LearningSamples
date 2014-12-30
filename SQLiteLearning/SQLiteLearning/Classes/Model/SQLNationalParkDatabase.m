@@ -8,19 +8,17 @@
 
 #import "SQLNationalParkDatabase.h"
 #import <sqlite3.h>
-#import "SQLNationalParkInfo.h"
+#import "SQLNationalPark.h"
 
 NSString * const SQLNationalParkSqLiteDbName = @"nps_boundary_csv";
 NSString * const SQLNationalParkSqLiteDbType = @"sqlite3";
 NSString * const SQLNationalParkDbTableName = @"nps_boundary";
 
 @interface SQLNationalParkDatabase () {
-    
-sqlite3 *database;
-
+    sqlite3 *database;
 }
 
-@property (strong, nonatomic) NSMutableArray *nationalParkInfos;
+@property (strong, nonatomic) MutableOrderedDictionary *nationalParksDictionary;
 
 @end
 
@@ -49,16 +47,56 @@ sqlite3 *database;
     return self;
 }
 
+- (void)dealloc {
+    sqlite3_close(database);
+}
+
 - (void)loadNationalParkInfos {
-    if (!_nationalParkInfos) {
-        _nationalParkInfos = [[NSMutableArray alloc] init];
-    }
-    else {
-        [_nationalParkInfos removeAllObjects];
+    if (!self.nationalParksDictionary) {
+        self.nationalParksDictionary = [[MutableOrderedDictionary alloc] init];
     }
     
     //sqlite command to fetch the infos.
-    NSString *query = [NSString stringWithFormat:@"SELECT uid, name, type, code, note, update_time FROM %@ ORDER BY name ASC;", SQLNationalParkDbTableName];
+    NSString *query = [NSString stringWithFormat:@"SELECT uid, name, type, code FROM %@ ORDER BY name ASC;", SQLNationalParkDbTableName];
+    sqlite3_stmt *statement;
+    int errorCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil);
+    if (errorCode == SQLITE_OK) {
+        NSUInteger index = 0;
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            int uniqueId = sqlite3_column_int(statement, 0);
+            char *nameChars = (char *) sqlite3_column_text(statement, 1);
+            char *typeChars = (char *) sqlite3_column_text(statement, 2);
+            char *codeChars = (char *) sqlite3_column_text(statement, 3);
+            NSString *name = [NSString stringWithUTF8String:nameChars];
+            NSString *type = [NSString stringWithUTF8String:typeChars];
+            NSString *code = [NSString stringWithUTF8String:codeChars];
+            
+            NSString *key = [NSString stringWithFormat:@"%d", uniqueId];
+            SQLNationalPark *park = self.nationalParksDictionary[key];
+            if (!park) {
+                park = [[SQLNationalPark alloc] init];
+                park.uniqueId = uniqueId;
+                [self.nationalParksDictionary insertObject:park forKey:key atIndex:index];
+            }
+            
+            //Update info
+            park.name = name;
+            park.type = type;
+            park.code = code;
+            
+            ++index;
+        }
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Error code : %d", errorCode);
+    }
+}
+
+- (SQLNationalPark *)nationalParkDetailWithId:(NSInteger)uniqueId {
+    SQLNationalPark *park = nil;
+    NSString *query = [NSString stringWithFormat:@"SELECT uid, name, type, code, note, update_time FROM %@ WHERE uid=%zd;", SQLNationalParkDbTableName, uniqueId];
+    NSLog(@"%@", query);
     sqlite3_stmt *statement;
     int errorCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil);
     if (errorCode == SQLITE_OK) {
@@ -77,18 +115,31 @@ sqlite3 *database;
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"yyyy/MM/dd"];
             NSDate *date = [dateFormat dateFromString:updateTimeString];
-            SQLNationalParkInfo *info = [[SQLNationalParkInfo alloc]initWithUniqueId:uniqueId name:name type:type code:code note:note updateTime:date];
-            [_nationalParkInfos addObject:info];
+            
+            NSString *key = [NSString stringWithFormat:@"%d", uniqueId];
+            park = self.nationalParksDictionary[key];
+            if (park) {
+                //Update info
+                park.name = name;
+                park.type = type;
+                park.code = code;
+                park.note = note;
+                park.updateTime = date;
+            }
+            
+            break;
         }
         sqlite3_finalize(statement);
     }
     else {
         NSLog(@"Error code : %d", errorCode);
     }
+    
+    return park;
 }
 
-- (NSArray *)nationalParkInfos {
-    return _nationalParkInfos;
+- (NSArray *)nationalParks {
+    return [self.nationalParksDictionary allValues];
 }
 
 @end

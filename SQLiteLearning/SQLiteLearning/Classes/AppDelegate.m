@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SQLNationalParkDatabase.h"
-#import "SQLNationalParkInfo.h"
+#import "SQLNationalPark.h"
 
 @interface AppDelegate ()
 

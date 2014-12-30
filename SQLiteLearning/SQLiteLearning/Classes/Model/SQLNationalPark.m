@@ -1,14 +1,14 @@
 //
-//  SQLNationalParkInfo.m
+//  SQLNationalPark.m
 //  SQLiteLearning
 //
 //  Created by PeterWang on 12/27/14.
 //  Copyright (c) 2014 PeterWang. All rights reserved.
 //
 
-#import "SQLNationalParkInfo.h"
+#import "SQLNationalPark.h"
 
-@implementation SQLNationalParkInfo
+@implementation SQLNationalPark
 
 - (instancetype)initWithUniqueId:(NSInteger)uniqueId name:(NSString *)name type:(NSString *)type code:(NSString *)code note:(NSString *)note updateTime:(NSDate *)updateTime {
     self = [super init];

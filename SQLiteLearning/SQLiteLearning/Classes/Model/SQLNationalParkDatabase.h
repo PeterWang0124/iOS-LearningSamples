@@ -12,6 +12,8 @@ extern NSString * const SQLNationalParkSqLiteDbName;
 extern NSString * const SQLNationalParkSqLiteDbType;
 extern NSString * const SQLNationalParkDbTableName;
 
+@class SQLNationalPark;
+
 /**
  *  Database of national park in sqlite.
  */
@@ -34,6 +36,15 @@ extern NSString * const SQLNationalParkDbTableName;
  *
  *  @return A array of national park infos.
  */
-- (NSArray *)nationalParkInfos;
+- (NSArray *)nationalParks;
+
+/**
+ *  Fetch the national park detail.
+ *
+ *  @param uniqueId Unique Id for national park.
+ *
+ *  @return National park detail.
+ */
+- (SQLNationalPark *)nationalParkDetailWithId:(NSInteger)uniqueId;
 
 @end

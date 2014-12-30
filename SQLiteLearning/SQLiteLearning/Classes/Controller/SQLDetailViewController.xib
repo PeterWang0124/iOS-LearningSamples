@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SQLDetailViewController">
+            <connections>
+                <outlet property="parkCodeLabel" destination="p7s-aT-J0L" id="5rf-D3-D1e"/>
+                <outlet property="parkNameLabel" destination="3UZ-xk-pKW" id="KRR-U8-yfi"/>
+                <outlet property="parkNoteTextView" destination="aca-XJ-oJy" id="bd0-uC-8CH"/>
+                <outlet property="parkTypeLabel" destination="ZeL-RN-uFX" id="utS-Bi-8Kk"/>
+                <outlet property="uidLabel" destination="xw7-4x-KB8" id="OW8-Cc-upu"/>
+                <outlet property="updateTimeLabel" destination="Lvc-Zf-1ym" id="QhX-XG-HAh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lou-P0-x3B" userLabel="uidHeaderLabel">
+                    <rect key="frame" x="8" y="72" width="30" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ZFt-Au-Awb"/>
+                        <constraint firstAttribute="width" constant="30" id="nAN-Ns-euX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw7-4x-KB8" userLabel="uidLabel">
+                    <rect key="frame" x="38" y="72" width="554" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="3hX-hW-cVC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park Name :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgx-Eo-D0Q" userLabel="parkNameHeaderLabel">
+                    <rect key="frame" x="8" y="102" width="100" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="hh3-dG-3Ou"/>
+                        <constraint firstAttribute="height" constant="21" id="r0O-5b-tw9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National Park" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UZ-xk-pKW" userLabel="parkNameLabel">
+                    <rect key="frame" x="108" y="102" width="484" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ChR-Y6-bTV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park Type :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-H6-ZYk" userLabel="parkTypeHeaderLabel">
+                    <rect key="frame" x="8" y="132" width="100" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="XTY-5G-79D"/>
+                        <constraint firstAttribute="width" constant="100" id="dKE-m5-xFm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeL-RN-uFX" userLabel="parkTypeLabel">
+                    <rect key="frame" x="108" y="132" width="484" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="iEh-2Z-hh2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Park Code :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJO-dH-qWm" userLabel="parkCodeHeaderLabel">
+                    <rect key="frame" x="8" y="162" width="100" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="5CQ-8I-74N"/>
+                        <constraint firstAttribute="width" constant="100" id="PlQ-5d-RMg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7s-aT-J0L" userLabel="parkCodeLabel">
+                    <rect key="frame" x="108" y="162" width="484" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="iMw-fl-ZjB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Time :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcD-I0-ev9" userLabel="updateTimeHeaderLabel">
+                    <rect key="frame" x="8" y="192" width="120" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="4QI-Dx-bqh"/>
+                        <constraint firstAttribute="width" constant="120" id="AN7-mG-MCz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014/12/29" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvc-Zf-1ym" userLabel="updateTimeLabel">
+                    <rect key="frame" x="128" y="192" width="464" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="8es-Xy-aiA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Park note." translatesAutoresizingMaskIntoConstraints="NO" id="aca-XJ-oJy" userLabel="parkNoteTextView">
+                    <rect key="frame" x="8" y="222" width="584" height="306"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6vI-H6-ZYk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9Q3-2x-TBS"/>
+                <constraint firstAttribute="trailing" secondItem="p7s-aT-J0L" secondAttribute="trailing" constant="8" id="9pq-2A-spL"/>
+                <constraint firstItem="aca-XJ-oJy" firstAttribute="top" secondItem="mcD-I0-ev9" secondAttribute="bottom" constant="9" id="Cos-Ka-dFh"/>
+                <constraint firstItem="3UZ-xk-pKW" firstAttribute="top" secondItem="xw7-4x-KB8" secondAttribute="bottom" constant="9" id="GV6-YQ-GNw"/>
+                <constraint firstItem="xw7-4x-KB8" firstAttribute="leading" secondItem="lou-P0-x3B" secondAttribute="trailing" id="H7N-cz-hFe"/>
+                <constraint firstItem="aca-XJ-oJy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="LRF-kP-1Ek"/>
+                <constraint firstItem="AJO-dH-qWm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="LXw-pQ-LkQ"/>
+                <constraint firstAttribute="trailing" secondItem="aca-XJ-oJy" secondAttribute="trailing" constant="8" id="Mvp-BE-Wbg"/>
+                <constraint firstItem="Lvc-Zf-1ym" firstAttribute="top" secondItem="p7s-aT-J0L" secondAttribute="bottom" constant="9" id="NBu-7k-wvZ"/>
+                <constraint firstItem="ZeL-RN-uFX" firstAttribute="top" secondItem="3UZ-xk-pKW" secondAttribute="bottom" constant="9" id="PdE-lc-r22"/>
+                <constraint firstItem="Mgx-Eo-D0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="RjG-h2-4YV"/>
+                <constraint firstAttribute="bottom" secondItem="aca-XJ-oJy" secondAttribute="bottom" constant="72" id="Tdl-ex-il8"/>
+                <constraint firstItem="lou-P0-x3B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Vy1-2P-eiK"/>
+                <constraint firstAttribute="trailing" secondItem="Lvc-Zf-1ym" secondAttribute="trailing" constant="8" id="Wuv-dF-2vV"/>
+                <constraint firstItem="ZeL-RN-uFX" firstAttribute="leading" secondItem="6vI-H6-ZYk" secondAttribute="trailing" id="X9g-jB-zTb"/>
+                <constraint firstItem="6vI-H6-ZYk" firstAttribute="top" secondItem="Mgx-Eo-D0Q" secondAttribute="bottom" constant="9" id="XAK-H5-W8f"/>
+                <constraint firstItem="3UZ-xk-pKW" firstAttribute="leading" secondItem="Mgx-Eo-D0Q" secondAttribute="trailing" id="acx-zj-eyr"/>
+                <constraint firstAttribute="trailing" secondItem="xw7-4x-KB8" secondAttribute="trailing" constant="8" id="cSH-Q1-6gc"/>
+                <constraint firstAttribute="trailing" secondItem="ZeL-RN-uFX" secondAttribute="trailing" constant="8" id="fKc-br-cdt"/>
+                <constraint firstItem="xw7-4x-KB8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="i2q-5A-IwO"/>
+                <constraint firstItem="p7s-aT-J0L" firstAttribute="leading" secondItem="AJO-dH-qWm" secondAttribute="trailing" id="jTN-8g-TZl"/>
+                <constraint firstItem="Lvc-Zf-1ym" firstAttribute="leading" secondItem="mcD-I0-ev9" secondAttribute="trailing" id="keN-X0-mEG"/>
+                <constraint firstItem="lou-P0-x3B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="n7i-YO-7lY"/>
+                <constraint firstItem="Mgx-Eo-D0Q" firstAttribute="top" secondItem="lou-P0-x3B" secondAttribute="bottom" constant="9" id="oGF-MY-15n"/>
+                <constraint firstItem="AJO-dH-qWm" firstAttribute="top" secondItem="6vI-H6-ZYk" secondAttribute="bottom" constant="9" id="rOz-TC-2jq"/>
+                <constraint firstItem="mcD-I0-ev9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="uPu-Hx-RMX"/>
+                <constraint firstItem="p7s-aT-J0L" firstAttribute="top" secondItem="ZeL-RN-uFX" secondAttribute="bottom" constant="9" id="vrK-dI-pd2"/>
+                <constraint firstItem="xw7-4x-KB8" firstAttribute="top" secondItem="lou-P0-x3B" secondAttribute="top" id="wx4-9f-VYQ"/>
+                <constraint firstAttribute="trailing" secondItem="3UZ-xk-pKW" secondAttribute="trailing" constant="8" id="xAu-q7-9lk"/>
+                <constraint firstItem="mcD-I0-ev9" firstAttribute="top" secondItem="AJO-dH-qWm" secondAttribute="bottom" constant="9" id="xHX-gQ-s3N"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="i2q-5A-IwO"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>
