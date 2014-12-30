@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		9290F6981A515A4D005D1E91 /* OrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9290F6971A515A4D005D1E91 /* OrderedDictionary.m */; };
-		9290F6A11A5162FB005D1E91 /* SQLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9290F69F1A5162FB005D1E91 /* SQLDetailViewController.m */; };
-		9290F6A21A5162FB005D1E91 /* SQLDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9290F6A01A5162FB005D1E91 /* SQLDetailViewController.xib */; };
 		9290F6A41A5273B8005D1E91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9290F6A31A5273B8005D1E91 /* UIKit.framework */; };
 		9290F6A61A5273C7005D1E91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9290F6A51A5273C7005D1E91 /* Foundation.framework */; };
 		9290F6A81A5273D5005D1E91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9290F6A71A5273D5005D1E91 /* CoreGraphics.framework */; };
 		92D03A231A4E78910027BE9C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D03A221A4E78910027BE9C /* libsqlite3.dylib */; };
-		92D03A271A4E78F10027BE9C /* nps_boundary.csv in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A251A4E78F10027BE9C /* nps_boundary.csv */; };
-		92D03A281A4E78F10027BE9C /* nps_boundary_csv.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A261A4E78F10027BE9C /* nps_boundary_csv.sqlite3 */; };
-		92D03A531A4E7B5F0027BE9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A4A1A4E7B5F0027BE9C /* AppDelegate.m */; };
-		92D03A541A4E7B5F0027BE9C /* SQLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A4D1A4E7B5F0027BE9C /* SQLMainViewController.m */; };
-		92D03A551A4E7B5F0027BE9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A501A4E7B5F0027BE9C /* Images.xcassets */; };
-		92D03A561A4E7B5F0027BE9C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A511A4E7B5F0027BE9C /* LaunchScreen.xib */; };
-		92D03A571A4E7B5F0027BE9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92D03A521A4E7B5F0027BE9C /* Main.storyboard */; };
 		92D03A591A4E7B660027BE9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A581A4E7B660027BE9C /* main.m */; };
-		92D03A5C1A4E7D9E0027BE9C /* SQLNationalPark.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A5B1A4E7D9E0027BE9C /* SQLNationalPark.m */; };
-		92D03A5F1A4E85220027BE9C /* SQLNationalParkDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */; };
+		92F8B4001A52812F0051C150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3EA1A52812F0051C150 /* AppDelegate.m */; };
+		92F8B4011A52812F0051C150 /* SQLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3ED1A52812F0051C150 /* SQLDetailViewController.m */; };
+		92F8B4021A52812F0051C150 /* SQLDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3EE1A52812F0051C150 /* SQLDetailViewController.xib */; };
+		92F8B4031A52812F0051C150 /* SQLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3F01A52812F0051C150 /* SQLMainViewController.m */; };
+		92F8B4041A52812F0051C150 /* SQLNationalPark.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3F31A52812F0051C150 /* SQLNationalPark.m */; };
+		92F8B4051A52812F0051C150 /* SQLNationalParkDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3F51A52812F0051C150 /* SQLNationalParkDatabase.m */; };
+		92F8B4061A52812F0051C150 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3F71A52812F0051C150 /* Images.xcassets */; };
+		92F8B4071A52812F0051C150 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3F81A52812F0051C150 /* LaunchScreen.xib */; };
+		92F8B4081A52812F0051C150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3F91A52812F0051C150 /* Main.storyboard */; };
+		92F8B40B1A52812F0051C150 /* nps_boundary.csv in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3FD1A52812F0051C150 /* nps_boundary.csv */; };
+		92F8B40C1A52812F0051C150 /* nps_boundary_csv.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3FE1A52812F0051C150 /* nps_boundary_csv.sqlite3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,27 +32,27 @@
 		9290F6931A5158D3005D1E91 /* SQLiteLearning-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLiteLearning-PrefixHeader.pch"; sourceTree = "<group>"; };
 		9290F6961A515A4D005D1E91 /* OrderedDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDictionary.h; sourceTree = "<group>"; };
 		9290F6971A515A4D005D1E91 /* OrderedDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDictionary.m; sourceTree = "<group>"; };
-		9290F69E1A5162FB005D1E91 /* SQLDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDetailViewController.h; sourceTree = "<group>"; };
-		9290F69F1A5162FB005D1E91 /* SQLDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDetailViewController.m; sourceTree = "<group>"; };
-		9290F6A01A5162FB005D1E91 /* SQLDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLDetailViewController.xib; sourceTree = "<group>"; };
 		9290F6A31A5273B8005D1E91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9290F6A51A5273C7005D1E91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9290F6A71A5273D5005D1E91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		92D03A221A4E78910027BE9C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		92D03A251A4E78F10027BE9C /* nps_boundary.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nps_boundary.csv; sourceTree = "<group>"; };
-		92D03A261A4E78F10027BE9C /* nps_boundary_csv.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nps_boundary_csv.sqlite3; sourceTree = "<group>"; };
-		92D03A491A4E7B5F0027BE9C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		92D03A4A1A4E7B5F0027BE9C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		92D03A4C1A4E7B5F0027BE9C /* SQLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainViewController.h; sourceTree = "<group>"; };
-		92D03A4D1A4E7B5F0027BE9C /* SQLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainViewController.m; sourceTree = "<group>"; };
-		92D03A501A4E7B5F0027BE9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		92D03A511A4E7B5F0027BE9C /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		92D03A521A4E7B5F0027BE9C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		92D03A581A4E7B660027BE9C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		92D03A5A1A4E7D9E0027BE9C /* SQLNationalPark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalPark.h; sourceTree = "<group>"; };
-		92D03A5B1A4E7D9E0027BE9C /* SQLNationalPark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalPark.m; sourceTree = "<group>"; };
-		92D03A5D1A4E85220027BE9C /* SQLNationalParkDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalParkDatabase.h; sourceTree = "<group>"; };
-		92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalParkDatabase.m; sourceTree = "<group>"; };
+		92F8B3E91A52812F0051C150 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		92F8B3EA1A52812F0051C150 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		92F8B3EC1A52812F0051C150 /* SQLDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDetailViewController.h; sourceTree = "<group>"; };
+		92F8B3ED1A52812F0051C150 /* SQLDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDetailViewController.m; sourceTree = "<group>"; };
+		92F8B3EE1A52812F0051C150 /* SQLDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SQLDetailViewController.xib; sourceTree = "<group>"; };
+		92F8B3EF1A52812F0051C150 /* SQLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLMainViewController.h; sourceTree = "<group>"; };
+		92F8B3F01A52812F0051C150 /* SQLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLMainViewController.m; sourceTree = "<group>"; };
+		92F8B3F21A52812F0051C150 /* SQLNationalPark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalPark.h; sourceTree = "<group>"; };
+		92F8B3F31A52812F0051C150 /* SQLNationalPark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalPark.m; sourceTree = "<group>"; };
+		92F8B3F41A52812F0051C150 /* SQLNationalParkDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLNationalParkDatabase.h; sourceTree = "<group>"; };
+		92F8B3F51A52812F0051C150 /* SQLNationalParkDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLNationalParkDatabase.m; sourceTree = "<group>"; };
+		92F8B3F71A52812F0051C150 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		92F8B3F81A52812F0051C150 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		92F8B3F91A52812F0051C150 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		92F8B3FD1A52812F0051C150 /* nps_boundary.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = nps_boundary.csv; sourceTree = "<group>"; };
+		92F8B3FE1A52812F0051C150 /* nps_boundary_csv.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nps_boundary_csv.sqlite3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +73,7 @@
 		9229AEE01A4D56010032D34D = {
 			isa = PBXGroup;
 			children = (
-				92D03A481A4E7B5F0027BE9C /* Classes */,
-				92D03A241A4E78F10027BE9C /* SQLiteDatabase */,
-				9229AEEC1A4D56010032D34D /* Supporting Files */,
+				92F8B3E71A52812F0051C150 /* SQLiteLearning */,
 				9290F6921A51588D005D1E91 /* Frameworks */,
 				9290F6941A515A4D005D1E91 /* ThirdLibrary */,
 				9229AEEA1A4D56010032D34D /* Products */,
@@ -98,7 +96,6 @@
 				9290F6931A5158D3005D1E91 /* SQLiteLearning-PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
-			path = SQLiteLearning;
 			sourceTree = "<group>";
 		};
 		9290F6921A51588D005D1E91 /* Frameworks */ = {
@@ -130,60 +127,68 @@
 			path = OrderedDictionary;
 			sourceTree = "<group>";
 		};
-		92D03A241A4E78F10027BE9C /* SQLiteDatabase */ = {
+		92F8B3E71A52812F0051C150 /* SQLiteLearning */ = {
 			isa = PBXGroup;
 			children = (
-				92D03A251A4E78F10027BE9C /* nps_boundary.csv */,
-				92D03A261A4E78F10027BE9C /* nps_boundary_csv.sqlite3 */,
+				92F8B3E81A52812F0051C150 /* Classes */,
+				92F8B3FC1A52812F0051C150 /* SQLiteDatabase */,
+				9229AEEC1A4D56010032D34D /* Supporting Files */,
 			);
-			name = SQLiteDatabase;
-			path = SQLiteLearning/SQLiteDatabase;
+			path = SQLiteLearning;
 			sourceTree = "<group>";
 		};
-		92D03A481A4E7B5F0027BE9C /* Classes */ = {
+		92F8B3E81A52812F0051C150 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				92D03A491A4E7B5F0027BE9C /* AppDelegate.h */,
-				92D03A4A1A4E7B5F0027BE9C /* AppDelegate.m */,
-				92D03A4B1A4E7B5F0027BE9C /* Controller */,
-				92D03A4E1A4E7B5F0027BE9C /* Model */,
-				92D03A4F1A4E7B5F0027BE9C /* View */,
+				92F8B3E91A52812F0051C150 /* AppDelegate.h */,
+				92F8B3EA1A52812F0051C150 /* AppDelegate.m */,
+				92F8B3EB1A52812F0051C150 /* Controller */,
+				92F8B3F11A52812F0051C150 /* Model */,
+				92F8B3F61A52812F0051C150 /* View */,
 			);
-			name = Classes;
-			path = SQLiteLearning/Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		92D03A4B1A4E7B5F0027BE9C /* Controller */ = {
+		92F8B3EB1A52812F0051C150 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92D03A4C1A4E7B5F0027BE9C /* SQLMainViewController.h */,
-				92D03A4D1A4E7B5F0027BE9C /* SQLMainViewController.m */,
-				9290F69E1A5162FB005D1E91 /* SQLDetailViewController.h */,
-				9290F69F1A5162FB005D1E91 /* SQLDetailViewController.m */,
-				9290F6A01A5162FB005D1E91 /* SQLDetailViewController.xib */,
+				92F8B3EC1A52812F0051C150 /* SQLDetailViewController.h */,
+				92F8B3ED1A52812F0051C150 /* SQLDetailViewController.m */,
+				92F8B3EE1A52812F0051C150 /* SQLDetailViewController.xib */,
+				92F8B3EF1A52812F0051C150 /* SQLMainViewController.h */,
+				92F8B3F01A52812F0051C150 /* SQLMainViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		92D03A4E1A4E7B5F0027BE9C /* Model */ = {
+		92F8B3F11A52812F0051C150 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				92D03A5A1A4E7D9E0027BE9C /* SQLNationalPark.h */,
-				92D03A5B1A4E7D9E0027BE9C /* SQLNationalPark.m */,
-				92D03A5D1A4E85220027BE9C /* SQLNationalParkDatabase.h */,
-				92D03A5E1A4E85220027BE9C /* SQLNationalParkDatabase.m */,
+				92F8B3F21A52812F0051C150 /* SQLNationalPark.h */,
+				92F8B3F31A52812F0051C150 /* SQLNationalPark.m */,
+				92F8B3F41A52812F0051C150 /* SQLNationalParkDatabase.h */,
+				92F8B3F51A52812F0051C150 /* SQLNationalParkDatabase.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		92D03A4F1A4E7B5F0027BE9C /* View */ = {
+		92F8B3F61A52812F0051C150 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				92D03A501A4E7B5F0027BE9C /* Images.xcassets */,
-				92D03A511A4E7B5F0027BE9C /* LaunchScreen.xib */,
-				92D03A521A4E7B5F0027BE9C /* Main.storyboard */,
+				92F8B3F71A52812F0051C150 /* Images.xcassets */,
+				92F8B3F81A52812F0051C150 /* LaunchScreen.xib */,
+				92F8B3F91A52812F0051C150 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		92F8B3FC1A52812F0051C150 /* SQLiteDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				92F8B3FD1A52812F0051C150 /* nps_boundary.csv */,
+				92F8B3FE1A52812F0051C150 /* nps_boundary_csv.sqlite3 */,
+			);
+			path = SQLiteDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +248,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D03A561A4E7B5F0027BE9C /* LaunchScreen.xib in Resources */,
-				92D03A571A4E7B5F0027BE9C /* Main.storyboard in Resources */,
-				92D03A551A4E7B5F0027BE9C /* Images.xcassets in Resources */,
-				92D03A271A4E78F10027BE9C /* nps_boundary.csv in Resources */,
-				9290F6A21A5162FB005D1E91 /* SQLDetailViewController.xib in Resources */,
-				92D03A281A4E78F10027BE9C /* nps_boundary_csv.sqlite3 in Resources */,
+				92F8B40C1A52812F0051C150 /* nps_boundary_csv.sqlite3 in Resources */,
+				92F8B4081A52812F0051C150 /* Main.storyboard in Resources */,
+				92F8B4061A52812F0051C150 /* Images.xcassets in Resources */,
+				92F8B4021A52812F0051C150 /* SQLDetailViewController.xib in Resources */,
+				92F8B4071A52812F0051C150 /* LaunchScreen.xib in Resources */,
+				92F8B40B1A52812F0051C150 /* nps_boundary.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,13 +264,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D03A5C1A4E7D9E0027BE9C /* SQLNationalPark.m in Sources */,
-				92D03A541A4E7B5F0027BE9C /* SQLMainViewController.m in Sources */,
+				92F8B4051A52812F0051C150 /* SQLNationalParkDatabase.m in Sources */,
+				92F8B4041A52812F0051C150 /* SQLNationalPark.m in Sources */,
 				92D03A591A4E7B660027BE9C /* main.m in Sources */,
 				9290F6981A515A4D005D1E91 /* OrderedDictionary.m in Sources */,
-				9290F6A11A5162FB005D1E91 /* SQLDetailViewController.m in Sources */,
-				92D03A531A4E7B5F0027BE9C /* AppDelegate.m in Sources */,
-				92D03A5F1A4E85220027BE9C /* SQLNationalParkDatabase.m in Sources */,
+				92F8B4001A52812F0051C150 /* AppDelegate.m in Sources */,
+				92F8B4031A52812F0051C150 /* SQLMainViewController.m in Sources */,
+				92F8B4011A52812F0051C150 /* SQLDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
