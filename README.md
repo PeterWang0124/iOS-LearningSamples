@@ -1,5 +1,4 @@
 # iOS-LearningSamples
-===================
 
 These samples are the learning practices for iOS.
 
