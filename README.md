@@ -6,13 +6,12 @@ These samples are the learning practices for iOS.
 Each sample is the practice sample for me to learn the usage of element, UI, or framework...etc.
 
 * SQLiteLearning Project - (2014/12/30)  
-	This is the practice project for SQLite on iOS.  
-	I follow the articles below to do the practice:
+	This project practices for SQLite for iOS, follow the articles below:
 	- Ray Wenderlich, "SQLite Tutorial for iOS: Creating and Scripting".
 	- Ray Wenderlich, "SQLite Tutorial for iOS: Making Our App".
 * CoreDataLearning Project - (now practice)  
-	This is the practice project for CoreData on iOS.
-	I follow the articles below to do the practice:
+* CoreDataImportLearning Project - (2014/12/31)  
+	These two projects practice CoreData for iOS, follow the articles below:
 	- Adam Burkepile, "Core Data Tutorial for iOS: Getting Started".
 	- Adam Burkepile, "Core Data on iOS 5 Tutorial: How To Preload and Import Existing Data".
 
