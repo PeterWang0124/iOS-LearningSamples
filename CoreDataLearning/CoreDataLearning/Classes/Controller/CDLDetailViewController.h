@@ -10,4 +10,6 @@
 
 @interface CDLDetailViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger nationalParkUniqueId;
+
 @end

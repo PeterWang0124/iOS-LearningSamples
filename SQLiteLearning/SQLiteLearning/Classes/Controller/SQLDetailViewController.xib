@@ -116,7 +116,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Park note." translatesAutoresizingMaskIntoConstraints="NO" id="aca-XJ-oJy" userLabel="parkNoteTextView">
-                    <rect key="frame" x="8" y="222" width="584" height="306"/>
+                    <rect key="frame" x="8" y="222" width="584" height="370"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -135,7 +135,7 @@
                 <constraint firstItem="Lvc-Zf-1ym" firstAttribute="top" secondItem="p7s-aT-J0L" secondAttribute="bottom" constant="9" id="NBu-7k-wvZ"/>
                 <constraint firstItem="ZeL-RN-uFX" firstAttribute="top" secondItem="3UZ-xk-pKW" secondAttribute="bottom" constant="9" id="PdE-lc-r22"/>
                 <constraint firstItem="Mgx-Eo-D0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="RjG-h2-4YV"/>
-                <constraint firstAttribute="bottom" secondItem="aca-XJ-oJy" secondAttribute="bottom" constant="72" id="Tdl-ex-il8"/>
+                <constraint firstAttribute="bottom" secondItem="aca-XJ-oJy" secondAttribute="bottom" constant="8" id="Tdl-ex-il8"/>
                 <constraint firstItem="lou-P0-x3B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="Vy1-2P-eiK"/>
                 <constraint firstAttribute="trailing" secondItem="Lvc-Zf-1ym" secondAttribute="trailing" constant="8" id="Wuv-dF-2vV"/>
                 <constraint firstItem="ZeL-RN-uFX" firstAttribute="leading" secondItem="6vI-H6-ZYk" secondAttribute="trailing" id="X9g-jB-zTb"/>

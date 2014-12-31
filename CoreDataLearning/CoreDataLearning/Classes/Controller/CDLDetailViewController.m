@@ -10,6 +10,13 @@
 
 @interface CDLDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *uidLabel;
+@property (weak, nonatomic) IBOutlet UILabel *parkNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *parkTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *parkCodeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *updateTimeLabel;
+@property (weak, nonatomic) IBOutlet UITextView *parkNoteTextView;
+
 @end
 
 @implementation CDLDetailViewController
