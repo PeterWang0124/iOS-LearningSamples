@@ -2,7 +2,7 @@
 //  CDLNationalParkInfo.m
 //  CoreDataLearning
 //
-//  Created by PeterWang on 12/30/14.
+//  Created by PeterWang on 12/31/14.
 //  Copyright (c) 2014 PeterWang. All rights reserved.
 //
 
@@ -12,9 +12,9 @@
 
 @implementation CDLNationalParkInfo
 
+@dynamic code;
 @dynamic name;
 @dynamic type;
-@dynamic code;
 @dynamic detail;
 
 @end
