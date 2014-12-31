@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92A484321A53CE3500F78A51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3A21A527FC30051C150 /* main.m */; };
+		92A484331A53CE3500F78A51 /* CDLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B40E1A5284F20051C150 /* CDLMainViewController.m */; };
+		92A484341A53CE3500F78A51 /* CDLNationalParkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4D31A538CCA0051C150 /* CDLNationalParkInfo.m */; };
+		92A484351A53CE3500F78A51 /* CDLNationalParkDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4D01A538CC90051C150 /* CDLNationalParkDetail.m */; };
+		92A484361A53CE3500F78A51 /* CDLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4111A5285070051C150 /* CDLDetailViewController.m */; };
+		92A484371A53CE3500F78A51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3CF1A5280D90051C150 /* AppDelegate.m */; };
+		92A484381A53CE3500F78A51 /* CoreDataLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3DA1A5280D90051C150 /* CoreDataLearning.xcdatamodeld */; };
+		92A4843B1A53CE3500F78A51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D91A5280D90051C150 /* Main.storyboard */; };
+		92A4843C1A53CE3500F78A51 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D81A5280D90051C150 /* LaunchScreen.xib */; };
+		92A4843D1A53CE3500F78A51 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D71A5280D90051C150 /* Images.xcassets */; };
+		92A4843E1A53CE3500F78A51 /* CoreDataImportLearning.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 92A4842E1A53CC8B00F78A51 /* CoreDataImportLearning.sqlite */; };
+		92A484461A53D02400F78A51 /* CoreDataImportLearning-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92A484441A53D02400F78A51 /* CoreDataImportLearning-Info.plist */; };
+		92A484471A53D02A00F78A51 /* CoreDataLearning-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3A11A527FC30051C150 /* CoreDataLearning-Info.plist */; };
 		92F8B3A31A527FC30051C150 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3A21A527FC30051C150 /* main.m */; };
 		92F8B3DE1A5280D90051C150 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B3CF1A5280D90051C150 /* AppDelegate.m */; };
 		92F8B3E11A5280D90051C150 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F8B3D71A5280D90051C150 /* Images.xcassets */; };
@@ -20,8 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92A4842E1A53CC8B00F78A51 /* CoreDataImportLearning.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = CoreDataImportLearning.sqlite; sourceTree = "<group>"; };
+		92A484421A53CE3500F78A51 /* CoreDataImportLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataImportLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92A484441A53D02400F78A51 /* CoreDataImportLearning-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CoreDataImportLearning-Info.plist"; sourceTree = "<group>"; };
 		92F8B39D1A527FC30051C150 /* CoreDataLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92F8B3A11A527FC30051C150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F8B3A11A527FC30051C150 /* CoreDataLearning-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataLearning-Info.plist"; sourceTree = "<group>"; };
 		92F8B3A21A527FC30051C150 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92F8B3CE1A5280D90051C150 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92F8B3CF1A5280D90051C150 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,6 +56,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		92A484391A53CE3500F78A51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F8B39A1A527FC30051C150 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				92F8B39D1A527FC30051C150 /* CoreDataLearning.app */,
+				92A484421A53CE3500F78A51 /* CoreDataImportLearning.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,7 +93,8 @@
 		92F8B3A01A527FC30051C150 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				92F8B3A11A527FC30051C150 /* Info.plist */,
+				92A484441A53D02400F78A51 /* CoreDataImportLearning-Info.plist */,
+				92F8B3A11A527FC30051C150 /* CoreDataLearning-Info.plist */,
 				92F8B3A21A527FC30051C150 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -80,6 +105,7 @@
 			children = (
 				92F8B3CD1A5280D90051C150 /* Classes */,
 				92F8B3DA1A5280D90051C150 /* CoreDataLearning.xcdatamodeld */,
+				92A4842E1A53CC8B00F78A51 /* CoreDataImportLearning.sqlite */,
 				92F8B3A01A527FC30051C150 /* Supporting Files */,
 			);
 			path = CoreDataLearning;
@@ -132,6 +158,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		92A484301A53CE3500F78A51 /* CoreDataImportLearning */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92A4843F1A53CE3500F78A51 /* Build configuration list for PBXNativeTarget "CoreDataImportLearning" */;
+			buildPhases = (
+				92A484311A53CE3500F78A51 /* Sources */,
+				92A484391A53CE3500F78A51 /* Frameworks */,
+				92A4843A1A53CE3500F78A51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoreDataImportLearning;
+			productName = CoreDataLearning;
+			productReference = 92A484421A53CE3500F78A51 /* CoreDataImportLearning.app */;
+			productType = "com.apple.product-type.application";
+		};
 		92F8B39C1A527FC30051C150 /* CoreDataLearning */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92F8B3C61A527FC30051C150 /* Build configuration list for PBXNativeTarget "CoreDataLearning" */;
@@ -177,17 +220,31 @@
 			projectRoot = "";
 			targets = (
 				92F8B39C1A527FC30051C150 /* CoreDataLearning */,
+				92A484301A53CE3500F78A51 /* CoreDataImportLearning */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		92A4843A1A53CE3500F78A51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A4843B1A53CE3500F78A51 /* Main.storyboard in Resources */,
+				92A4843C1A53CE3500F78A51 /* LaunchScreen.xib in Resources */,
+				92A484461A53D02400F78A51 /* CoreDataImportLearning-Info.plist in Resources */,
+				92A4843D1A53CE3500F78A51 /* Images.xcassets in Resources */,
+				92A4843E1A53CE3500F78A51 /* CoreDataImportLearning.sqlite in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F8B39B1A527FC30051C150 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				92F8B3E31A5280D90051C150 /* Main.storyboard in Resources */,
 				92F8B3E21A5280D90051C150 /* LaunchScreen.xib in Resources */,
+				92A484471A53D02A00F78A51 /* CoreDataLearning-Info.plist in Resources */,
 				92F8B3E11A5280D90051C150 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +252,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		92A484311A53CE3500F78A51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A484321A53CE3500F78A51 /* main.m in Sources */,
+				92A484331A53CE3500F78A51 /* CDLMainViewController.m in Sources */,
+				92A484341A53CE3500F78A51 /* CDLNationalParkInfo.m in Sources */,
+				92A484351A53CE3500F78A51 /* CDLNationalParkDetail.m in Sources */,
+				92A484361A53CE3500F78A51 /* CDLDetailViewController.m in Sources */,
+				92A484371A53CE3500F78A51 /* AppDelegate.m in Sources */,
+				92A484381A53CE3500F78A51 /* CoreDataLearning.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F8B3991A527FC30051C150 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +283,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		92A484401A53CE3500F78A51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CoreDataLearning/CoreDataImportLearning-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = CoreDataImportLearning;
+			};
+			name = Debug;
+		};
+		92A484411A53CE3500F78A51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "CoreDataLearning/CoreDataImportLearning-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = CoreDataImportLearning;
+			};
+			name = Release;
+		};
 		92F8B3C41A527FC30051C150 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -292,7 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CoreDataLearning/Info.plist;
+				INFOPLIST_FILE = "CoreDataLearning/CoreDataLearning-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -302,7 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = CoreDataLearning/Info.plist;
+				INFOPLIST_FILE = "CoreDataLearning/CoreDataLearning-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -311,6 +402,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		92A4843F1A53CE3500F78A51 /* Build configuration list for PBXNativeTarget "CoreDataImportLearning" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92A484401A53CE3500F78A51 /* Debug */,
+				92A484411A53CE3500F78A51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92F8B3981A527FC30051C150 /* Build configuration list for PBXProject "CoreDataLearning" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,24 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92F8B4EA1A538F620051C150 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F8B4E91A538F620051C150 /* main.m */; };
+		920126B31A5390E400FECC65 /* CDLNationalParkDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 920126AD1A5390E400FECC65 /* CDLNationalParkDetail.m */; };
+		920126B41A5390E400FECC65 /* CDLNationalParkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 920126AF1A5390E400FECC65 /* CDLNationalParkInfo.m */; };
+		920126B51A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 920126B01A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld */; };
+		920126B61A5390E400FECC65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 920126B21A5390E400FECC65 /* main.m */; };
+		920126B81A53A42700FECC65 /* NationalParks.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 920126B71A539EAB00FECC65 /* NationalParks.json */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		92F8B4DC1A538F320051C150 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				920126B81A53A42700FECC65 /* NationalParks.json in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		920126AC1A5390E400FECC65 /* CDLNationalParkDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLNationalParkDetail.h; sourceTree = "<group>"; };
+		920126AD1A5390E400FECC65 /* CDLNationalParkDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLNationalParkDetail.m; sourceTree = "<group>"; };
+		920126AE1A5390E400FECC65 /* CDLNationalParkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLNationalParkInfo.h; sourceTree = "<group>"; };
+		920126AF1A5390E400FECC65 /* CDLNationalParkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLNationalParkInfo.m; sourceTree = "<group>"; };
+		920126B11A5390E400FECC65 /* CoreDataImportLearning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataImportLearning.xcdatamodel; sourceTree = "<group>"; };
+		920126B21A5390E400FECC65 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		920126B71A539EAB00FECC65 /* NationalParks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NationalParks.json; sourceTree = "<group>"; };
 		92F8B4DE1A538F320051C150 /* CoreDataImportLearning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoreDataImportLearning; sourceTree = BUILT_PRODUCTS_DIR; };
-		92F8B4E91A538F620051C150 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		920126AA1A5390E400FECC65 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				920126AB1A5390E400FECC65 /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		920126AB1A5390E400FECC65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				920126AC1A5390E400FECC65 /* CDLNationalParkDetail.h */,
+				920126AD1A5390E400FECC65 /* CDLNationalParkDetail.m */,
+				920126AE1A5390E400FECC65 /* CDLNationalParkInfo.h */,
+				920126AF1A5390E400FECC65 /* CDLNationalParkInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		92F8B4D51A538F320051C150 = {
 			isa = PBXGroup;
 			children = (
@@ -57,17 +87,12 @@
 		92F8B4E01A538F320051C150 /* CoreDataImportLearning */ = {
 			isa = PBXGroup;
 			children = (
-				92F8B4E81A538F620051C150 /* Classes */,
+				920126AA1A5390E400FECC65 /* Classes */,
+				920126B01A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld */,
+				920126B21A5390E400FECC65 /* main.m */,
+				920126B71A539EAB00FECC65 /* NationalParks.json */,
 			);
 			path = CoreDataImportLearning;
-			sourceTree = "<group>";
-		};
-		92F8B4E81A538F620051C150 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				92F8B4E91A538F620051C150 /* main.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92F8B4EA1A538F620051C150 /* main.m in Sources */,
+				920126B31A5390E400FECC65 /* CDLNationalParkDetail.m in Sources */,
+				920126B51A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld in Sources */,
+				920126B61A5390E400FECC65 /* main.m in Sources */,
+				920126B41A5390E400FECC65 /* CDLNationalParkInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +268,22 @@
 				92F8B4E71A538F320051C150 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		920126B01A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				920126B11A5390E400FECC65 /* CoreDataImportLearning.xcdatamodel */,
+			);
+			currentVersion = 920126B11A5390E400FECC65 /* CoreDataImportLearning.xcdatamodel */;
+			path = CoreDataImportLearning.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92F8B4D61A538F320051C150 /* Project object */;
 }
