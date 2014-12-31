@@ -23,6 +23,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+#ifndef USE_IMPORT_LEARNING_SQLITE
     //Create test data.
     NSManagedObjectContext *context = [self managedObjectContext];
     NSManagedObject *nationalParkInfo = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:context];
@@ -53,6 +54,7 @@
         CDLNationalParkDetail *details = info.detail;
         NSLog(@"Note: %@", details.note);
     }
+#endif
     
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
@@ -115,6 +117,10 @@
     
     // Create the coordinator and store
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+#ifndef USE_IMPORT_LEARNING_SQLITE
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CoreDataLearning.sqlite"];
+#else
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CoreDataImportLearning.sqlite"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
         NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"CoreDataImportLearning" ofType:@"sqlite"]];
@@ -123,6 +129,7 @@
             NSLog(@"Oops, could copy preloaded data");
         }
     }
+#endif
 
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
