@@ -8,7 +8,13 @@
 
 #import "CDLDetailViewController.h"
 
+//Model
+#import "CDLNationalParkInfo.h"
+#import "CDLNationalParkDetail.h"
+
 @interface CDLDetailViewController ()
+
+@property (strong, nonatomic) CDLNationalParkDetail *nationalParkDetail;
 
 @property (weak, nonatomic) IBOutlet UILabel *uidLabel;
 @property (weak, nonatomic) IBOutlet UILabel *parkNameLabel;
@@ -23,12 +29,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)nationalParkDetail:(CDLNationalParkDetail *)newNationalParkDetail {
+    if (_nationalParkDetail != newNationalParkDetail) {
+        _nationalParkDetail = newNationalParkDetail;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+- (void)configureView {
+    // Update the user interface for the detail item.
+    if (self.nationalParkDetail) {
+        CDLNationalParkInfo *info = self.nationalParkDetail.info;
+        self.parkNameLabel.text = info.name;
+        self.parkTypeLabel.text = info.type;
+        self.parkCodeLabel.text = info.code;
+        
+        self.parkNoteTextView.text = self.nationalParkDetail.note;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMMM dd, yyyy"];
+        NSLog(@"%@", [formatter stringFromDate:self.nationalParkDetail.updateTime]);
+        self.updateTimeLabel.text = [formatter stringFromDate:self.nationalParkDetail.updateTime];
+    }
 }
 
 @end

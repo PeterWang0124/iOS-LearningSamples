@@ -55,6 +55,17 @@
         NSLog(@"Note: %@", details.note);
     }
 #endif
+    //List all test data from the store.
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (CDLNationalParkInfo *info in fetchedObjects) {
+        CDLNationalParkDetail *details = info.detail;
+        NSLog(@"Name: %@, Date: %@", info.name, details.updateTime);
+    }
     
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;

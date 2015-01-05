@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "NSDate+MSExcel.h"
 
 //Model
 #import "CDLNationalParkInfo.h"
@@ -42,9 +43,11 @@ int main(int argc, const char * argv[]) {
             info.detail = detail;
             
             detail.note = [obj valueForKey:@"note"];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy/MM/dd"];
-            detail.updateTime = [dateFormat dateFromString:[obj objectForKey:@"update_time"]];
+            double time = [[obj objectForKey:@"update_time"] doubleValue];
+            detail.updateTime = [NSDate dateWithExcelSerialDateSince1904:time];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"MMMM dd, YYYY"];
+            NSLog(@"%@, %@, %f", info.name, [formatter stringFromDate:detail.updateTime], time);
             detail.info = info;
         }];
         
@@ -53,15 +56,15 @@ int main(int argc, const char * argv[]) {
         }
         
         //Test listing all CDLNationalParkInfos from the store
-        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:context];
-        [fetchRequest setEntity:entity];
-        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-        for (CDLNationalParkInfo *info in fetchedObjects) {
-            NSLog(@"Name: %@", info.name);
-            CDLNationalParkDetail *detail = info.detail;
-            NSLog(@"note : %@", detail.note);
-        }
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CDLNationalParkInfo class]) inManagedObjectContext:context];
+//        [fetchRequest setEntity:entity];
+//        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+//        for (CDLNationalParkInfo *info in fetchedObjects) {
+//            NSLog(@"Name: %@", info.name);
+//            CDLNationalParkDetail *detail = info.detail;
+//            NSLog(@"note : %@", detail.note);
+//        }
     }
     return 0;
 }

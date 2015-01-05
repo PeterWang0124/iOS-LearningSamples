@@ -12,6 +12,7 @@
 		920126B51A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 920126B01A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld */; };
 		920126B61A5390E400FECC65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 920126B21A5390E400FECC65 /* main.m */; };
 		920126B81A53A42700FECC65 /* NationalParks.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 920126B71A539EAB00FECC65 /* NationalParks.json */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		92A4848A1A5402EE00F78A51 /* NSDate+MSExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A484891A5402EE00F78A51 /* NSDate+MSExcel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		920126B11A5390E400FECC65 /* CoreDataImportLearning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataImportLearning.xcdatamodel; sourceTree = "<group>"; };
 		920126B21A5390E400FECC65 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		920126B71A539EAB00FECC65 /* NationalParks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NationalParks.json; sourceTree = "<group>"; };
+		92A484881A5402EE00F78A51 /* NSDate+MSExcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSExcel.h"; sourceTree = "<group>"; };
+		92A484891A5402EE00F78A51 /* NSDate+MSExcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSExcel.m"; sourceTree = "<group>"; };
 		92F8B4DE1A538F320051C150 /* CoreDataImportLearning */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CoreDataImportLearning; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -52,6 +55,7 @@
 		920126AA1A5390E400FECC65 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				92A484871A5402EE00F78A51 /* Category */,
 				920126AB1A5390E400FECC65 /* Model */,
 			);
 			path = Classes;
@@ -66,6 +70,15 @@
 				920126AF1A5390E400FECC65 /* CDLNationalParkInfo.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		92A484871A5402EE00F78A51 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				92A484881A5402EE00F78A51 /* NSDate+MSExcel.h */,
+				92A484891A5402EE00F78A51 /* NSDate+MSExcel.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		92F8B4D51A538F320051C150 = {
@@ -154,6 +167,7 @@
 				920126B31A5390E400FECC65 /* CDLNationalParkDetail.m in Sources */,
 				920126B51A5390E400FECC65 /* CoreDataImportLearning.xcdatamodeld in Sources */,
 				920126B61A5390E400FECC65 /* main.m in Sources */,
+				92A4848A1A5402EE00F78A51 /* NSDate+MSExcel.m in Sources */,
 				920126B41A5390E400FECC65 /* CDLNationalParkInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

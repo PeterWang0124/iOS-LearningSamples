@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CDLNationalParkDetail;
+
 @interface CDLDetailViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger nationalParkUniqueId;
+- (void)nationalParkDetail:(CDLNationalParkDetail *)newNationalParkDetail;
 
 @end
