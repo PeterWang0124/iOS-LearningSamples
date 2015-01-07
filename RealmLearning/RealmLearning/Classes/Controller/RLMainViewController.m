@@ -22,7 +22,6 @@
 @property (strong, nonatomic) RLMResults *specimens;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) MKAnnotationView *lastAnnotationView;
 
 @end
 
@@ -45,15 +44,17 @@
     
     //Init View.
     self.mapView.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    //Init data
     [self updateMap];
 }
 
 #pragma mark - Data funcitons
 
 - (void)updateMap {
-    NSLog(@"Update Map");
     [self.mapView removeAnnotations:self.mapView.annotations];
     
     self.specimens = [RLSpecimen allObjects];
@@ -64,7 +65,6 @@
 }
 
 - (void)addNewAnnotation {
-    NSLog(@"Add new Annotation");
     RLSpecimen *newSpecimen = [[RLSpecimen alloc] init];
     newSpecimen.latitude = self.mapView.centerCoordinate.latitude;
     newSpecimen.longitude = self.mapView.centerCoordinate.longitude;
@@ -82,7 +82,6 @@
 #pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    NSLog(@"View for Annotation");
     if ([annotation isKindOfClass:[RLSpecimenAnnotation class]]) {
         MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([MKPinAnnotationView class])];
         if (!pin) {
@@ -101,16 +100,7 @@
     return nil;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    NSLog(@"Select Annotation");
-}
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    NSLog(@"Deselect Annotation");
-}
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-    NSLog(@"Callout Accessory Control Tapped");
     if ([view.annotation isKindOfClass:[RLSpecimenAnnotation class]]) {
         RLSpecimen *specimen = ((RLSpecimenAnnotation *)view.annotation).specimen;
         RLAddNewEntryViewController *controller = [[RLAddNewEntryViewController alloc] initWithNibName:NSStringFromClass([RLAddNewEntryViewController class]) bundle:[NSBundle mainBundle]];
@@ -125,8 +115,19 @@
 #pragma mark - IBAction
 
 - (IBAction)clickAddNewEntryButton:(UIBarButtonItem *)sender {
-    NSLog(@"Click Add New Entry Button");
     [self addNewAnnotation];
+}
+
+- (IBAction)clickFocusBarButtonItem:(UIBarButtonItem *)sender {
+    NSArray *annotations = [self.mapView selectedAnnotations];
+    id<MKAnnotation> annotation = annotations[0];
+    if (annotation) {
+        MKMapRect mapRect = [self.mapView visibleMapRect];
+        MKMapPoint pointCoord = MKMapPointForCoordinate([annotation coordinate]);
+        mapRect.origin.x = pointCoord.x - mapRect.size.width * 0.5;
+        mapRect.origin.y = pointCoord.y - mapRect.size.height * 0.5;
+        [self.mapView setVisibleMapRect:mapRect animated:YES];
+    }
 }
 
 @end

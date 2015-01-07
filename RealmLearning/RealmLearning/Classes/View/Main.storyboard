@@ -26,7 +26,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9vF-Zh-XlX"/>
-                                    <barButtonItem title="Focus" id="r7s-b8-BFM"/>
+                                    <barButtonItem title="Focus" id="r7s-b8-BFM">
+                                        <connections>
+                                            <action selector="clickFocusBarButtonItem:" destination="vXZ-lx-hvc" id="yFB-a5-e7a"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lLm-PC-e9z"/>
                                 </items>
                             </toolbar>

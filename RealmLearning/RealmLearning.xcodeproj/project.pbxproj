@@ -22,6 +22,8 @@
 		924FB1521A5A70E800BF5229 /* RLCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FB1501A5A70E800BF5229 /* RLCategoryViewController.xib */; };
 		92BDA72E1A5A824F0072B9FC /* RLAddNewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BDA72C1A5A824F0072B9FC /* RLAddNewEntryViewController.m */; };
 		92BDA72F1A5A824F0072B9FC /* RLAddNewEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BDA72D1A5A824F0072B9FC /* RLAddNewEntryViewController.xib */; };
+		92D0DDEC1A5CFC9A001DC8B2 /* RLLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0DDEA1A5CFC9A001DC8B2 /* RLLogViewController.m */; };
+		92D0DDED1A5CFC9A001DC8B2 /* RLLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D0DDEB1A5CFC9A001DC8B2 /* RLLogViewController.xib */; };
 		92D5D5071A5B808A00646D80 /* RLSpecimenAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D5D5061A5B808A00646D80 /* RLSpecimenAnnotation.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,9 @@
 		92BDA72B1A5A824F0072B9FC /* RLAddNewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLAddNewEntryViewController.h; sourceTree = "<group>"; };
 		92BDA72C1A5A824F0072B9FC /* RLAddNewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLAddNewEntryViewController.m; sourceTree = "<group>"; };
 		92BDA72D1A5A824F0072B9FC /* RLAddNewEntryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLAddNewEntryViewController.xib; sourceTree = "<group>"; };
+		92D0DDE91A5CFC9A001DC8B2 /* RLLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLLogViewController.h; sourceTree = "<group>"; };
+		92D0DDEA1A5CFC9A001DC8B2 /* RLLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLLogViewController.m; sourceTree = "<group>"; };
+		92D0DDEB1A5CFC9A001DC8B2 /* RLLogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLLogViewController.xib; sourceTree = "<group>"; };
 		92D5D5051A5B808A00646D80 /* RLSpecimenAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLSpecimenAnnotation.h; sourceTree = "<group>"; };
 		92D5D5061A5B808A00646D80 /* RLSpecimenAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLSpecimenAnnotation.m; sourceTree = "<group>"; };
 		C05155547F91C15AE207318F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +154,9 @@
 				924FB14E1A5A70E800BF5229 /* RLCategoryViewController.h */,
 				924FB14F1A5A70E800BF5229 /* RLCategoryViewController.m */,
 				924FB1501A5A70E800BF5229 /* RLCategoryViewController.xib */,
+				92D0DDE91A5CFC9A001DC8B2 /* RLLogViewController.h */,
+				92D0DDEA1A5CFC9A001DC8B2 /* RLLogViewController.m */,
+				92D0DDEB1A5CFC9A001DC8B2 /* RLLogViewController.xib */,
 				924841B71A5A3B6900A356FA /* RLMainViewController.h */,
 				924841B81A5A3B6900A356FA /* RLMainViewController.m */,
 			);
@@ -238,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				924FB1521A5A70E800BF5229 /* RLCategoryViewController.xib in Resources */,
+				92D0DDED1A5CFC9A001DC8B2 /* RLLogViewController.xib in Resources */,
 				924841C21A5A3B6900A356FA /* Main.storyboard in Resources */,
 				92BDA72F1A5A824F0072B9FC /* RLAddNewEntryViewController.xib in Resources */,
 				924841C11A5A3B6900A356FA /* LaunchScreen.xib in Resources */,
@@ -289,6 +298,7 @@
 				924FB1481A5A65D300BF5229 /* RLSpecimen.m in Sources */,
 				924841BE1A5A3B6900A356FA /* AppDelegate.m in Sources */,
 				924841901A5A3A8C00A356FA /* main.m in Sources */,
+				92D0DDEC1A5CFC9A001DC8B2 /* RLLogViewController.m in Sources */,
 				924FB1511A5A70E800BF5229 /* RLCategoryViewController.m in Sources */,
 				924FB14D1A5A685600BF5229 /* RLCategory.m in Sources */,
 				92D5D5071A5B808A00646D80 /* RLSpecimenAnnotation.m in Sources */,

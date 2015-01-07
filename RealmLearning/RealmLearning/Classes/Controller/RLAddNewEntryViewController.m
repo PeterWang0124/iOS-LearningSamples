@@ -17,7 +17,8 @@
 
 @interface RLAddNewEntryViewController () <UITextFieldDelegate, RLCategoryViewControllerDelegate>
 
-@property (weak, nonatomic) RLSpecimen *specimen;
+@property (strong, nonatomic) RLSpecimen *specimen;
+@property (strong, nonatomic) RLCategory *seletedCategory;
 
 @property (strong, nonatomic) UIBarButtonItem *confirmButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -57,7 +58,13 @@
 #pragma mark - UIBarButtonItem action
 
 - (void)clickConfirmButton {
+    [[RLMRealm defaultRealm] beginWriteTransaction];
+    self.specimen.name = self.nameTextField.text;
+    self.specimen.category = self.seletedCategory;
+    self.specimen.specimenDescription = self.descriptionTextView.text;
+    [[RLMRealm defaultRealm] commitWriteTransaction];
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -78,6 +85,7 @@
 
 - (void)RLCategoryViewController:(RLCategoryViewController *)controller didSelectedCategory:(RLCategory *)category {
     self.categoryTextField.text = category.name;
+    self.seletedCategory = category;
 }
 
 @end
