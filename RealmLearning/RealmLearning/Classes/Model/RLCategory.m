@@ -8,6 +8,8 @@
 
 #import "RLCategory.h"
 
+NSString * RLUncategorized = @"Uncategorized";
+
 @implementation RLCategory
 
 // Specify default values for properties

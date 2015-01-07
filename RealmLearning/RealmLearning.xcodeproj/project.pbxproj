@@ -24,6 +24,10 @@
 		92BDA72F1A5A824F0072B9FC /* RLAddNewEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BDA72D1A5A824F0072B9FC /* RLAddNewEntryViewController.xib */; };
 		92D0DDEC1A5CFC9A001DC8B2 /* RLLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0DDEA1A5CFC9A001DC8B2 /* RLLogViewController.m */; };
 		92D0DDED1A5CFC9A001DC8B2 /* RLLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D0DDEB1A5CFC9A001DC8B2 /* RLLogViewController.xib */; };
+		92D0DDF11A5D0718001DC8B2 /* RLSpecimenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0DDEF1A5D0718001DC8B2 /* RLSpecimenTableViewCell.m */; };
+		92D0DDF21A5D0718001DC8B2 /* RLSpecimenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D0DDF01A5D0718001DC8B2 /* RLSpecimenTableViewCell.xib */; };
+		92D0DDF61A5D300F001DC8B2 /* NSDate+MSExcel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0DDF51A5D300F001DC8B2 /* NSDate+MSExcel.m */; };
+		92D0DDF91A5D3088001DC8B2 /* UISearchBar+EmptySearchText.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D0DDF81A5D3088001DC8B2 /* UISearchBar+EmptySearchText.m */; };
 		92D5D5071A5B808A00646D80 /* RLSpecimenAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D5D5061A5B808A00646D80 /* RLSpecimenAnnotation.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,13 @@
 		92D0DDE91A5CFC9A001DC8B2 /* RLLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLLogViewController.h; sourceTree = "<group>"; };
 		92D0DDEA1A5CFC9A001DC8B2 /* RLLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLLogViewController.m; sourceTree = "<group>"; };
 		92D0DDEB1A5CFC9A001DC8B2 /* RLLogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLLogViewController.xib; sourceTree = "<group>"; };
+		92D0DDEE1A5D0718001DC8B2 /* RLSpecimenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLSpecimenTableViewCell.h; sourceTree = "<group>"; };
+		92D0DDEF1A5D0718001DC8B2 /* RLSpecimenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLSpecimenTableViewCell.m; sourceTree = "<group>"; };
+		92D0DDF01A5D0718001DC8B2 /* RLSpecimenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RLSpecimenTableViewCell.xib; sourceTree = "<group>"; };
+		92D0DDF41A5D300F001DC8B2 /* NSDate+MSExcel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MSExcel.h"; sourceTree = "<group>"; };
+		92D0DDF51A5D300F001DC8B2 /* NSDate+MSExcel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MSExcel.m"; sourceTree = "<group>"; };
+		92D0DDF71A5D3088001DC8B2 /* UISearchBar+EmptySearchText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+EmptySearchText.h"; sourceTree = "<group>"; };
+		92D0DDF81A5D3088001DC8B2 /* UISearchBar+EmptySearchText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+EmptySearchText.m"; sourceTree = "<group>"; };
 		92D5D5051A5B808A00646D80 /* RLSpecimenAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLSpecimenAnnotation.h; sourceTree = "<group>"; };
 		92D5D5061A5B808A00646D80 /* RLSpecimenAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RLSpecimenAnnotation.m; sourceTree = "<group>"; };
 		C05155547F91C15AE207318F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +129,7 @@
 		9248418C1A5A3A8C00A356FA /* RealmLearning */ = {
 			isa = PBXGroup;
 			children = (
+				92D0DDF31A5D300F001DC8B2 /* Category */,
 				924841B31A5A3B6900A356FA /* Classes */,
 				9248418D1A5A3A8C00A356FA /* Supporting Files */,
 			);
@@ -182,8 +194,23 @@
 				924841BB1A5A3B6900A356FA /* Images.xcassets */,
 				924841BC1A5A3B6900A356FA /* LaunchScreen.xib */,
 				924841BD1A5A3B6900A356FA /* Main.storyboard */,
+				92D0DDEE1A5D0718001DC8B2 /* RLSpecimenTableViewCell.h */,
+				92D0DDEF1A5D0718001DC8B2 /* RLSpecimenTableViewCell.m */,
+				92D0DDF01A5D0718001DC8B2 /* RLSpecimenTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		92D0DDF31A5D300F001DC8B2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				92D0DDF41A5D300F001DC8B2 /* NSDate+MSExcel.h */,
+				92D0DDF51A5D300F001DC8B2 /* NSDate+MSExcel.m */,
+				92D0DDF71A5D3088001DC8B2 /* UISearchBar+EmptySearchText.h */,
+				92D0DDF81A5D3088001DC8B2 /* UISearchBar+EmptySearchText.m */,
+			);
+			name = Category;
+			path = ../../Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +278,7 @@
 				92BDA72F1A5A824F0072B9FC /* RLAddNewEntryViewController.xib in Resources */,
 				924841C11A5A3B6900A356FA /* LaunchScreen.xib in Resources */,
 				924841C01A5A3B6900A356FA /* Images.xcassets in Resources */,
+				92D0DDF21A5D0718001DC8B2 /* RLSpecimenTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D0DDF61A5D300F001DC8B2 /* NSDate+MSExcel.m in Sources */,
 				924841BF1A5A3B6900A356FA /* RLMainViewController.m in Sources */,
 				924FB1481A5A65D300BF5229 /* RLSpecimen.m in Sources */,
 				924841BE1A5A3B6900A356FA /* AppDelegate.m in Sources */,
@@ -301,7 +330,9 @@
 				92D0DDEC1A5CFC9A001DC8B2 /* RLLogViewController.m in Sources */,
 				924FB1511A5A70E800BF5229 /* RLCategoryViewController.m in Sources */,
 				924FB14D1A5A685600BF5229 /* RLCategory.m in Sources */,
+				92D0DDF11A5D0718001DC8B2 /* RLSpecimenTableViewCell.m in Sources */,
 				92D5D5071A5B808A00646D80 /* RLSpecimenAnnotation.m in Sources */,
+				92D0DDF91A5D3088001DC8B2 /* UISearchBar+EmptySearchText.m in Sources */,
 				92BDA72E1A5A824F0072B9FC /* RLAddNewEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

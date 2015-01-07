@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, RLLogSortType) {
+    RLLogSortTypeAToZ       = 0,
+    RLLogSortTypeNearToFar  = 1,
+    RLLogSortTypeNewToOld   = 2,
+};
+
 @interface RLLogViewController : UIViewController
 
 @end

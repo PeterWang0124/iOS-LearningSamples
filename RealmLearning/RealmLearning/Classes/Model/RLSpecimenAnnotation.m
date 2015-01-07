@@ -20,7 +20,7 @@
         _coordinate.latitude = specimen.latitude;
         _coordinate.longitude = specimen.longitude;
         _title = specimen.name;
-        _subtitle = specimen.category ? specimen.category.name : @"Uncategorized";
+        _subtitle = specimen.category ? specimen.category.name : RLUncategorized;
         _specimen = specimen;
     }
     return self;
@@ -28,11 +28,6 @@
 
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate {
     _coordinate = newCoordinate;
-
-    [[RLMRealm defaultRealm] beginWriteTransaction];
-    _specimen.latitude = newCoordinate.latitude;
-    _specimen.longitude = newCoordinate.longitude;
-    [[RLMRealm defaultRealm] commitWriteTransaction];
 }
 
 @end

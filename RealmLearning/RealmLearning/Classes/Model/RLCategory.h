@@ -8,6 +8,8 @@
 
 #import <Realm/Realm.h>
 
+extern NSString * RLUncategorized;
+
 @interface RLCategory : RLMObject
 
 @property (strong, nonatomic) NSString *name;

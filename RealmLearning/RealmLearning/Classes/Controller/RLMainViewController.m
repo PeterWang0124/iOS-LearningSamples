@@ -15,6 +15,7 @@
 
 //Controller
 #import "RLAddNewEntryViewController.h"
+#import "RLLogViewController.h"
 
 @interface RLMainViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -68,6 +69,8 @@
     RLSpecimen *newSpecimen = [[RLSpecimen alloc] init];
     newSpecimen.latitude = self.mapView.centerCoordinate.latitude;
     newSpecimen.longitude = self.mapView.centerCoordinate.longitude;
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:newSpecimen.latitude longitude:newSpecimen.longitude];
+    newSpecimen.distance = [location distanceFromLocation:self.mapView.userLocation.location];
 
     [[RLMRealm defaultRealm] beginWriteTransaction];
     [[RLMRealm defaultRealm] addObject:newSpecimen];
@@ -112,10 +115,36 @@
     }
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view didChangeDragState:(MKAnnotationViewDragState)newState fromOldState:(MKAnnotationViewDragState)oldState {
+    
+    if (oldState == MKAnnotationViewDragStateEnding && newState == MKAnnotationViewDragStateNone) {
+        //Did dragged, update specimen distance.
+        if ([view.annotation isKindOfClass:[RLSpecimenAnnotation class]]) {
+            RLSpecimenAnnotation *specimenAnnotation = (RLSpecimenAnnotation *)view.annotation;
+            RLSpecimen *specimen = specimenAnnotation.specimen;
+
+            [[RLMRealm defaultRealm] beginWriteTransaction];
+            specimen.latitude = specimenAnnotation.coordinate.latitude;
+            specimen.longitude = specimenAnnotation.coordinate.longitude;
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:specimen.latitude longitude:specimen.longitude];
+            specimen.distance = [location distanceFromLocation:self.mapView.userLocation.location];
+            [[RLMRealm defaultRealm] commitWriteTransaction];
+        }
+    }
+}
+
 #pragma mark - IBAction
 
 - (IBAction)clickAddNewEntryButton:(UIBarButtonItem *)sender {
     [self addNewAnnotation];
+}
+
+- (IBAction)clickShowLogButton:(UIBarButtonItem *)sender {
+    RLLogViewController *controller = [[RLLogViewController alloc] initWithNibName:NSStringFromClass([RLLogViewController class]) bundle:[NSBundle mainBundle]];
+    
+    //Clear title.
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)clickFocusBarButtonItem:(UIBarButtonItem *)sender {

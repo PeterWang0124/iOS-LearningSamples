@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSString *specimenDescription;
 @property (assign, nonatomic) CLLocationDegrees latitude;
 @property (assign, nonatomic) CLLocationDegrees longitude;
+@property (assign, nonatomic) CLLocationDistance distance;
 @property (strong, nonatomic) NSDate *created;
 @property (strong, nonatomic) RLCategory *category;
 

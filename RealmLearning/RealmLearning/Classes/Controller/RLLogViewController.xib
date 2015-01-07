@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RLLogViewController">
             <connections>
+                <outlet property="sortTypeSegmentedControl" destination="lbU-0q-J8c" id="mMd-7S-iT3"/>
+                <outlet property="specimenSearchBar" destination="0yl-RJ-gsN" id="cNV-qj-1WL"/>
+                <outlet property="specimenTableView" destination="8Zp-6o-xlg" id="BrV-VR-7qH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +16,53 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="Search Pin" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-RJ-gsN">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="3z6-Bq-h3q"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="F9u-qn-QBA"/>
+                    </connections>
+                </searchBar>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lbU-0q-J8c">
+                    <rect key="frame" x="8" y="52" width="584" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="a3N-2F-ftG"/>
+                    </constraints>
+                    <segments>
+                        <segment title="A-Z"/>
+                        <segment title="Near-Far"/>
+                        <segment title="New-Old"/>
+                    </segments>
+                    <connections>
+                        <action selector="sortTypeChange:" destination="-1" eventType="valueChanged" id="tcq-67-Qje"/>
+                    </connections>
+                </segmentedControl>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Zp-6o-xlg">
+                    <rect key="frame" x="0.0" y="88" width="600" height="448"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="TTJ-a7-6ZB"/>
+                        <outlet property="delegate" destination="-1" id="Zl8-UB-jHF"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0yl-RJ-gsN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1FD-HL-rkI"/>
+                <constraint firstAttribute="trailing" secondItem="8Zp-6o-xlg" secondAttribute="trailing" id="1V7-qx-53d"/>
+                <constraint firstItem="8Zp-6o-xlg" firstAttribute="top" secondItem="lbU-0q-J8c" secondAttribute="bottom" constant="8" id="7Mi-ap-Bv5"/>
+                <constraint firstAttribute="trailing" secondItem="lbU-0q-J8c" secondAttribute="trailing" constant="8" id="9fZ-dh-CCo"/>
+                <constraint firstItem="0yl-RJ-gsN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C7r-Z6-Gfx"/>
+                <constraint firstItem="lbU-0q-J8c" firstAttribute="top" secondItem="0yl-RJ-gsN" secondAttribute="bottom" constant="8" id="CMR-WD-Pi0"/>
+                <constraint firstAttribute="bottom" secondItem="8Zp-6o-xlg" secondAttribute="bottom" id="Pae-It-u81"/>
+                <constraint firstItem="8Zp-6o-xlg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c62-gd-rVE"/>
+                <constraint firstItem="lbU-0q-J8c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="n4r-NM-G8C"/>
+                <constraint firstAttribute="trailing" secondItem="0yl-RJ-gsN" secondAttribute="trailing" id="yy4-wa-DwK"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
         </view>
     </objects>

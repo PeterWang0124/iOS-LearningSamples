@@ -47,7 +47,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aJW-L3-RFt">
-                        <barButtonItem key="leftBarButtonItem" title="Log" id="qm4-eG-Pdb"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log" id="qm4-eG-Pdb">
+                            <connections>
+                                <action selector="clickShowLogButton:" destination="vXZ-lx-hvc" id="nqK-Ob-q73"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="m7L-gQ-ufE">
                             <connections>
                                 <action selector="clickAddNewEntryButton:" destination="vXZ-lx-hvc" id="kMA-qh-QwH"/>
