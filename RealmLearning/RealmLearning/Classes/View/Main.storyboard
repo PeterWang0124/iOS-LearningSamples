@@ -1,25 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sOc-ZZ-hoa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RLMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gzb-T5-g8n">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apt-fb-jC0">
+                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3WW-gK-Vwr"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9vF-Zh-XlX"/>
+                                    <barButtonItem title="Focus" id="r7s-b8-BFM"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lLm-PC-e9z"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gzb-T5-g8n" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="9rt-8F-cAl"/>
+                            <constraint firstItem="Apt-fb-jC0" firstAttribute="top" secondItem="gzb-T5-g8n" secondAttribute="bottom" id="K4V-Lc-u0U"/>
+                            <constraint firstItem="gzb-T5-g8n" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ldp-y0-gn4"/>
+                            <constraint firstAttribute="trailing" secondItem="Apt-fb-jC0" secondAttribute="trailing" id="PUm-PI-4S3"/>
+                            <constraint firstItem="Apt-fb-jC0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="btt-8v-zBd"/>
+                            <constraint firstAttribute="trailing" secondItem="gzb-T5-g8n" secondAttribute="trailing" id="xQe-kl-gVv"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Apt-fb-jC0" secondAttribute="bottom" id="yLc-c7-eCA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aJW-L3-RFt">
+                        <barButtonItem key="leftBarButtonItem" title="Log" id="qm4-eG-Pdb"/>
+                        <barButtonItem key="rightBarButtonItem" tag="1" systemItem="add" id="m7L-gQ-ufE">
+                            <connections>
+                                <action selector="clickAddNewEntryButton:" destination="vXZ-lx-hvc" id="kMA-qh-QwH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="gzb-T5-g8n" id="kXQ-te-Zoc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="902" y="1047"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yly-fs-FAf">
+            <objects>
+                <navigationController id="sOc-ZZ-hoa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="kYq-cJ-3Xh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="eFi-ph-KoQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Igj-7h-PFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="1047"/>
         </scene>
     </scenes>
 </document>

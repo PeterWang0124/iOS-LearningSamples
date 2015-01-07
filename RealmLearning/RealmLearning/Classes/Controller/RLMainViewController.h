@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RLMainViewController.h
 //  RealmLearning
 //
 //  Created by PeterWang on 1/5/15.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface ViewController : UIViewController
+@interface RLMainViewController : UIViewController
 
 
 @end
