@@ -85,7 +85,10 @@
 #pragma mark - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if ([annotation isKindOfClass:[RLSpecimenAnnotation class]]) {
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        //Do something for user location annotation view.
+    }
+    else if ([annotation isKindOfClass:[RLSpecimenAnnotation class]]) {
         MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([MKPinAnnotationView class])];
         if (!pin) {
             pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass([MKPinAnnotationView class])];
