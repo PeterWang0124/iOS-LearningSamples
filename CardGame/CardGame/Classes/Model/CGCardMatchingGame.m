@@ -21,6 +21,7 @@ static const NSInteger CGChooseCost = 1;
 
 @property (assign, nonatomic, readwrite) NSInteger score;
 @property (strong, nonatomic) NSMutableArray *cards;
+@property (assign, nonatomic) NSUInteger unmatchCardCount;
 
 @end
 
@@ -36,6 +37,7 @@ static const NSInteger CGChooseCost = 1;
 - (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(CGDeck *)usingDeck {
     self = [super init];
     if (self) {
+        self.unmatchCardCount = cardCount;
         for (NSUInteger i = 0; i < cardCount; i++) {
             CGCard *card = [usingDeck drawRandomCard];
             if (card) {
@@ -53,6 +55,10 @@ static const NSInteger CGChooseCost = 1;
 }
 
 - (void)chooseCardAtIndex:(NSUInteger)index {
+    if (self.isGameEnded) {
+        return;
+    }
+    
     CGCard *card = [self cardAtIndex:index];
     CGCardMatchingGameAttribute *attribute = (CGCardMatchingGameAttribute *)card.attribute;
     if (!attribute.isMatched) {
@@ -71,12 +77,24 @@ static const NSInteger CGChooseCost = 1;
                         self.score += matchScore * CGMatchBonus;
                         otherCardAttribute.matched = YES;
                         attribute.matched = YES;
+                        self.unmatchCardCount -= 2;
+                        
+                        //If last two card match, game ended!!
+                        if (self.unmatchCardCount == 0) {
+                            self.gameEnded = YES;
+                        }
                     }
                     else {
                         self.score -= CGMismatchPenalty;
                         
-                        //Mismatch,
-                        otherCardAttribute.chosen = NO;
+                        //If last two card mismatch, game ended!!
+                        if (self.unmatchCardCount == 2) {
+                            self.gameEnded = YES;
+                        }
+                        else {
+                            //Game not ended, and cards mismatch.
+                            otherCardAttribute.chosen = NO;
+                        }
                     }
                     
                     //Choose two card

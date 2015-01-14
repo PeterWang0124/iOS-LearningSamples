@@ -57,7 +57,7 @@
         }
     }
     
-    return 0;
+    return matchScore;
 }
 
 @end

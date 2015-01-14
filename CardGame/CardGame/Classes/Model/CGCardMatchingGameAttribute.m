@@ -10,4 +10,8 @@
 
 @implementation CGCardMatchingGameAttribute
 
+- (BOOL)isCardEnable {
+    return !self.matched;
+}
+
 @end

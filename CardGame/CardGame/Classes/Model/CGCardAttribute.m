@@ -10,4 +10,8 @@
 
 @implementation CGCardAttribute
 
+- (BOOL)isCardEnable {
+    return YES;
+}
+
 @end

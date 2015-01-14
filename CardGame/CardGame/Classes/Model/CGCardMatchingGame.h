@@ -19,5 +19,6 @@
 - (CGCard *)cardAtIndex:(NSUInteger)index;
 
 @property (assign, nonatomic, readonly) NSInteger score;
+@property (assign, nonatomic, getter=isGameEnded) BOOL gameEnded;
 
 @end

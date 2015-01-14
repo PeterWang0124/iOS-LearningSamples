@@ -12,4 +12,6 @@
 
 @property (assign, nonatomic, getter=isChosen) BOOL chosen;
 
+- (BOOL)isCardEnable;
+
 @end

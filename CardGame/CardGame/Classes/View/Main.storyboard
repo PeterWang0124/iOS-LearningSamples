@@ -181,6 +181,24 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PMC-Z7-bkn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROy-bW-KJ5">
+                                <rect key="frame" x="21" y="558" width="558" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EnR-nO-MHt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game End !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9r-CO-uex">
+                                <rect key="frame" x="21" y="529" width="558" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gPa-fS-jdn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOW-Tz-9Gu" customClass="CGCardButton">
                                 <rect key="frame" x="240" y="139" width="57" height="87"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -194,8 +212,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ROy-bW-KJ5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="21" id="2tI-Zh-1CN"/>
+                            <constraint firstAttribute="trailing" secondItem="M9r-CO-uex" secondAttribute="trailing" constant="21" id="4av-qj-Zv6"/>
+                            <constraint firstItem="M9r-CO-uex" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="21" id="HiB-Gz-4aB"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ROy-bW-KJ5" secondAttribute="bottom" constant="21" id="dVp-hr-hYz"/>
+                            <constraint firstItem="ROy-bW-KJ5" firstAttribute="top" secondItem="M9r-CO-uex" secondAttribute="bottom" constant="8" id="vml-dP-g2h"/>
+                            <constraint firstAttribute="trailing" secondItem="ROy-bW-KJ5" secondAttribute="trailing" constant="21" id="zcG-z2-2dn"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameEndedLabel" destination="M9r-CO-uex" id="SCQ-e5-Xv1"/>
+                        <outlet property="scoreLabel" destination="ROy-bW-KJ5" id="gDC-2i-KFZ"/>
                         <outletCollection property="cardButtons" destination="kKo-r7-ssy" id="VH9-iU-8or"/>
                         <outletCollection property="cardButtons" destination="aIn-L2-70y" id="PwY-oD-aNy"/>
                         <outletCollection property="cardButtons" destination="H6v-hD-X8i" id="UKy-j0-fpR"/>
