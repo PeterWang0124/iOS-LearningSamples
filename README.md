@@ -16,10 +16,12 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	- Adam Burkepile, ["Core Data on iOS 5 Tutorial: How To Preload and Import Existing Data"](http://www.raywenderlich.com/12170/core-data-tutorial-how-to-preloadimport-existing-data-updated).
 	- Adam Burkepile, ["Core Data Tutorial for iOS: How To Use NSFetchedResultsController"](http://www.raywenderlich.com/999/core-data-tutorial-for-ios-how-to-use-nsfetchedresultscontroller).
 * RealmLearning Project - (2015/01/07)  
-	This project practices for Realm for iOS using Objective - C, follow the articles below:
+	This project practices Realm for iOS using Objective - C, follow the articles below:
 	- Bill Kastanakis, ["Introduction to Realm"](http://www.raywenderlich.com/81615/introduction-to-realm).(Swift)
 	- David McGraw, ["Getting Started with Realm Database for iOS"](http://www.xmcgraw.com/getting-started-with-realm-database-for-ios/).(Swift)
 	- Piet Brauer, ["Tutorial: Building a To-Do App with Realm"](http://realm.io/news/tutorial-building-a-todo-app-with-realm/).(Swift)
+* Card Game Projcet - (2015/01/14)  
+	This project take a practice for Stanford CS193p form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
