@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class CGCardAttribute;
+
 @interface CGCard : NSObject
 
 @property (strong, nonatomic) NSString *content;
+@property (strong, nonatomic) CGCardAttribute *attribute;
 
-- (NSInteger)match:(NSArray *)otherCards;
+- (NSInteger)match:(CGCard *)otherCard;
 
 @end

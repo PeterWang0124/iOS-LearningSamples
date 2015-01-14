@@ -10,17 +10,12 @@
 
 @implementation CGCard
 
-- (NSInteger)match:(NSArray *)otherCards {
-    NSInteger matchCount = 0;
-    
-    //Count the number of match card in other cards.
-    for (CGCard *card in otherCards) {
-        if ([card.content isEqualToString:self.content]) {
-            matchCount++;
-        }
+- (NSInteger)match:(CGCard *)otherCard {
+    if ([otherCard.content isEqualToString:self.content]) {
+        return 1;
     }
     
-    return matchCount;
+    return 0;
 }
 
 @end

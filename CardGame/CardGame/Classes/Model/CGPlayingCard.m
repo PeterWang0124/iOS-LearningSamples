@@ -43,4 +43,21 @@
     return [[CGPlayingCard rankString][self.rank] stringByAppendingString:self.suit];
 }
 
+- (NSInteger)match:(CGCard *)otherCard {
+    NSInteger matchScore = 0;
+    
+    if ([otherCard isKindOfClass:[CGPlayingCard class]]) {
+        CGPlayingCard *otherPlayingCard = (CGPlayingCard *)otherCard;
+        if (otherPlayingCard.rank == self.rank) {
+            matchScore += 2;
+        }
+        
+        if ([otherPlayingCard.suit isEqualToString:self.suit]) {
+            matchScore += 1;
+        }
+    }
+    
+    return 0;
+}
+
 @end

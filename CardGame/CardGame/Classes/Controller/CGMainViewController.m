@@ -11,38 +11,30 @@
 //Model
 #import "CGCard.h"
 #import "CGPlayingCardDeck.h"
+#import "CGCardMatchingGame.h"
 
 //View
 #import "CGCardButton.h"
 
 @interface CGMainViewController ()
 
-@property (strong, nonatomic) CGDeck *deck;
+@property (strong, nonatomic) CGCardMatchingGame *game;
+@property (strong, nonatomic) IBOutletCollection(CGCardButton) NSArray *cardButtons;
 
 @end
 
 @implementation CGMainViewController
 
-- (CGDeck *)deck {
-    if (!_deck) {
-        _deck = [[CGPlayingCardDeck alloc] init];
+- (CGCardMatchingGame *)game {
+    if (!_game) {
+        _game = [[CGCardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[[CGPlayingCardDeck alloc] init]];
     }
-    return _deck;
+    return _game;
 }
 
 - (IBAction)touchCardButton:(CGCardButton *)sender {
-    if ([sender.currentTitle length]) {
-        [sender setTitle:@"" forState:UIControlStateNormal];
-        [sender setBackgroundColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.0 alpha:1.0]];
-    }
-    else {
-        CGCard *card = [self.deck drawRandomCard];
-        if (card) {
-            [sender setTitle:card.content forState:UIControlStateNormal];
-            [sender setBackgroundColor:[UIColor whiteColor]];
-        }
-    }
+    NSInteger index = [self.cardButtons indexOfObject:sender];
+    [self.game chooseCardAtIndex:index];
 }
-
 
 @end

@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class CGCard;
+@class CGDeck;
+
 @interface CGCardMatchingGame : NSObject
+
+- (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(CGDeck *)usingDeck;
+
+- (void)chooseCardAtIndex:(NSUInteger)index;
+- (CGCard *)cardAtIndex:(NSUInteger)index;
+
+@property (assign, nonatomic, readonly) NSInteger score;
 
 @end

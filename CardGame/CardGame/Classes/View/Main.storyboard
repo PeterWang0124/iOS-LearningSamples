@@ -93,17 +93,6 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Hcl-Rz-0nd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOW-Tz-9Gu" customClass="CGCardButton">
-                                <rect key="frame" x="240" y="139" width="57" height="87"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MoA-ut-hpL"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Koa-hG-E6v" customClass="CGCardButton">
                                 <rect key="frame" x="21" y="242" width="57" height="87"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -192,9 +181,38 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PMC-Z7-bkn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOW-Tz-9Gu" customClass="CGCardButton">
+                                <rect key="frame" x="240" y="139" width="57" height="87"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MoA-ut-hpL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outletCollection property="cardButtons" destination="kKo-r7-ssy" id="VH9-iU-8or"/>
+                        <outletCollection property="cardButtons" destination="aIn-L2-70y" id="PwY-oD-aNy"/>
+                        <outletCollection property="cardButtons" destination="H6v-hD-X8i" id="UKy-j0-fpR"/>
+                        <outletCollection property="cardButtons" destination="fUu-fa-sio" id="Umj-wD-jJj"/>
+                        <outletCollection property="cardButtons" destination="C8r-Q3-Ilo" id="rFp-FE-hD8"/>
+                        <outletCollection property="cardButtons" destination="rTy-RS-yLS" id="64X-ss-8PF"/>
+                        <outletCollection property="cardButtons" destination="CRE-ro-CCO" id="KsE-H0-uip"/>
+                        <outletCollection property="cardButtons" destination="uOW-Tz-9Gu" id="lWz-ck-YQO"/>
+                        <outletCollection property="cardButtons" destination="srI-fX-dpt" id="Hiu-mc-IeJ"/>
+                        <outletCollection property="cardButtons" destination="Koa-hG-E6v" id="CNx-5p-MsI"/>
+                        <outletCollection property="cardButtons" destination="igD-fv-mqB" id="Mfs-ai-I5J"/>
+                        <outletCollection property="cardButtons" destination="gTT-G3-dBe" id="xf5-OU-CMd"/>
+                        <outletCollection property="cardButtons" destination="MqB-qF-9tM" id="eKo-Rg-fht"/>
+                        <outletCollection property="cardButtons" destination="aTq-jn-Fiq" id="X4s-gx-FbR"/>
+                        <outletCollection property="cardButtons" destination="5Oy-zA-wdk" id="BmO-Ew-ce1"/>
+                        <outletCollection property="cardButtons" destination="M1f-aO-z8h" id="w14-9A-0RW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
