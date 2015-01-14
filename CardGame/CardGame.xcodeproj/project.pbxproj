@@ -11,7 +11,6 @@
 		92AEB2DE1A66161D0017C1D8 /* CGCardMatchingGameAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AEB2DD1A66161D0017C1D8 /* CGCardMatchingGameAttribute.m */; };
 		92D981871A63CB460049116E /* CGDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D981861A63CB460049116E /* CGDeck.m */; };
 		92D9818E1A650FE20049116E /* CGPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D9818D1A650FE20049116E /* CGPlayingCardDeck.m */; };
-		92D981911A65112B0049116E /* CGCardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D981901A65112B0049116E /* CGCardButton.m */; };
 		92D981941A652B190049116E /* CGCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D981931A652B190049116E /* CGCardMatchingGame.m */; };
 		92F211721A63C10E0097F11F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F211711A63C10E0097F11F /* main.m */; };
 		92F211A01A63C2F20097F11F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92F211971A63C2F20097F11F /* AppDelegate.m */; };
@@ -32,8 +31,6 @@
 		92D981861A63CB460049116E /* CGDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDeck.m; sourceTree = "<group>"; };
 		92D9818C1A650FE20049116E /* CGPlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPlayingCardDeck.h; sourceTree = "<group>"; };
 		92D9818D1A650FE20049116E /* CGPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPlayingCardDeck.m; sourceTree = "<group>"; };
-		92D9818F1A65112B0049116E /* CGCardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardButton.h; sourceTree = "<group>"; };
-		92D981901A65112B0049116E /* CGCardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardButton.m; sourceTree = "<group>"; };
 		92D981921A652B190049116E /* CGCardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardMatchingGame.h; sourceTree = "<group>"; };
 		92D981931A652B190049116E /* CGCardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardMatchingGame.m; sourceTree = "<group>"; };
 		92F2116C1A63C10E0097F11F /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,8 +142,6 @@
 				92F2119D1A63C2F20097F11F /* Images.xcassets */,
 				92F2119E1A63C2F20097F11F /* LaunchScreen.xib */,
 				92F2119F1A63C2F20097F11F /* Main.storyboard */,
-				92D9818F1A65112B0049116E /* CGCardButton.h */,
-				92D981901A65112B0049116E /* CGCardButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,7 +217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D981871A63CB460049116E /* CGDeck.m in Sources */,
-				92D981911A65112B0049116E /* CGCardButton.m in Sources */,
 				92AEB2DB1A6615910017C1D8 /* CGCardAttribute.m in Sources */,
 				92F211AA1A63C5AF0097F11F /* CGPlayingCard.m in Sources */,
 				92AEB2DE1A66161D0017C1D8 /* CGCardMatchingGameAttribute.m in Sources */,
