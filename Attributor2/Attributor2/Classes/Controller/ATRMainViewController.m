@@ -7,6 +7,7 @@
 //
 
 #import "ATRMainViewController.h"
+#import "ATRTextStatsViewController.h"
 
 @interface ATRMainViewController ()
 
@@ -26,6 +27,14 @@
     [self.outlineButton setAttributedTitle:outlineTitle forState:UIControlStateNormal];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    //Fix the bodyTextView scroll view indicator insets and content inset not be zero after autolayout.
+    [self.bodyTextView setScrollIndicatorInsets:UIEdgeInsetsZero];
+    [self.bodyTextView setContentInset:UIEdgeInsetsZero];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -43,6 +52,17 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
+#pragma mark - UIStoryboardSegue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Analyze Text"]) {
+        if ([segue.destinationViewController isKindOfClass:[ATRTextStatsViewController class]]) {
+            ATRTextStatsViewController *tsvc = (ATRTextStatsViewController *)segue.destinationViewController;
+            tsvc.textToAnalyze = self.bodyTextView.textStorage;
+        }
+    }
+}
+
 #pragma mark - NSNotification push
 
 - (void)preferredFontsChange:(NSNotification *)notification {
@@ -52,7 +72,6 @@
 #pragma mark - Font settings
 
 - (void)usePreferredFonts {
-    self.headlineLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.bodyTextView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 }
 
