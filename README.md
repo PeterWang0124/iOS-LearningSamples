@@ -31,7 +31,7 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 * Matchismo2 Project - (now practice)  
 	This project take a practice of the Stanford CS193p Lecture 6 form form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	
-	It was practice about polymorphism with controllers, change the class of a controller in a storyboard, multiple MVCs in an application.
+	It was practice about polymorphism with controllers, change the class of a controller in a storyboard.
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
