@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QIN-jV-Jhb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fQz-Yf-LTR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSu-wJ-fS1">
-                                <rect key="frame" x="16" y="80" width="568" height="390"/>
+                                <rect key="frame" x="16" y="80" width="568" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
 Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
@@ -30,7 +30,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sk0-lw-QU9">
-                                <rect key="frame" x="16" y="550" width="100" height="30"/>
+                                <rect key="frame" x="16" y="513" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ILS-e0-Dd2"/>
                                     <constraint firstAttribute="width" constant="100" id="tK3-lC-f9y"/>
@@ -44,7 +44,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j0-bq-a2X">
-                                <rect key="frame" x="484" y="550" width="100" height="30"/>
+                                <rect key="frame" x="484" y="513" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Eqc-aX-peE"/>
                                     <constraint firstAttribute="width" constant="100" id="WC3-2v-SKq"/>
@@ -58,7 +58,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rw8-ki-dbz">
-                                <rect key="frame" x="16" y="478" width="64" height="64"/>
+                                <rect key="frame" x="16" y="441" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="aKF-Lw-6Pm"/>
@@ -72,7 +72,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daE-UP-LG6">
-                                <rect key="frame" x="184" y="478" width="64" height="64"/>
+                                <rect key="frame" x="184" y="441" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="j32-LP-byY"/>
@@ -86,7 +86,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKm-bX-Lf1">
-                                <rect key="frame" x="520" y="478" width="64" height="64"/>
+                                <rect key="frame" x="520" y="441" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="EEY-IN-9kp"/>
@@ -100,7 +100,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SNP-nq-oJA">
-                                <rect key="frame" x="352" y="478" width="64" height="64"/>
+                                <rect key="frame" x="352" y="441" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="9MN-ih-PO7"/>
@@ -123,8 +123,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <constraint firstItem="rw8-ki-dbz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="MP3-zl-gEN"/>
                             <constraint firstItem="rw8-ki-dbz" firstAttribute="centerY" secondItem="daE-UP-LG6" secondAttribute="centerY" id="PWR-Ta-45r"/>
                             <constraint firstItem="sk0-lw-QU9" firstAttribute="top" secondItem="rw8-ki-dbz" secondAttribute="bottom" constant="8" id="Qe2-6U-1xN"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sk0-lw-QU9" secondAttribute="bottom" constant="20" id="Sy0-Yq-4Da"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6j0-bq-a2X" secondAttribute="bottom" constant="20" id="XQF-bi-r1v"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sk0-lw-QU9" secondAttribute="bottom" constant="8" id="Sy0-Yq-4Da"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6j0-bq-a2X" secondAttribute="bottom" constant="8" id="XQF-bi-r1v"/>
                             <constraint firstItem="NSu-wJ-fS1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="djc-GE-caz"/>
                             <constraint firstItem="SNP-nq-oJA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="0.64" id="etM-ZL-TiW"/>
                             <constraint firstAttribute="trailing" secondItem="6j0-bq-a2X" secondAttribute="trailing" constant="16" id="hDh-0q-qWq"/>
@@ -144,7 +144,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="bodyTextView" destination="NSu-wJ-fS1" id="dwJ-jJ-55z"/>
                         <outlet property="outlineButton" destination="sk0-lw-QU9" id="JsQ-lU-60d"/>
-                        <outlet property="redColorButton" destination="rw8-ki-dbz" id="qzs-XU-gnO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -255,10 +254,49 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             </objects>
             <point key="canvasLocation" x="1898" y="273"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Empty-->
+        <scene sceneID="hE4-4F-a1u">
+            <objects>
+                <viewController id="8A0-bY-HPt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="opd-Wn-JtX"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZYC-kr-Es0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z37-IT-vsF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Empty" id="5rr-Y5-hNA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AlI-Yb-IBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386" y="1024"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8gf-KD-63r">
+            <objects>
+                <tabBarController id="fQz-Yf-LTR" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="yWx-ed-7VC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="QIN-jV-Jhb" kind="relationship" relationship="viewControllers" id="GAn-T4-Wk8"/>
+                        <segue destination="8A0-bY-HPt" kind="relationship" relationship="viewControllers" id="bdZ-M5-N74"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aE-Ub-dOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-418" y="644"/>
+        </scene>
+        <!--Main-->
         <scene sceneID="gnL-32-hAu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QIN-jV-Jhb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Main" id="Ohs-n6-2o8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIB-i4-ntf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
