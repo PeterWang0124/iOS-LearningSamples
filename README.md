@@ -20,14 +20,18 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	- Bill Kastanakis, ["Introduction to Realm"](http://www.raywenderlich.com/81615/introduction-to-realm).(Swift)
 	- David McGraw, ["Getting Started with Realm Database for iOS"](http://www.xmcgraw.com/getting-started-with-realm-database-for-ios/).(Swift)
 	- Piet Brauer, ["Tutorial: Building a To-Do App with Realm"](http://realm.io/news/tutorial-building-a-todo-app-with-realm/).(Swift)
-* Card Game Projcet - (2015/01/14)  
-	This project take a practice the Stanford CS193p Lecture 1~3 form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
+* Matchismo Projcet - (2015/01/14)  
+	This project take a practice of the Stanford CS193p Lecture 1~3 form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	  
 	It was practice about creating new project in Xcode, IBAction of click button, using image, model creating, lazy initialization, getter & setter override, objective-c ...etc.
 * Attributor Project - (2015/01/15)  
-	This project take a practive the Stanford CS193p Lecture 4~5 form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
+	This project take a practive of the Stanford CS193p Lecture 4~5 form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
 	
 	It was practice about attribute string of changing color, outlining string, using notification center to do the radio station for using preferred fonts and using a little bit of the view controller lifecycle.
+* Matchismo2 Project - (now practice)  
+	This project take a practice of the Stanford CS193p Lecture 6 form form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
+	
+	It was practice about polymorphism with controllers, change the class of a controller in a storyboard, multiple MVCs in an application.
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
