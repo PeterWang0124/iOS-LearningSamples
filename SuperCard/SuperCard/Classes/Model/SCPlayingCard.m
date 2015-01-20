@@ -1,14 +1,14 @@
 //
-//  CGPlayingCard.m
+//  SCPlayingCard.m
 //  CardGame
 //
 //  Created by PeterWang on 1/12/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGPlayingCard.h"
+#import "SCPlayingCard.h"
 
-@implementation CGPlayingCard
+@implementation SCPlayingCard
 @synthesize suit = _suit;
 
 + (NSArray *)validSuits {
@@ -20,7 +20,7 @@
 }
 
 + (NSUInteger)maxRank {
-    return [[CGPlayingCard rankString] count] - 1;
+    return [[SCPlayingCard rankString] count] - 1;
 }
 
 - (NSString *)suit {
@@ -28,26 +28,26 @@
 }
 
 - (void)setSuit:(NSString *)suit {
-    if ([[CGPlayingCard validSuits] containsObject:suit]) {
+    if ([[SCPlayingCard validSuits] containsObject:suit]) {
         _suit = suit;
     }
 }
 
 - (void)setRank:(NSUInteger)rank {
-    if (rank <= [CGPlayingCard maxRank]) {
+    if (rank <= [SCPlayingCard maxRank]) {
         _rank = rank;
     }
 }
 
 - (NSString *)content {
-    return [[CGPlayingCard rankString][self.rank] stringByAppendingString:self.suit];
+    return [[SCPlayingCard rankString][self.rank] stringByAppendingString:self.suit];
 }
 
-- (NSInteger)match:(CGCard *)otherCard {
+- (NSInteger)match:(SCCard *)otherCard {
     NSInteger matchScore = 0;
     
-    if ([otherCard isKindOfClass:[CGPlayingCard class]]) {
-        CGPlayingCard *otherPlayingCard = (CGPlayingCard *)otherCard;
+    if ([otherCard isKindOfClass:[SCPlayingCard class]]) {
+        SCPlayingCard *otherPlayingCard = (SCPlayingCard *)otherCard;
         if (otherPlayingCard.rank == self.rank) {
             matchScore += 2;
         }

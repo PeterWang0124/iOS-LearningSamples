@@ -1,14 +1,14 @@
 //
-//  CGCardMatchingGameAttribute.h
+//  SCCardMatchingGameAttribute.h
 //  CardGame
 //
 //  Created by PeterWang on 1/14/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGCardAttribute.h"
+#import "SCCardAttribute.h"
 
-@interface CGCardMatchingGameAttribute : CGCardAttribute
+@interface SCCardMatchingGameAttribute : SCCardAttribute
 
 @property (assign, nonatomic, getter=isMatched) BOOL matched;
 

@@ -8,9 +8,13 @@
 
 #import "SCPlayingCardView.h"
 
-static const CGFloat cornerFontStandardHeight = 180.0;
-static const CGFloat cornerRadius = 12.0;
-static const CGFloat faceCardScaleFactor = 0.85;
+static const CGFloat SCCornerFontStandardHeight = 180.0;
+static const CGFloat SCCornerRadius = 12.0;
+static const CGFloat SCFaceCardScaleFactor = 0.85;
+
+static const CGFloat SCPipFontScaleFactor = 0.012;
+static const CGFloat SCPipHorizonOffsetScale = 0.175;
+static const CGFloat SCPipVerticalOffsetScaleTop = 0.3;
 
 @implementation SCPlayingCardView
 @synthesize faceScaleFactor = _faceScaleFactor;
@@ -45,7 +49,7 @@ static const CGFloat faceCardScaleFactor = 0.85;
 
 - (CGFloat)faceScaleFactor {
     if (!_faceScaleFactor) {
-        _faceScaleFactor = faceCardScaleFactor;
+        _faceScaleFactor = SCFaceCardScaleFactor;
     }
     return _faceScaleFactor;
 }
@@ -57,7 +61,8 @@ static const CGFloat faceCardScaleFactor = 0.85;
 }
 
 - (NSString *)rankAsString {
-    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"][self.rank];
+    NSArray *rankStrings = @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J", @"Q", @"K"];
+    return (self.rank < [rankStrings count]) ? rankStrings[self.rank] : @"?";
 }
 
 #pragma mark - Gesture action
@@ -72,11 +77,11 @@ static const CGFloat faceCardScaleFactor = 0.85;
 #pragma mark - Drawing code
 
 - (CGFloat)cornerScaleFactor {
-    return self.bounds.size.height / cornerFontStandardHeight;
+    return self.bounds.size.height / SCCornerFontStandardHeight;
 }
 
 - (CGFloat)cornerRadius {
-    return cornerRadius * [self cornerScaleFactor];
+    return SCCornerRadius * [self cornerScaleFactor];
 }
 
 - (CGFloat)cornerOffset {
@@ -117,6 +122,7 @@ static const CGFloat faceCardScaleFactor = 0.85;
     }
     else {
         //Draw pips.
+        [self drawPips];
     }
     
     /*
@@ -143,7 +149,109 @@ static const CGFloat faceCardScaleFactor = 0.85;
     CGContextTranslateCTM(context, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     CGContextRotateCTM(context, M_PI);
     [cornerText drawInRect:textBounds];
+}
 
+- (void)drawPips {
+    //Middle pip.
+    if ((self.rank == 1) || (self.rank == 3) || (self.rank == 5) || (self.rank == 9)) {
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:0
+                                upsideDown:NO];
+    }
+    
+    //Middle symmetrical pips.
+    if ((self.rank == 6) || (self.rank == 7) || (self.rank == 8)) {
+        [self drawPipsWithHorizontalOffset:SCPipHorizonOffsetScale
+                            verticalOffset:0
+                                upsideDown:NO];
+    }
+    
+    //Middle and upper pips.
+    if ((self.rank == 7) || (self.rank == 8)) {
+        CGFloat pipVerticalOffsetScaleMidUp = SCPipVerticalOffsetScaleTop / 2;
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:pipVerticalOffsetScaleMidUp
+                                upsideDown:NO];
+        if (self.rank == 8) {
+            [self drawPipsWithHorizontalOffset:0
+                                verticalOffset:pipVerticalOffsetScaleMidUp
+                                    upsideDown:YES];
+        }
+    }
+    if (self.rank == 10) {
+        CGFloat pipVerticalOffsetScaleMidUp = SCPipVerticalOffsetScaleTop * 2 / 3;
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:pipVerticalOffsetScaleMidUp
+                                upsideDown:NO];
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:pipVerticalOffsetScaleMidUp
+                                upsideDown:YES];
+    }
+    
+    //Top and Bottom Middle pip.
+    if ((self.rank == 2) || (self.rank == 3)) {
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:SCPipVerticalOffsetScaleTop
+                                upsideDown:NO];
+        [self drawPipsWithHorizontalOffset:0
+                            verticalOffset:SCPipVerticalOffsetScaleTop
+                                upsideDown:YES];
+    }
+    
+    //Top and Bottom symmetrical pips.
+    if ((self.rank == 4) || (self.rank == 5) || (self.rank == 6) || (self.rank == 7) || (self.rank == 8) || (self.rank == 9) || (self.rank == 10)) {
+        [self drawPipsWithHorizontalOffset:SCPipHorizonOffsetScale
+                            verticalOffset:SCPipVerticalOffsetScaleTop
+                                upsideDown:NO];
+        [self drawPipsWithHorizontalOffset:SCPipHorizonOffsetScale
+                            verticalOffset:SCPipVerticalOffsetScaleTop
+                                upsideDown:YES];
+    }
+    
+    //Upper symmetrical pips.
+    if ((self.rank == 9) || (self.rank == 10)) {
+        CGFloat pipVerticalOffsetScaleMidUp = SCPipVerticalOffsetScaleTop / 3;
+        [self drawPipsWithHorizontalOffset:SCPipHorizonOffsetScale
+                            verticalOffset:pipVerticalOffsetScaleMidUp
+                                upsideDown:NO];
+        [self drawPipsWithHorizontalOffset:SCPipHorizonOffsetScale
+                            verticalOffset:pipVerticalOffsetScaleMidUp
+                                upsideDown:YES];
+    }
+}
+
+- (void)drawPipsWithHorizontalOffset:(CGFloat)hoffset verticalOffset:(CGFloat)voffset mirroredVertically:(BOOL)mirroredVertically {
+    [self drawPipsWithHorizontalOffset:hoffset verticalOffset:voffset upsideDown:NO];
+    if (mirroredVertically) {
+        [self drawPipsWithHorizontalOffset:hoffset verticalOffset:voffset upsideDown:YES];
+    }
+}
+
+- (void)drawPipsWithHorizontalOffset:(CGFloat)hoffset verticalOffset:(CGFloat)voffset upsideDown:(BOOL)upsideDown {
+    if (upsideDown) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+        CGContextRotateCTM(context, M_PI);
+    }
+    
+    CGPoint middle = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    UIFont *pipFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    pipFont = [pipFont fontWithSize:pipFont.pointSize * CGRectGetWidth(self.bounds) * SCPipFontScaleFactor];
+    NSAttributedString *attributedSuit = [[NSAttributedString alloc] initWithString:self.suit attributes:@{NSFontAttributeName : pipFont}];
+    
+    CGSize pipSize = [attributedSuit size];
+    CGPoint pipOrigin = CGPointMake(middle.x - pipSize.width / 2 - hoffset * CGRectGetWidth(self.bounds), middle.y - pipSize.height / 2 - voffset * CGRectGetHeight(self.bounds));
+    
+    [attributedSuit drawAtPoint:pipOrigin];
+    if (hoffset) {
+        pipOrigin.x += hoffset * 2 * CGRectGetWidth(self.bounds);
+        [attributedSuit drawAtPoint:pipOrigin];
+    }
+    
+    if (upsideDown) {
+        CGContextRestoreGState(UIGraphicsGetCurrentContext());
+    }
 }
 
 @end

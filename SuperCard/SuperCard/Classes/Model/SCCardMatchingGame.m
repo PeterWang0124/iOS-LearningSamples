@@ -1,23 +1,23 @@
 //
-//  CGCardMatchingGame.m
+//  SCCardMatchingGame.m
 //  CardGame
 //
 //  Created by PeterWang on 1/13/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGCardMatchingGame.h"
+#import "SCCardMatchingGame.h"
 
 //Model
-#import "CGDeck.h"
-#import "CGCard.h"
-#import "CGCardMatchingGameAttribute.h"
+#import "SCDeck.h"
+#import "SCCard.h"
+#import "SCCardMatchingGameAttribute.h"
 
 static const NSInteger CGMismatchPenalty = 2;
 static const NSInteger CGMatchBonus = 4;
 static const NSInteger CGChooseCost = 1;
 
-@interface CGCardMatchingGame ()
+@interface SCCardMatchingGame ()
 
 @property (assign, nonatomic, readwrite) NSInteger score;
 @property (strong, nonatomic) NSMutableArray *cards;
@@ -25,7 +25,7 @@ static const NSInteger CGChooseCost = 1;
 
 @end
 
-@implementation CGCardMatchingGame
+@implementation SCCardMatchingGame
 
 - (NSMutableArray *)cards {
     if (!_cards) {
@@ -34,14 +34,14 @@ static const NSInteger CGChooseCost = 1;
     return _cards;
 }
 
-- (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(CGDeck *)usingDeck {
+- (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(SCDeck *)usingDeck {
     self = [super init];
     if (self) {
         self.unmatchCardCount = cardCount;
         for (NSUInteger i = 0; i < cardCount; i++) {
-            CGCard *card = [usingDeck drawRandomCard];
+            SCCard *card = [usingDeck drawRandomCard];
             if (card) {
-                card.attribute = [[CGCardMatchingGameAttribute alloc] init];
+                card.attribute = [[SCCardMatchingGameAttribute alloc] init];
                 [self.cards addObject:card];
             }
             else {
@@ -59,18 +59,18 @@ static const NSInteger CGChooseCost = 1;
         return;
     }
     
-    CGCard *card = [self cardAtIndex:index];
-    CGCardMatchingGameAttribute *attribute = (CGCardMatchingGameAttribute *)card.attribute;
+    SCCard *card = [self cardAtIndex:index];
+    SCCardMatchingGameAttribute *attribute = (SCCardMatchingGameAttribute *)card.attribute;
     if (!attribute.isMatched) {
         if (attribute.isChosen) {
             attribute.chosen = NO;
         }
         else {
             //Check is match other chosen cards.
-            CGCardMatchingGameAttribute *otherCardAttribute = nil;
-            for (CGCard *otherCard in self.cards) {
+            SCCardMatchingGameAttribute *otherCardAttribute = nil;
+            for (SCCard *otherCard in self.cards) {
                 //Find other chosen and unmatched card to check is match.
-                otherCardAttribute = (CGCardMatchingGameAttribute *)otherCard.attribute;
+                otherCardAttribute = (SCCardMatchingGameAttribute *)otherCard.attribute;
                 if (otherCardAttribute.isChosen && !otherCardAttribute.isMatched) {
                     NSInteger matchScore = [card match:otherCard];
                     if (matchScore) {
@@ -108,7 +108,7 @@ static const NSInteger CGChooseCost = 1;
     }
 }
 
-- (CGCard *)cardAtIndex:(NSUInteger)index {
+- (SCCard *)cardAtIndex:(NSUInteger)index {
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 

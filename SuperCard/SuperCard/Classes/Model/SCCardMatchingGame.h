@@ -1,5 +1,5 @@
 //
-//  CGCardMatchingGame.h
+//  SCCardMatchingGame.h
 //  CardGame
 //
 //  Created by PeterWang on 1/13/15.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class CGCard;
-@class CGDeck;
+@class SCCard;
+@class SCDeck;
 
-@interface CGCardMatchingGame : NSObject
+@interface SCCardMatchingGame : NSObject
 
-- (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(CGDeck *)usingDeck;
+- (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(SCDeck *)usingDeck;
 
 - (void)chooseCardAtIndex:(NSUInteger)index;
-- (CGCard *)cardAtIndex:(NSUInteger)index;
+- (SCCard *)cardAtIndex:(NSUInteger)index;
 
 @property (assign, nonatomic, readonly) NSInteger score;
 @property (assign, nonatomic, getter=isGameEnded) BOOL gameEnded;

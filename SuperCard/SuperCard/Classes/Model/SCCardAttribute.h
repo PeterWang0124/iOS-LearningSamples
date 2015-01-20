@@ -1,5 +1,5 @@
 //
-//  CGCardAttribute.h
+//  SCCardAttribute.h
 //  CardGame
 //
 //  Created by PeterWang on 1/14/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CGCardAttribute : NSObject
+@interface SCCardAttribute : NSObject
 
 @property (assign, nonatomic, getter=isChosen) BOOL chosen;
 

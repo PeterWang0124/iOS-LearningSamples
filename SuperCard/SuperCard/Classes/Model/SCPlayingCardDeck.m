@@ -1,24 +1,24 @@
 //
-//  CGPlayingCardDeck.m
+//  SCPlayingCardDeck.m
 //  CardGame
 //
 //  Created by PeterWang on 1/13/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGPlayingCardDeck.h"
+#import "SCPlayingCardDeck.h"
 
 //Model
-#import "CGPlayingCard.h"
+#import "SCPlayingCard.h"
 
-@implementation CGPlayingCardDeck
+@implementation SCPlayingCardDeck
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        for (NSString *suit in [CGPlayingCard validSuits]) {
-            for (NSUInteger rank = 1; rank <= [CGPlayingCard maxRank]; rank++) {
-                CGPlayingCard *card = [[CGPlayingCard alloc] init];
+        for (NSString *suit in [SCPlayingCard validSuits]) {
+            for (NSUInteger rank = 1; rank <= [SCPlayingCard maxRank]; rank++) {
+                SCPlayingCard *card = [[SCPlayingCard alloc] init];
                 card.suit = suit;
                 card.rank = rank;
                 [self addCard:card];

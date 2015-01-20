@@ -14,13 +14,13 @@
 		92495A021A6CE92A006AD052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924959FB1A6CE92A006AD052 /* LaunchScreen.xib */; };
 		92495A031A6CE92A006AD052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924959FC1A6CE92A006AD052 /* Main.storyboard */; };
 		92495A081A6CE9F4006AD052 /* SCPlayingCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92495A071A6CE9F4006AD052 /* SCPlayingCardView.m */; };
-		92B5D1FA1A6DFA2200D7F591 /* CGCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1ED1A6DFA2200D7F591 /* CGCard.m */; };
-		92B5D1FB1A6DFA2200D7F591 /* CGCardAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1EF1A6DFA2200D7F591 /* CGCardAttribute.m */; };
-		92B5D1FC1A6DFA2200D7F591 /* CGCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F11A6DFA2200D7F591 /* CGCardMatchingGame.m */; };
-		92B5D1FD1A6DFA2200D7F591 /* CGCardMatchingGameAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F31A6DFA2200D7F591 /* CGCardMatchingGameAttribute.m */; };
-		92B5D1FE1A6DFA2200D7F591 /* CGDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F51A6DFA2200D7F591 /* CGDeck.m */; };
-		92B5D1FF1A6DFA2200D7F591 /* CGPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F71A6DFA2200D7F591 /* CGPlayingCard.m */; };
-		92B5D2001A6DFA2200D7F591 /* CGPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F91A6DFA2200D7F591 /* CGPlayingCardDeck.m */; };
+		92B5D1FA1A6DFA2200D7F591 /* SCCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1ED1A6DFA2200D7F591 /* SCCard.m */; };
+		92B5D1FB1A6DFA2200D7F591 /* SCCardAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1EF1A6DFA2200D7F591 /* SCCardAttribute.m */; };
+		92B5D1FC1A6DFA2200D7F591 /* SCCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F11A6DFA2200D7F591 /* SCCardMatchingGame.m */; };
+		92B5D1FD1A6DFA2200D7F591 /* SCCardMatchingGameAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F31A6DFA2200D7F591 /* SCCardMatchingGameAttribute.m */; };
+		92B5D1FE1A6DFA2200D7F591 /* SCDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F51A6DFA2200D7F591 /* SCDeck.m */; };
+		92B5D1FF1A6DFA2200D7F591 /* SCPlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F71A6DFA2200D7F591 /* SCPlayingCard.m */; };
+		92B5D2001A6DFA2200D7F591 /* SCPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B5D1F91A6DFA2200D7F591 /* SCPlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,20 +36,20 @@
 		924959FC1A6CE92A006AD052 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		92495A061A6CE9F4006AD052 /* SCPlayingCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPlayingCardView.h; sourceTree = "<group>"; };
 		92495A071A6CE9F4006AD052 /* SCPlayingCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPlayingCardView.m; sourceTree = "<group>"; };
-		92B5D1EC1A6DFA2200D7F591 /* CGCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCard.h; sourceTree = "<group>"; };
-		92B5D1ED1A6DFA2200D7F591 /* CGCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCard.m; sourceTree = "<group>"; };
-		92B5D1EE1A6DFA2200D7F591 /* CGCardAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardAttribute.h; sourceTree = "<group>"; };
-		92B5D1EF1A6DFA2200D7F591 /* CGCardAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardAttribute.m; sourceTree = "<group>"; };
-		92B5D1F01A6DFA2200D7F591 /* CGCardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardMatchingGame.h; sourceTree = "<group>"; };
-		92B5D1F11A6DFA2200D7F591 /* CGCardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardMatchingGame.m; sourceTree = "<group>"; };
-		92B5D1F21A6DFA2200D7F591 /* CGCardMatchingGameAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardMatchingGameAttribute.h; sourceTree = "<group>"; };
-		92B5D1F31A6DFA2200D7F591 /* CGCardMatchingGameAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardMatchingGameAttribute.m; sourceTree = "<group>"; };
-		92B5D1F41A6DFA2200D7F591 /* CGDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGDeck.h; sourceTree = "<group>"; };
-		92B5D1F51A6DFA2200D7F591 /* CGDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGDeck.m; sourceTree = "<group>"; };
-		92B5D1F61A6DFA2200D7F591 /* CGPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPlayingCard.h; sourceTree = "<group>"; };
-		92B5D1F71A6DFA2200D7F591 /* CGPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPlayingCard.m; sourceTree = "<group>"; };
-		92B5D1F81A6DFA2200D7F591 /* CGPlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPlayingCardDeck.h; sourceTree = "<group>"; };
-		92B5D1F91A6DFA2200D7F591 /* CGPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPlayingCardDeck.m; sourceTree = "<group>"; };
+		92B5D1EC1A6DFA2200D7F591 /* SCCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCard.h; sourceTree = "<group>"; };
+		92B5D1ED1A6DFA2200D7F591 /* SCCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCard.m; sourceTree = "<group>"; };
+		92B5D1EE1A6DFA2200D7F591 /* SCCardAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCardAttribute.h; sourceTree = "<group>"; };
+		92B5D1EF1A6DFA2200D7F591 /* SCCardAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCardAttribute.m; sourceTree = "<group>"; };
+		92B5D1F01A6DFA2200D7F591 /* SCCardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCardMatchingGame.h; sourceTree = "<group>"; };
+		92B5D1F11A6DFA2200D7F591 /* SCCardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCardMatchingGame.m; sourceTree = "<group>"; };
+		92B5D1F21A6DFA2200D7F591 /* SCCardMatchingGameAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCardMatchingGameAttribute.h; sourceTree = "<group>"; };
+		92B5D1F31A6DFA2200D7F591 /* SCCardMatchingGameAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCardMatchingGameAttribute.m; sourceTree = "<group>"; };
+		92B5D1F41A6DFA2200D7F591 /* SCDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDeck.h; sourceTree = "<group>"; };
+		92B5D1F51A6DFA2200D7F591 /* SCDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDeck.m; sourceTree = "<group>"; };
+		92B5D1F61A6DFA2200D7F591 /* SCPlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPlayingCard.h; sourceTree = "<group>"; };
+		92B5D1F71A6DFA2200D7F591 /* SCPlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPlayingCard.m; sourceTree = "<group>"; };
+		92B5D1F81A6DFA2200D7F591 /* SCPlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPlayingCardDeck.h; sourceTree = "<group>"; };
+		92B5D1F91A6DFA2200D7F591 /* SCPlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,20 +121,20 @@
 		924959F81A6CE92A006AD052 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				92B5D1EC1A6DFA2200D7F591 /* CGCard.h */,
-				92B5D1ED1A6DFA2200D7F591 /* CGCard.m */,
-				92B5D1EE1A6DFA2200D7F591 /* CGCardAttribute.h */,
-				92B5D1EF1A6DFA2200D7F591 /* CGCardAttribute.m */,
-				92B5D1F01A6DFA2200D7F591 /* CGCardMatchingGame.h */,
-				92B5D1F11A6DFA2200D7F591 /* CGCardMatchingGame.m */,
-				92B5D1F21A6DFA2200D7F591 /* CGCardMatchingGameAttribute.h */,
-				92B5D1F31A6DFA2200D7F591 /* CGCardMatchingGameAttribute.m */,
-				92B5D1F41A6DFA2200D7F591 /* CGDeck.h */,
-				92B5D1F51A6DFA2200D7F591 /* CGDeck.m */,
-				92B5D1F61A6DFA2200D7F591 /* CGPlayingCard.h */,
-				92B5D1F71A6DFA2200D7F591 /* CGPlayingCard.m */,
-				92B5D1F81A6DFA2200D7F591 /* CGPlayingCardDeck.h */,
-				92B5D1F91A6DFA2200D7F591 /* CGPlayingCardDeck.m */,
+				92B5D1EC1A6DFA2200D7F591 /* SCCard.h */,
+				92B5D1ED1A6DFA2200D7F591 /* SCCard.m */,
+				92B5D1EE1A6DFA2200D7F591 /* SCCardAttribute.h */,
+				92B5D1EF1A6DFA2200D7F591 /* SCCardAttribute.m */,
+				92B5D1F01A6DFA2200D7F591 /* SCCardMatchingGame.h */,
+				92B5D1F11A6DFA2200D7F591 /* SCCardMatchingGame.m */,
+				92B5D1F21A6DFA2200D7F591 /* SCCardMatchingGameAttribute.h */,
+				92B5D1F31A6DFA2200D7F591 /* SCCardMatchingGameAttribute.m */,
+				92B5D1F41A6DFA2200D7F591 /* SCDeck.h */,
+				92B5D1F51A6DFA2200D7F591 /* SCDeck.m */,
+				92B5D1F61A6DFA2200D7F591 /* SCPlayingCard.h */,
+				92B5D1F71A6DFA2200D7F591 /* SCPlayingCard.m */,
+				92B5D1F81A6DFA2200D7F591 /* SCPlayingCardDeck.h */,
+				92B5D1F91A6DFA2200D7F591 /* SCPlayingCardDeck.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,17 +221,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B5D1FF1A6DFA2200D7F591 /* CGPlayingCard.m in Sources */,
-				92B5D1FB1A6DFA2200D7F591 /* CGCardAttribute.m in Sources */,
-				92B5D1FA1A6DFA2200D7F591 /* CGCard.m in Sources */,
+				92B5D1FF1A6DFA2200D7F591 /* SCPlayingCard.m in Sources */,
+				92B5D1FB1A6DFA2200D7F591 /* SCCardAttribute.m in Sources */,
+				92B5D1FA1A6DFA2200D7F591 /* SCCard.m in Sources */,
 				924959FF1A6CE92A006AD052 /* AppDelegate.m in Sources */,
 				92495A081A6CE9F4006AD052 /* SCPlayingCardView.m in Sources */,
 				924959CF1A6CE86E006AD052 /* main.m in Sources */,
-				92B5D1FD1A6DFA2200D7F591 /* CGCardMatchingGameAttribute.m in Sources */,
-				92B5D1FE1A6DFA2200D7F591 /* CGDeck.m in Sources */,
-				92B5D1FC1A6DFA2200D7F591 /* CGCardMatchingGame.m in Sources */,
+				92B5D1FD1A6DFA2200D7F591 /* SCCardMatchingGameAttribute.m in Sources */,
+				92B5D1FE1A6DFA2200D7F591 /* SCDeck.m in Sources */,
+				92B5D1FC1A6DFA2200D7F591 /* SCCardMatchingGame.m in Sources */,
 				92495A001A6CE92A006AD052 /* SCMainViewController.m in Sources */,
-				92B5D2001A6DFA2200D7F591 /* CGPlayingCardDeck.m in Sources */,
+				92B5D2001A6DFA2200D7F591 /* SCPlayingCardDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

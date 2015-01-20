@@ -1,5 +1,5 @@
 //
-//  CGCard.h
+//  SCCard.h
 //  CardGame
 //
 //  Created by PeterWang on 1/12/15.
@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class CGCardAttribute;
+@class SCCardAttribute;
 
-@interface CGCard : NSObject
+@interface SCCard : NSObject
 
 @property (strong, nonatomic) NSString *content;
-@property (strong, nonatomic) CGCardAttribute *attribute;
+@property (strong, nonatomic) SCCardAttribute *attribute;
 
-- (NSInteger)match:(CGCard *)otherCard;
+- (NSInteger)match:(SCCard *)otherCard;
 
 @end

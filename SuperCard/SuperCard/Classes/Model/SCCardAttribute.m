@@ -1,17 +1,17 @@
 //
-//  CGCardMatchingGameAttribute.m
+//  SCCardAttribute.m
 //  CardGame
 //
 //  Created by PeterWang on 1/14/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGCardMatchingGameAttribute.h"
+#import "SCCardAttribute.h"
 
-@implementation CGCardMatchingGameAttribute
+@implementation SCCardAttribute
 
 - (BOOL)isCardEnable {
-    return !self.matched;
+    return YES;
 }
 
 @end
