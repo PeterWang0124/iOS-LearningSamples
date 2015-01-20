@@ -36,6 +36,10 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	This project take a practice of the Stanford CS193p Lecture 6 form form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	
 	It was practice about analyze attribute string of color and outlined, add navitgation controller, segue to next view controller, add tab bar controller.
+* SuperCard Project - (2015/01/20)  
+	This project take a practice of the Stanford CS193p Lecture 7 form form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
+	
+	It was practice about custom view, custom draw, UI gesture.
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
