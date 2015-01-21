@@ -20,10 +20,20 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gameEndedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *restartButton;
 
 @end
 
 @implementation CGCardGameViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.restartButton.layer.cornerRadius = 5.0;
+    self.restartButton.layer.borderWidth = 2.0;
+    self.restartButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.restartButton.layer.masksToBounds = YES;
+}
 
 - (CGCardMatchingGame *)game {
     if (!_game) {
@@ -44,6 +54,11 @@
     [self updateUI];
 }
 
+- (IBAction)restartButton:(UIButton *)sender {
+    self.game = nil;
+    [self updateUI];
+}
+
 #pragma mark - Other methods
 
 - (void)updateUI {
@@ -56,6 +71,7 @@
     }
 
     self.gameEndedLabel.hidden = !self.game.isGameEnded;
+    self.restartButton.hidden = !self.game.isGameEnded;
     self.scoreLabel.text = [NSString stringWithFormat:@"Score : %zd", self.game.score];
 }
 

@@ -185,6 +185,20 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WWv-gi-H53"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTq-jn-Fiq">
+                                <rect key="frame" x="88" y="348" width="64" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="0mI-Lh-Snq"/>
+                                    <constraint firstAttribute="height" constant="96" id="fJf-p3-qya"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="cardback">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R3h-8s-ft6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Oy-zA-wdk">
                                 <rect key="frame" x="208" y="348" width="64" height="96"/>
                                 <constraints>
@@ -227,15 +241,6 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PMC-Z7-bkn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROy-bW-KJ5">
-                                <rect key="frame" x="21" y="558" width="558" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="EnR-nO-MHt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game End !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9r-CO-uex">
                                 <rect key="frame" x="21" y="529" width="558" height="21"/>
                                 <constraints>
@@ -245,18 +250,28 @@
                                 <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTq-jn-Fiq">
-                                <rect key="frame" x="88" y="348" width="64" height="96"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score : 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROy-bW-KJ5">
+                                <rect key="frame" x="21" y="558" width="558" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="0mI-Lh-Snq"/>
-                                    <constraint firstAttribute="height" constant="96" id="fJf-p3-qya"/>
+                                    <constraint firstAttribute="height" constant="21" id="EnR-nO-MHt"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="cardback">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cs-sR-Vxd">
+                                <rect key="frame" x="499" y="525" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="xpF-yH-J1O"/>
+                                    <constraint firstAttribute="height" constant="30" id="y08-on-2Hh"/>
+                                </constraints>
+                                <state key="normal" title="Restart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R3h-8s-ft6"/>
+                                    <action selector="restartButton" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zND-Xg-8JH"/>
+                                    <action selector="restartButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4iY-2Q-uMh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,6 +282,7 @@
                             <constraint firstAttribute="trailing" secondItem="M9r-CO-uex" secondAttribute="trailing" constant="21" id="4av-qj-Zv6"/>
                             <constraint firstItem="igD-fv-mqB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.4" id="4dt-L2-xek"/>
                             <constraint firstItem="H6v-hD-X8i" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.6" id="4vE-AS-lfh"/>
+                            <constraint firstAttribute="trailing" secondItem="8Cs-sR-Vxd" secondAttribute="trailing" constant="21" id="71I-Th-7Hx"/>
                             <constraint firstItem="5Oy-zA-wdk" firstAttribute="top" secondItem="igD-fv-mqB" secondAttribute="bottom" constant="8" id="7Gw-rk-3MQ"/>
                             <constraint firstItem="kKo-r7-ssy" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="CF2-XD-u0Q"/>
                             <constraint firstItem="kKo-r7-ssy" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.2" id="DFG-ti-B9g"/>
@@ -275,6 +291,7 @@
                             <constraint firstItem="MqB-qF-9tM" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.8" id="EiE-rT-vwl"/>
                             <constraint firstItem="aIn-L2-70y" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="GDv-j3-wne"/>
                             <constraint firstItem="M9r-CO-uex" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="21" id="HiB-Gz-4aB"/>
+                            <constraint firstItem="ROy-bW-KJ5" firstAttribute="top" secondItem="8Cs-sR-Vxd" secondAttribute="bottom" constant="3" id="Hmy-CW-S8t"/>
                             <constraint firstItem="5Oy-zA-wdk" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.4" id="Jqb-hg-g3h"/>
                             <constraint firstItem="gTT-G3-dBe" firstAttribute="top" secondItem="CRE-ro-CCO" secondAttribute="bottom" constant="8" id="K8u-oH-UK5"/>
                             <constraint firstItem="Koa-hG-E6v" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="trailing" multiplier="0.2" id="Krc-Lv-85l"/>
@@ -304,6 +321,7 @@
                     </view>
                     <connections>
                         <outlet property="gameEndedLabel" destination="M9r-CO-uex" id="SCQ-e5-Xv1"/>
+                        <outlet property="restartButton" destination="8Cs-sR-Vxd" id="3Dw-2x-t2F"/>
                         <outlet property="scoreLabel" destination="ROy-bW-KJ5" id="gDC-2i-KFZ"/>
                         <outletCollection property="cardButtons" destination="kKo-r7-ssy" id="VH9-iU-8or"/>
                         <outletCollection property="cardButtons" destination="aIn-L2-70y" id="PwY-oD-aNy"/>

@@ -13,6 +13,7 @@
 		924A25C91A6F733E0061058B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924A25C41A6F733E0061058B /* Images.xcassets */; };
 		924A25CA1A6F733E0061058B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924A25C51A6F733E0061058B /* LaunchScreen.xib */; };
 		924A25CB1A6F733E0061058B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924A25C61A6F733E0061058B /* Main.storyboard */; };
+		924A25CE1A6F7E8A0061058B /* DIDropitBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 924A25CD1A6F7E8A0061058B /* DIDropitBehavior.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		924A25C41A6F733E0061058B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		924A25C51A6F733E0061058B /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		924A25C61A6F733E0061058B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		924A25CC1A6F7E8A0061058B /* DIDropitBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDropitBehavior.h; sourceTree = "<group>"; };
+		924A25CD1A6F7E8A0061058B /* DIDropitBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDropitBehavior.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				924A25C41A6F733E0061058B /* Images.xcassets */,
 				924A25C51A6F733E0061058B /* LaunchScreen.xib */,
 				924A25C61A6F733E0061058B /* Main.storyboard */,
+				924A25CC1A6F7E8A0061058B /* DIDropitBehavior.h */,
+				924A25CD1A6F7E8A0061058B /* DIDropitBehavior.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				924A25CE1A6F7E8A0061058B /* DIDropitBehavior.m in Sources */,
 				924A25C71A6F733E0061058B /* AppDelegate.m in Sources */,
 				924A25991A6F728A0061058B /* main.m in Sources */,
 				924A25C81A6F733E0061058B /* DIMainViewController.m in Sources */,
