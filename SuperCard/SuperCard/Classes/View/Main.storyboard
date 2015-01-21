@@ -28,11 +28,27 @@
                                     <outletCollection property="gestureRecognizers" destination="VxR-Nb-fzU" appends="YES" id="iXQ-6u-U9c"/>
                                 </connections>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-n0-OcG" userLabel="Test Fade In/out">
+                                <rect key="frame" x="268" y="398" width="64" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Adr-KX-CF0"/>
+                                    <constraint firstAttribute="width" constant="64" id="RQG-ed-rhd"/>
+                                </constraints>
+                                <state key="normal" title="Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AaZ-1a-1WO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="NfB-n0-OcG" firstAttribute="top" secondItem="ZvS-dx-Lfg" secondAttribute="bottom" constant="50" id="1Qa-KM-DRt"/>
                             <constraint firstAttribute="centerX" secondItem="ZvS-dx-Lfg" secondAttribute="centerX" id="4tX-Fq-6BR"/>
                             <constraint firstAttribute="centerY" secondItem="ZvS-dx-Lfg" secondAttribute="centerY" id="Iyi-Ir-1iE"/>
+                            <constraint firstItem="NfB-n0-OcG" firstAttribute="centerX" secondItem="ZvS-dx-Lfg" secondAttribute="centerX" id="wsm-EB-8mq"/>
                         </constraints>
                     </view>
                     <connections>
