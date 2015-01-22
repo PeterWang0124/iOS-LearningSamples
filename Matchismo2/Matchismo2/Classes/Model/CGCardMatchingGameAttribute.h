@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "CGCardAttribute.h"
+#import "CGCardGameAttribute.h"
 
-@interface CGCardMatchingGameAttribute : CGCardAttribute
+@interface CGCardMatchingGameAttribute : CGCardGameAttribute
 
 @property (assign, nonatomic, getter=isMatched) BOOL matched;
 

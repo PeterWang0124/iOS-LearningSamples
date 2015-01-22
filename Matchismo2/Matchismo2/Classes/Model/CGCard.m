@@ -10,12 +10,12 @@
 
 @implementation CGCard
 
-- (NSInteger)match:(CGCard *)otherCard {
+- (NSUInteger)match:(CGCard *)otherCard {
     if ([otherCard.content isEqualToString:self.content]) {
-        return 1;
+        return CGCardMatchStatusMatch;
     }
     
-    return 0;
+    return CGCardMatchStatusNone;
 }
 
 @end

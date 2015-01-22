@@ -8,6 +8,12 @@
 
 #import "CGCard.h"
 
+typedef NS_OPTIONS(NSUInteger, CGPlayingCardMatchStatus) {
+    CGPlayingCardMatchStatusNone        = 0,
+    CGPlayingCardMatchStatusSuitMatch   = 1 << 0,
+    CGPlayingCardMatchStatusRankMatch   = 1 << 1,
+};
+
 @interface CGPlayingCard : CGCard
 
 @property (strong, nonatomic) NSString *suit;

@@ -10,7 +10,7 @@
 		925642E51A67B3F300A3A5C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642CC1A67B3F300A3A5C6 /* AppDelegate.m */; };
 		925642E61A67B3F300A3A5C6 /* CGCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642CF1A67B3F300A3A5C6 /* CGCardGameViewController.m */; };
 		925642E71A67B3F300A3A5C6 /* CGCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642D21A67B3F300A3A5C6 /* CGCard.m */; };
-		925642E81A67B3F300A3A5C6 /* CGCardAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642D41A67B3F300A3A5C6 /* CGCardAttribute.m */; };
+		925642E81A67B3F300A3A5C6 /* CGCardGameAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642D41A67B3F300A3A5C6 /* CGCardGameAttribute.m */; };
 		925642E91A67B3F300A3A5C6 /* CGCardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642D61A67B3F300A3A5C6 /* CGCardMatchingGame.m */; };
 		925642EA1A67B3F300A3A5C6 /* CGCardMatchingGameAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642D81A67B3F300A3A5C6 /* CGCardMatchingGameAttribute.m */; };
 		925642EB1A67B3F300A3A5C6 /* CGDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642DA1A67B3F300A3A5C6 /* CGDeck.m */; };
@@ -31,8 +31,8 @@
 		925642CF1A67B3F300A3A5C6 /* CGCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardGameViewController.m; sourceTree = "<group>"; };
 		925642D11A67B3F300A3A5C6 /* CGCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCard.h; sourceTree = "<group>"; };
 		925642D21A67B3F300A3A5C6 /* CGCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCard.m; sourceTree = "<group>"; };
-		925642D31A67B3F300A3A5C6 /* CGCardAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardAttribute.h; sourceTree = "<group>"; };
-		925642D41A67B3F300A3A5C6 /* CGCardAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardAttribute.m; sourceTree = "<group>"; };
+		925642D31A67B3F300A3A5C6 /* CGCardGameAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardGameAttribute.h; sourceTree = "<group>"; };
+		925642D41A67B3F300A3A5C6 /* CGCardGameAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardGameAttribute.m; sourceTree = "<group>"; };
 		925642D51A67B3F300A3A5C6 /* CGCardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardMatchingGame.h; sourceTree = "<group>"; };
 		925642D61A67B3F300A3A5C6 /* CGCardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCardMatchingGame.m; sourceTree = "<group>"; };
 		925642D71A67B3F300A3A5C6 /* CGCardMatchingGameAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCardMatchingGameAttribute.h; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 			children = (
 				925642D11A67B3F300A3A5C6 /* CGCard.h */,
 				925642D21A67B3F300A3A5C6 /* CGCard.m */,
-				925642D31A67B3F300A3A5C6 /* CGCardAttribute.h */,
-				925642D41A67B3F300A3A5C6 /* CGCardAttribute.m */,
+				925642D31A67B3F300A3A5C6 /* CGCardGameAttribute.h */,
+				925642D41A67B3F300A3A5C6 /* CGCardGameAttribute.m */,
 				925642D51A67B3F300A3A5C6 /* CGCardMatchingGame.h */,
 				925642D61A67B3F300A3A5C6 /* CGCardMatchingGame.m */,
 				925642D71A67B3F300A3A5C6 /* CGCardMatchingGameAttribute.h */,
@@ -228,7 +228,7 @@
 				925642F21A67B3F300A3A5C6 /* main.m in Sources */,
 				925642E91A67B3F300A3A5C6 /* CGCardMatchingGame.m in Sources */,
 				925642ED1A67B3F300A3A5C6 /* CGPlayingCardDeck.m in Sources */,
-				925642E81A67B3F300A3A5C6 /* CGCardAttribute.m in Sources */,
+				925642E81A67B3F300A3A5C6 /* CGCardGameAttribute.m in Sources */,
 				925642EC1A67B3F300A3A5C6 /* CGPlayingCard.m in Sources */,
 				925642E51A67B3F300A3A5C6 /* AppDelegate.m in Sources */,
 				925642F51A67B95C00A3A5C6 /* CGPlayingCardGameViewController.m in Sources */,

@@ -43,21 +43,21 @@
     return [[CGPlayingCard rankString][self.rank] stringByAppendingString:self.suit];
 }
 
-- (NSInteger)match:(CGCard *)otherCard {
-    NSInteger matchScore = 0;
+- (NSUInteger)match:(CGCard *)otherCard {
+    NSUInteger matchStatus = CGPlayingCardMatchStatusNone;
     
     if ([otherCard isKindOfClass:[CGPlayingCard class]]) {
         CGPlayingCard *otherPlayingCard = (CGPlayingCard *)otherCard;
         if (otherPlayingCard.rank == self.rank) {
-            matchScore += 2;
+            matchStatus |= CGPlayingCardMatchStatusRankMatch;
         }
         
         if ([otherPlayingCard.suit isEqualToString:self.suit]) {
-            matchScore += 1;
+            matchStatus |= CGPlayingCardMatchStatusSuitMatch;
         }
     }
     
-    return matchScore;
+    return matchStatus;
 }
 
 @end

@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class CGCardAttribute;
+typedef NS_OPTIONS(NSUInteger, CGCardMatchStatus) {
+    CGCardMatchStatusNone       = 0,
+    CGCardMatchStatusMatch      = 1 << 0,
+};
+
+@class CGCardGameAttribute;
 
 @interface CGCard : NSObject
 
 @property (strong, nonatomic) NSString *content;
-@property (strong, nonatomic) CGCardAttribute *attribute;
+@property (strong, nonatomic) CGCardGameAttribute *attribute;
 
-- (NSInteger)match:(CGCard *)otherCard;
+- (NSUInteger)match:(CGCard *)otherCard;
 
 @end

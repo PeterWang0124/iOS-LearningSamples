@@ -9,18 +9,20 @@
 #import "CGCardGameViewController.h"
 
 //Model
-#import "CGCardAttribute.h"
+#import "CGCardGameAttribute.h"
 #import "CGCard.h"
 #import "CGDeck.h"
 #import "CGCardMatchingGame.h"
 
 @interface CGCardGameViewController ()
 
+@property (assign, nonatomic) CGCardMatchingGameMode gameMode;
 @property (strong, nonatomic) CGCardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gameEndedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *restartButton;
+@property (weak, nonatomic) IBOutlet UIButton *matchModeButton;
 
 @end
 
@@ -33,11 +35,16 @@
     self.restartButton.layer.borderWidth = 2.0;
     self.restartButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.restartButton.layer.masksToBounds = YES;
+    
+    self.matchModeButton.layer.cornerRadius = 5.0;
+    self.matchModeButton.layer.borderWidth = 2.0;
+    self.matchModeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.matchModeButton.layer.masksToBounds = YES;
 }
 
 - (CGCardMatchingGame *)game {
     if (!_game) {
-        _game = [[CGCardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+        _game = [[CGCardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck] matchMode:self.gameMode];
     }
     return _game;
 }
@@ -57,6 +64,27 @@
 - (IBAction)restartButton:(UIButton *)sender {
     self.game = nil;
     [self updateUI];
+}
+
+- (IBAction)changeMatchModeButton:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Change Match Mode" message:@"Choose the match mode.(WARNING : It will restart the game!!)" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *twoMatchModeAction = [UIAlertAction actionWithTitle:@"Two Cards Match Mode" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.gameMode = CGCardMatchingGameModeTwoCardsMatch;
+        self.game = nil;
+        [self updateUI];
+    }];
+    UIAlertAction *threeMatchModeAction = [UIAlertAction actionWithTitle:@"Three Cards Match Mode" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        self.gameMode = CGCardMatchingGameModeThreeCardsMatch;
+        self.game = nil;
+        [self updateUI];
+    }];
+    
+    [alert addAction:cancelAction];
+    [alert addAction:twoMatchModeAction];
+    [alert addAction:threeMatchModeAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Other methods
