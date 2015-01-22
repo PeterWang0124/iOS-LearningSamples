@@ -34,7 +34,9 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	[2015/01/16]  
 	It was practice about polymorphism with controllers, change the class of a controller in a storyboard.  
 	[2015/01/21]  
-	Add re-start button to re-start the game.
+	Add re-start button to re-start the game.  
+	[2015/01/22]  
+	Assign “2-card-match mode” vs. “3-card-match mode”.
 	
 * Attributor2 Project - (2015/01/16)  
 	This project take a practice of the Stanford CS193p Lecture 6 form form iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
