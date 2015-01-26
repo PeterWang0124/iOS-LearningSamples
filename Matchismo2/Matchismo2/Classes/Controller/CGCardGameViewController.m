@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *gameEndedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *restartButton;
 @property (weak, nonatomic) IBOutlet UIButton *matchModeButton;
+@property (weak, nonatomic) IBOutlet UILabel *modeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gameHistoryTitleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *gameHistoryTextView;
 
 @end
 
@@ -40,6 +43,17 @@
     self.matchModeButton.layer.borderWidth = 2.0;
     self.matchModeButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.matchModeButton.layer.masksToBounds = YES;
+    
+    self.modeLabel.text = [CGCardMatchingGame gameModeAsString:self.gameMode];
+    
+    self.gameHistoryTitleLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Game History" attributes:@{NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle)}];
+    self.gameHistoryTextView.layer.cornerRadius = 5.0;
+    self.gameHistoryTextView.layer.borderWidth = 2.0;
+    self.gameHistoryTextView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.gameHistoryTextView.layer.masksToBounds = YES;
+    self.gameHistoryTextView.attributedText = self.game.history;
+    
+    self.scoreLabel.text = [self.game scoreAsString];
 }
 
 - (CGCardMatchingGame *)game {
@@ -51,6 +65,11 @@
 
 - (CGDeck *)createDeck {
     return nil;
+}
+
+- (void)setGameMode:(CGCardMatchingGameMode)gameMode {
+    _gameMode = gameMode;
+    self.modeLabel.text = [CGCardMatchingGame gameModeAsString:_gameMode];
 }
 
 #pragma mark - IBAction
@@ -81,8 +100,12 @@
     }];
     
     [alert addAction:cancelAction];
-    [alert addAction:twoMatchModeAction];
-    [alert addAction:threeMatchModeAction];
+    if (self.gameMode != CGCardMatchingGameModeTwoCardsMatch || self.game.status == CGCardMatchingGameStatusPrepareStart) {
+        [alert addAction:twoMatchModeAction];
+    }
+    if (self.gameMode != CGCardMatchingGameModeThreeCardsMatch || self.game.status == CGCardMatchingGameStatusPrepareStart) {
+        [alert addAction:threeMatchModeAction];
+    }
     
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -98,9 +121,28 @@
         button.enabled = [card.attribute isCardEnable];
     }
 
-    self.gameEndedLabel.hidden = !self.game.isGameEnded;
-    self.restartButton.hidden = !self.game.isGameEnded;
-    self.scoreLabel.text = [NSString stringWithFormat:@"Score : %zd", self.game.score];
+    self.gameEndedLabel.hidden = (self.game.status != CGCardMatchingGameStatusEnded);
+    self.restartButton.hidden = (self.game.status != CGCardMatchingGameStatusEnded);
+    self.scoreLabel.text = [self.game scoreAsString];
+    
+    NSLog(@"%@", NSStringFromCGSize(self.gameHistoryTextView.contentSize));
+    NSLog(@"%@", NSStringFromCGRect(self.gameHistoryTextView.bounds));
+    
+    self.gameHistoryTextView.attributedText = self.game.history;
+    
+    NSLog(@"%@", NSStringFromCGSize(self.gameHistoryTextView.contentSize));
+    NSLog(@"%@", NSStringFromCGRect(self.gameHistoryTextView.bounds));
+
+//    CGPoint offset = self.gameHistoryTextView.contentOffset;
+//    NSLog(@"%@", NSStringFromCGPoint(offset));
+    
+//    CGPoint offset = CGPointMake(0.0, self.gameHistoryTextView.contentSize.height - CGRectGetHeight(self.gameHistoryTextView.bounds));
+//    NSLog(@"%@", NSStringFromCGPoint(offset));
+//    [self.gameHistoryTextView setContentOffset:offset animated:YES];
+    
+//    NSRange range = NSMakeRange(self.game.history.length, 0);
+//    [self.gameHistoryTextView scrollRangeToVisible:range];
+//    NSLog(@"%@", NSStringFromCGPoint(offset));
 }
 
 - (NSString *)titleForCard:(CGCard *)card {

@@ -7,6 +7,7 @@
 //
 
 #import "CGCardMatchingGame.h"
+#import <UIKit/UIKit.h>
 
 //Model
 #import "CGDeck.h"
@@ -21,11 +22,28 @@ static const NSInteger CGChooseCost = 1;
 
 @property (assign, nonatomic, readwrite) NSInteger score;
 @property (assign, nonatomic, readwrite) CGCardMatchingGameMode mode;
+@property (assign, nonatomic, readwrite) CGCardMatchingGameStatus status;
+@property (strong, nonatomic, readwrite) NSMutableAttributedString *history;
 @property (strong, nonatomic) NSMutableArray *cards;
+
+@property (strong, nonatomic) NSMutableParagraphStyle *historyParagraph;
+@property (weak, nonatomic) UIFont *historyFont;
 
 @end
 
 @implementation CGCardMatchingGame
+
++ (NSString *)gameModeAsString:(CGCardMatchingGameMode)mode {
+    if (mode == CGCardMatchingGameModeTwoCardsMatch) {
+        return @"2-card-match mode";
+    }
+    else if (mode == CGCardMatchingGameModeThreeCardsMatch) {
+        return @"3-card-match mode";
+    }
+    else {
+        return @"Unknown Mode!";
+    }
+}
 
 - (NSMutableArray *)cards {
     if (!_cards) {
@@ -37,7 +55,15 @@ static const NSInteger CGChooseCost = 1;
 - (instancetype)initWithCardCount:(NSUInteger)cardCount usingDeck:(CGDeck *)usingDeck matchMode:(CGCardMatchingGameMode)mode {
     self = [super init];
     if (self) {
+        self.status = CGCardMatchingGameStatusPrepareStart;
         self.mode = mode;
+        self.history = [[NSMutableAttributedString alloc] init];
+        
+        self.historyFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        self.historyFont = [self.historyFont fontWithSize:14];
+        self.historyParagraph = [[NSMutableParagraphStyle alloc] init];
+        self.historyParagraph.alignment = NSTextAlignmentCenter;
+        
         for (NSUInteger i = 0; i < cardCount; i++) {
             CGCard *card = [usingDeck drawRandomCard];
             if (card) {
@@ -55,13 +81,21 @@ static const NSInteger CGChooseCost = 1;
 }
 
 - (void)chooseCardAtIndex:(NSUInteger)index {
-    if (self.isGameEnded) {
+    if ((self.status == CGCardMatchingGameStatusEnded)) {
         return;
     }
+    NSString *tmpString = nil;
+    NSAttributedString *tmpAttributedString = nil;
     
     CGCard *currentCard = [self cardAtIndex:index];
     CGCardMatchingGameAttribute *currentAttribute = (CGCardMatchingGameAttribute *)currentCard.attribute;
     if (!currentAttribute.isMatched) {
+        //Game Start!!
+        if (self.status == CGCardMatchingGameStatusPrepareStart) {
+            self.status = CGCardMatchingGameStatusStart;
+//            [self.history appendAttributedString:[[NSAttributedString alloc] initWithString:@"Game Start!!" attributes:@{NSFontAttributeName : self.historyFont, NSParagraphStyleAttributeName : self.historyParagraph, NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle)}]];
+        }
+        
         //If chosen, set to not chosen.
         //If not chosen, set to chosen.
         currentAttribute.chosen = !currentAttribute.isChosen;
@@ -69,6 +103,16 @@ static const NSInteger CGChooseCost = 1;
         if (currentAttribute.isChosen) {
             //When choose, subtract the choose score.
             self.score -= CGChooseCost;
+            tmpString = [NSString stringWithFormat:@"Choose %@\tcost ", currentCard.content];
+            tmpAttributedString = [[NSAttributedString alloc] initWithString:tmpString attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+            [self.history appendAttributedString:tmpAttributedString];
+            
+            tmpString = [NSString stringWithFormat:@"-%zd points", CGChooseCost];
+            tmpAttributedString = [[NSAttributedString alloc] initWithString:tmpString attributes:@{NSForegroundColorAttributeName : [UIColor redColor]}];
+            [self.history appendAttributedString:tmpAttributedString];
+            
+            tmpAttributedString = [[NSAttributedString alloc] initWithString:@".\n" attributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
+            [self.history appendAttributedString:tmpAttributedString];
         
             //Get the chosen cards.
             NSMutableArray *chosenCards = [[NSMutableArray alloc] init];
@@ -108,7 +152,7 @@ static const NSInteger CGChooseCost = 1;
         }
         
         if (![self matchCombinationWithCards:unmatchCards]) {
-            self.gameEnded = YES;
+            self.status = CGCardMatchingGameStatusEnded;
             for (CGCard *card in self.cards) {
                 CGCardMatchingGameAttribute *attribute = (CGCardMatchingGameAttribute *)card.attribute;
                 attribute.chosen = YES;
@@ -167,6 +211,10 @@ static const NSInteger CGChooseCost = 1;
 
 - (CGCard *)cardAtIndex:(NSUInteger)index {
     return (index < [self.cards count]) ? self.cards[index] : nil;
+}
+
+- (NSString *)scoreAsString {
+    return [NSString stringWithFormat:@"Score : %zd", self.score];
 }
 
 @end

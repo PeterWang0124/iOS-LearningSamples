@@ -19,7 +19,6 @@
 		925642EE1A67B3F300A3A5C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925642E01A67B3F300A3A5C6 /* Images.xcassets */; };
 		925642EF1A67B3F300A3A5C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925642E11A67B3F300A3A5C6 /* LaunchScreen.xib */; };
 		925642F01A67B3F300A3A5C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 925642E21A67B3F300A3A5C6 /* Main.storyboard */; };
-		925642F11A67B3F300A3A5C6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 925642E31A67B3F300A3A5C6 /* Info.plist */; };
 		925642F21A67B3F300A3A5C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642E41A67B3F300A3A5C6 /* main.m */; };
 		925642F51A67B95C00A3A5C6 /* CGPlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925642F41A67B95C00A3A5C6 /* CGPlayingCardGameViewController.m */; };
 /* End PBXBuildFile section */
@@ -211,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				925642F11A67B3F300A3A5C6 /* Info.plist in Resources */,
 				925642F01A67B3F300A3A5C6 /* Main.storyboard in Resources */,
 				925642EF1A67B3F300A3A5C6 /* LaunchScreen.xib in Resources */,
 				925642EE1A67B3F300A3A5C6 /* Images.xcassets in Resources */,
