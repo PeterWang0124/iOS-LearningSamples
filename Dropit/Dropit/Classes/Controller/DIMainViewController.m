@@ -69,7 +69,6 @@ static const CGSize DIDropSize = {40, 40};
 
 - (IBAction)pan:(UIPanGestureRecognizer *)sender {
     CGPoint gesturePoint = [sender locationInView:self.gameView];
-    gesturePoint = [self pointToLineUpWithPoint:gesturePoint];
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self attachDroppingViewToPoint:gesturePoint];
     }
