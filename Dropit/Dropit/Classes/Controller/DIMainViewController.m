@@ -10,14 +10,17 @@
 
 //View
 #import "DIDropitBehavior.h"
+#import "DIBezierPathView.h"
 
 static const CGSize DIDropSize = {40, 40};
 
 @interface DIMainViewController () <UIDynamicAnimatorDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *gameView;
+@property (weak, nonatomic) IBOutlet DIBezierPathView *gameView;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) DIDropitBehavior *dropitBehavior;
+@property (strong, nonatomic) UIAttachmentBehavior *attachment;
+@property (strong, nonatomic) UIView *droppingView;
 
 @end
 
@@ -64,15 +67,30 @@ static const CGSize DIDropSize = {40, 40};
     [self drop];
 }
 
+- (IBAction)pan:(UIPanGestureRecognizer *)sender {
+    CGPoint gesturePoint = [sender locationInView:self.gameView];
+    gesturePoint = [self pointToLineUpWithPoint:gesturePoint];
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        [self attachDroppingViewToPoint:gesturePoint];
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged) {
+        self.attachment.anchorPoint = gesturePoint;
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded) {
+        [self.animator removeBehavior:self.attachment];
+        self.gameView.path = nil;
+    }
+}
+
 #pragma mark - Game Method
 
 - (void)drop {
     CGRect dropViewFrame;
     dropViewFrame.size = DIDropSize;
-    NSInteger x = (arc4random() % (NSInteger)CGRectGetWidth(self.gameView.bounds)) / DIDropSize.width;
-    dropViewFrame.origin.x = MIN(MAX(x * DIDropSize.width, 0), CGRectGetWidth(self.gameView.bounds) - DIDropSize.width);
+    dropViewFrame.origin = [self pointToLineUpWithPoint:CGPointMake(arc4random() % (NSInteger)CGRectGetWidth(self.gameView.bounds), 0)];
     
     UIView *dropView = [[UIView alloc] initWithFrame:dropViewFrame];
+    self.droppingView = dropView;
     dropView.backgroundColor = [self randomColor];
     [self.gameView addSubview:dropView];
     [self.dropitBehavior addItem:dropView];
@@ -95,15 +113,35 @@ static const CGSize DIDropSize = {40, 40};
     return [UIColor blackColor];
 }
 
+- (CGPoint)pointToLineUpWithPoint:(CGPoint)unalignPoint {
+    CGPoint alignPoint = unalignPoint;
+    NSInteger x = unalignPoint.x / DIDropSize.width;
+    alignPoint.x = MIN(MAX(x * DIDropSize.width, 0), CGRectGetWidth(self.gameView.bounds) - DIDropSize.width);
+    
+    return alignPoint;
+}
+
+- (void)attachDroppingViewToPoint:(CGPoint)anchorPoint {
+    if (self.droppingView) {
+        self.attachment = [[UIAttachmentBehavior alloc] initWithItem:self.droppingView attachedToAnchor:anchorPoint];
+        
+        __weak DIMainViewController *weakSelf = self;
+        UIView *droppingView = self.droppingView;
+        self.attachment.action = ^(void) {
+            UIBezierPath *path = [[UIBezierPath alloc] init];
+            [path moveToPoint:weakSelf.attachment.anchorPoint];
+            [path addLineToPoint:droppingView.center];  //can't use self.droppingView cause we set nil later.
+            weakSelf.gameView.path = path;
+        };
+        self.droppingView = nil;
+        [self.animator addBehavior:self.attachment];
+    }
+}
+
 #pragma mark - UIDynamicAnimatorDelegate
 
 - (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator {
-    NSLog(@"dynamicAnimatorDidPause");
     [self removeCompleteRows];
-}
-
-- (void)dynamicAnimatorWillResume:(UIDynamicAnimator *)animator {
-    NSLog(@"dynamicAnimatorWillResume");
 }
 
 - (BOOL)removeCompleteRows {
