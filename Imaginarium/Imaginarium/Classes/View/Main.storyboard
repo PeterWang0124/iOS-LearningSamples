@@ -94,12 +94,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sgf-SW-S2R" firstAttribute="bottom" secondItem="MLt-aL-VWO" secondAttribute="top" id="Alm-7u-ykk"/>
                             <constraint firstAttribute="centerX" secondItem="bA4-I7-aii" secondAttribute="centerX" id="BYz-SR-8NP"/>
-                            <constraint firstItem="sgf-SW-S2R" firstAttribute="leading" secondItem="KMn-7r-sQh" secondAttribute="leading" id="Tsv-7B-4cT"/>
+                            <constraint firstItem="sgf-SW-S2R" firstAttribute="top" secondItem="Qbe-Ym-Jo6" secondAttribute="bottom" id="Bi5-op-rC5"/>
+                            <constraint firstItem="sgf-SW-S2R" firstAttribute="leading" secondItem="KMn-7r-sQh" secondAttribute="leading" id="Oe1-Ov-hwu"/>
+                            <constraint firstAttribute="trailing" secondItem="sgf-SW-S2R" secondAttribute="trailing" id="SN5-j6-3oF"/>
                             <constraint firstAttribute="centerY" secondItem="bA4-I7-aii" secondAttribute="centerY" id="XL8-Bd-Y6X"/>
-                            <constraint firstAttribute="trailing" secondItem="sgf-SW-S2R" secondAttribute="trailing" id="eTC-LG-Qjx"/>
-                            <constraint firstItem="sgf-SW-S2R" firstAttribute="top" secondItem="Qbe-Ym-Jo6" secondAttribute="top" id="q8I-J5-i3T"/>
+                            <constraint firstItem="MLt-aL-VWO" firstAttribute="top" secondItem="sgf-SW-S2R" secondAttribute="bottom" id="ut1-4a-jSG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jhx-41-5fs"/>

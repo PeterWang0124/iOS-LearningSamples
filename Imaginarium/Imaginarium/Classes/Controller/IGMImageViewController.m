@@ -74,6 +74,7 @@
     
     //Cause set scroll view may call after set image.
     self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
+    self.scrollView.contentOffset = CGPointZero;
 }
 
 - (void)startDownloadImage {
