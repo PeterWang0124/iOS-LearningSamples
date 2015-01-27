@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		92BD78B61A763CCB00B67ACD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD78B51A763CCB00B67ACD /* main.m */; };
 		92BD78E41A763D2400B67ACD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD78DB1A763D2400B67ACD /* AppDelegate.m */; };
-		92BD78E51A763D2400B67ACD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD78DE1A763D2400B67ACD /* ViewController.m */; };
+		92BD78E51A763D2400B67ACD /* IGMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD78DE1A763D2400B67ACD /* IGMMainViewController.m */; };
 		92BD78E61A763D2400B67ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BD78E11A763D2400B67ACD /* Images.xcassets */; };
 		92BD78E71A763D2400B67ACD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92BD78E21A763D2400B67ACD /* LaunchScreen.xib */; };
 		92BD78E81A763D2400B67ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BD78E31A763D2400B67ACD /* Main.storyboard */; };
+		92BD78EB1A763F7100B67ACD /* IGMImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BD78EA1A763F7100B67ACD /* IGMImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,13 @@
 		92BD78B51A763CCB00B67ACD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92BD78DA1A763D2400B67ACD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92BD78DB1A763D2400B67ACD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		92BD78DD1A763D2400B67ACD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		92BD78DE1A763D2400B67ACD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		92BD78DD1A763D2400B67ACD /* IGMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMMainViewController.h; sourceTree = "<group>"; };
+		92BD78DE1A763D2400B67ACD /* IGMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMMainViewController.m; sourceTree = "<group>"; };
 		92BD78E11A763D2400B67ACD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92BD78E21A763D2400B67ACD /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		92BD78E31A763D2400B67ACD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		92BD78E91A763F7100B67ACD /* IGMImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMImageViewController.h; sourceTree = "<group>"; };
+		92BD78EA1A763F7100B67ACD /* IGMImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +91,10 @@
 		92BD78DC1A763D2400B67ACD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92BD78DD1A763D2400B67ACD /* ViewController.h */,
-				92BD78DE1A763D2400B67ACD /* ViewController.m */,
+				92BD78DD1A763D2400B67ACD /* IGMMainViewController.h */,
+				92BD78DE1A763D2400B67ACD /* IGMMainViewController.m */,
+				92BD78E91A763F7100B67ACD /* IGMImageViewController.h */,
+				92BD78EA1A763F7100B67ACD /* IGMImageViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,7 +188,8 @@
 			files = (
 				92BD78E41A763D2400B67ACD /* AppDelegate.m in Sources */,
 				92BD78B61A763CCB00B67ACD /* main.m in Sources */,
-				92BD78E51A763D2400B67ACD /* ViewController.m in Sources */,
+				92BD78EB1A763F7100B67ACD /* IGMImageViewController.m in Sources */,
+				92BD78E51A763D2400B67ACD /* IGMMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
