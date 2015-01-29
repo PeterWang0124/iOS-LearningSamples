@@ -57,6 +57,11 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	This project take a practice of Stanford CS193P Lecture 10 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
 	
 	It was practice about get image from NSURL, NSURLRequest to download image by another thread, dispatch to main thread.
+* Shutterbug Project - (2015/01/29)  
+	This project take a practice of Stanford CS193P Lecture 11 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
+	
+	It was practice about UITableView, Flickr fetch the photos, universal application, UISplitViewController, UIRefreshControl.  
+	In universal application, I use universal storyboard to practice. So it would be some differences of lecture.
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
