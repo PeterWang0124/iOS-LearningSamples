@@ -22,14 +22,22 @@
     [self fetchPhotos];
 }
 
-#pragma mark - Methods
+#pragma mark - IBAction
 
-- (void)fetchPhotos {
+- (IBAction)fetchPhotos {
+    [self.refreshControl beginRefreshing];
     NSURL *url = [FlickrFetcher URLforRecentGeoreferencedPhotos];
-    NSData *jsonData = [NSData dataWithContentsOfURL:url];
-    NSDictionary *propList = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:NULL];
-    NSArray *photos = [propList valueForKeyPath:FLICKR_RESULTS_PHOTOS];
-    self.photos = photos;
+    dispatch_queue_t fetchQ = dispatch_queue_create("flickr fetcher", NULL);
+    dispatch_async(fetchQ, ^{
+        NSData *jsonData = [NSData dataWithContentsOfURL:url];
+        NSDictionary *propList = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:NULL];
+        NSArray *photos = [propList valueForKeyPath:FLICKR_RESULTS_PHOTOS];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+            self.photos = photos; //Note : no need to use weak self, cause dispatch hold self strongly, but self not hold dispatch strongly.
+        });
+    });
 }
 
 @end

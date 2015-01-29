@@ -53,6 +53,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Shutterbug" id="DmU-Vn-vR7"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="AkB-zP-YCz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="fetchPhotos" destination="x9u-ag-0S2" eventType="valueChanged" id="clA-wT-q1t"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFS-XU-jAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -61,7 +67,7 @@
         <!--Image View Controller-->
         <scene sceneID="yTg-yg-9zz">
             <objects>
-                <viewController storyboardIdentifier="ImageViewController" id="wVl-zn-Hto" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageViewController" automaticallyAdjustsScrollViewInsets="NO" id="wVl-zn-Hto" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="56W-bI-3Yc"/>
                         <viewControllerLayoutGuide type="bottom" id="vY4-zV-vUA"/>

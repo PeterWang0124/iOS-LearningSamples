@@ -70,8 +70,8 @@
 
 - (void)setupUI {
     //Set scroll view zoom scale.
-    CGFloat widthScale = self.image ? CGRectGetWidth(_scrollView.bounds) / self.image.size.width : 1.0;
-    CGFloat heightScale = self.image ? CGRectGetHeight(_scrollView.bounds) / self.image.size.height : 1.0;
+    CGFloat widthScale = self.image ? CGRectGetWidth(self.scrollView.bounds) / self.image.size.width : 1.0;
+    CGFloat heightScale = self.image ? CGRectGetHeight(self.scrollView.bounds) / self.image.size.height : 1.0;
     CGFloat minScale = MIN(widthScale, heightScale);
     self.scrollView.zoomScale = 1.0;
     self.scrollView.minimumZoomScale = (minScale < 1.0) ? minScale : 1.0;
@@ -111,13 +111,6 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"frame : %@", NSStringFromCGRect(scrollView.frame));
-    NSLog(@"bounds : %@", NSStringFromCGRect(scrollView.bounds));
-    NSLog(@"content size : %@", NSStringFromCGSize(scrollView.contentSize));
-    NSLog(@"content offset : %@", NSStringFromCGPoint(scrollView.contentOffset));
 }
 
 @end
