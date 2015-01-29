@@ -62,6 +62,9 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	
 	It was practice about UITableView, Flickr fetch the photos, universal application, UISplitViewController, UIRefreshControl.  
 	In universal application, I use universal storyboard to practice. So it would be some differences of lecture.
+	
+	[2015/01/29]  
+	Take off Flickr API Key. If you want to run this project, please go Flickr to obtain [Flickr API Key](https://www.flickr.com/services/api/misc.api_keys.html).
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
