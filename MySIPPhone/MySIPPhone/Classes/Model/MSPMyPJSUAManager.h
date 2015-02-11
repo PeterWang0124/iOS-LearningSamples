@@ -10,33 +10,41 @@
 
 #define TRANSPORTID_NONE -1
 
-typedef NS_OPTIONS(NSUInteger, MSPMyPjsuaManagerInitStatus) {
-    MSPMyPjsuaManagerInitStatusNone             = 0,
-    MSPMyPjsuaManagerInitStatusInitedPjsua      = 1 << 0,
-    MSPMyPjsuaManagerInitStatusInitedTransport  = 1 << 1,
-    MSPMyPjsuaManagerInitStatusStartedPjsua     = 1 << 2,
+typedef NS_OPTIONS(NSUInteger, MSPMyPjsuaManagerStatus) {
+    MSPMyPjsuaManagerStatusNone                 = 0,
+    MSPMyPjsuaManagerStatusInitedPjsua          = 1 << 0,
+    MSPMyPjsuaManagerStatusInitedTransport      = 1 << 1,
+    MSPMyPjsuaManagerStatusStartedPjsua         = 1 << 2,
+    
+    MSPMyPjsuaManagerStatusRegisterredSipServer = 1 << 3,
 };
 
 typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
-    MSPMyPJSUAManagerResultSuccess              = 0,
+    MSPMyPjsuaManagerResultSuccess              = 0,
     
     //Pjsua Init Error Code.
-    MSPMyPJSUAManagerResultCreatePjsuaError,
-    MSPMyPJSUAManagerResultInitPjsuaError,
-    MSPMyPJSUAManagerResultPjsuaNotInitedError,
+    MSPMyPjsuaManagerResultCreatePjsuaError,
+    MSPMyPjsuaManagerResultInitPjsuaError,
+    MSPMyPjsuaManagerResultPjsuaNotInitedError,
     
     //Pjsua Start Error Code.
-    MSPMyPJSUAManagerResultStartPjsuaError,
+    MSPMyPjsuaManagerResultStartPjsuaError,
     
     //Transport Error Code.
-    MSPMyPJSUAManagerResultCreateTransportError,
-    MSPMyPJSUAManagerResultCreateTransportUDPError,
-    MSPMyPJSUAManagerResultCreateTransportTCPError,
+    MSPMyPjsuaManagerResultCreateTransportError,
+    MSPMyPjsuaManagerResultCreateTransportUDPError,
+    MSPMyPjsuaManagerResultCreateTransportTCPError,
+    
+    //Register Sip Server Error Code.
+    MSPMyPjsuaManagerResultRegisterSipServerError,
+    
+    //Make Call Error Code.
+    MSPMyPjsuaManagerResultMakeCallError,
 };
 
 @interface MSPMyPjsuaManager : NSObject
 
-@property (assign, nonatomic, readonly) MSPMyPjsuaManagerInitStatus initStatus;
+@property (assign, nonatomic, readonly) MSPMyPjsuaManagerStatus initStatus;
 
 + (instancetype)sharedManager;
 
@@ -46,5 +54,8 @@ typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
 - (MSPMyPjsuaManagerResult)initPjsua;
 - (MSPMyPjsuaManagerResult)initPjsuaTransport;
 - (MSPMyPjsuaManagerResult)startPjsua;
+
+- (MSPMyPjsuaManagerResult)registerSipServer;
+- (MSPMyPjsuaManagerResult)makeCall;
 
 @end

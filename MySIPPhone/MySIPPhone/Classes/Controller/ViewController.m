@@ -37,4 +37,12 @@
     [[MSPMyPjsuaManager sharedManager] startPjsua];
 }
 
+- (IBAction)registerSipServerButton:(id)sender {
+    [[MSPMyPjsuaManager sharedManager] registerSipServer];
+}
+
+- (IBAction)makeCallButton:(id)sender {
+    [[MSPMyPjsuaManager sharedManager] makeCall];
+}
+
 @end

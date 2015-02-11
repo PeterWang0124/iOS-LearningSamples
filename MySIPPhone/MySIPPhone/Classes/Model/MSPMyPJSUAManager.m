@@ -10,9 +10,22 @@
 #import <pjlib.h>
 #import <pjsua.h>
 
-@interface MSPMyPjsuaManager ()
+//NSString const * sipUser = @"102";
+//NSString const * sipPassword = @"102";
+NSString const * sipUser = @"1002";
+NSString const * sipPassword = @"1234";
+//NSString const * sipDomain = @"10.2.0.45";
+NSString const * sipDomain = @"10.2.0.56";
+NSString const * sipCallToUser = @"1001";
 
-@property (assign, nonatomic, readwrite) MSPMyPjsuaManagerInitStatus initStatus;
+@interface MSPMyPjsuaManager () {
+    pj_pool_t *appPool;
+    pj_pool_t *tmpPool;
+    
+    pjsua_acc_id pjsuaAccountId;
+}
+
+@property (assign, nonatomic, readwrite) MSPMyPjsuaManagerStatus initStatus;
 
 @end
 
@@ -32,7 +45,7 @@
     self = [super init];
     
     if (self) {
-        self.initStatus = MSPMyPjsuaManagerInitStatusNone;
+        self.initStatus = MSPMyPjsuaManagerStatusNone;
     }
     
     return self;
@@ -43,25 +56,27 @@
 }
 
 - (void)releasePjsua {
+    pj_pool_release(appPool);
+    pj_pool_release(tmpPool);
     pjsua_destroy();
     
-    self.initStatus = MSPMyPjsuaManagerInitStatusNone;
+    self.initStatus = MSPMyPjsuaManagerStatusNone;
 }
 
 #pragma mark - Register Process Method
 
 - (void)start {
     MSPMyPjsuaManagerResult result = [self initPjsua];
-    if (result != MSPMyPJSUAManagerResultSuccess) {
+    if (result != MSPMyPjsuaManagerResultSuccess) {
         return;
     }
 }
 
 - (MSPMyPjsuaManagerResult)initPjsua {
-    if ((self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua) ||
-        (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua)) {
+    if ((self.initStatus & MSPMyPjsuaManagerStatusInitedPjsua) ||
+        (self.initStatus & MSPMyPjsuaManagerStatusStartedPjsua)) {
         NSLog(@"Pjsua is inited or running!!");
-        return MSPMyPJSUAManagerResultSuccess;
+        return MSPMyPjsuaManagerResultSuccess;
     }
     
     pj_status_t status;
@@ -71,17 +86,77 @@
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_create()", status);
         [self releasePjsua];
-        return MSPMyPJSUAManagerResultCreatePjsuaError;
+        return MSPMyPjsuaManagerResultCreatePjsuaError;
     }
     
+    //Create pool for application.
+//    appPool = pjsua_pool_create("pjsua-app", 1000, 1000);
+//    tmpPool = pjsua_pool_create("pjsua-tmp", 1000, 1000);
+    
+    //Set up configs.
     pjsua_config cfg;
     pjsua_logging_config log_cfg;
     
     pjsua_config_default(&cfg);
-    cfg.cb.on_incoming_call = &on_incoming_call;
-    cfg.cb.on_call_media_state = &on_call_media_state;
-    cfg.cb.on_call_state = &on_call_state;
     
+    //Init pjsua callbacks.
+    cfg.cb.on_call_state                    = &on_call_state;
+    cfg.cb.on_incoming_call                 = &on_incoming_call;
+    
+    cfg.cb.on_call_tsx_state                = &on_call_tsx_state;
+    cfg.cb.on_call_media_state              = &on_call_media_state;
+    cfg.cb.on_call_sdp_created              = &on_call_sdp_created;
+    
+    cfg.cb.on_stream_created                = &on_stream_created;
+    cfg.cb.on_stream_destroyed              = &on_stream_destroyed;
+    
+    cfg.cb.on_dtmf_digit                    = &on_dtmf_digit;
+    
+    cfg.cb.on_call_transfer_request         = &on_call_transfer_request;
+    cfg.cb.on_call_transfer_request2        = &on_call_transfer_request2;
+    cfg.cb.on_call_transfer_status          = &on_call_transfer_status;
+    
+    cfg.cb.on_call_replace_request          = &on_call_replace_request;
+    cfg.cb.on_call_replace_request2         = &on_call_replace_request2;
+    cfg.cb.on_call_replaced                 = &on_call_replaced;
+    
+    cfg.cb.on_call_rx_offer                 = &on_call_rx_offer;
+    
+    cfg.cb.on_reg_started                   = &on_reg_started;
+    cfg.cb.on_reg_state                     = &on_reg_state;
+    cfg.cb.on_reg_state2                    = &on_reg_state2;
+    
+    cfg.cb.on_incoming_subscribe            = &on_incoming_subscribe;
+    cfg.cb.on_srv_subscribe_state           = &on_srv_subscribe_state;
+    
+    cfg.cb.on_buddy_state                   = &on_buddy_state;
+    cfg.cb.on_buddy_evsub_state             = &on_buddy_evsub_state;
+    
+    cfg.cb.on_pager                         = &on_pager;
+    cfg.cb.on_pager2                        = &on_pager2;
+    cfg.cb.on_pager_status                  = &on_pager_status;
+    cfg.cb.on_pager_status2                 = &on_pager_status2;
+    
+    cfg.cb.on_typing                        = &on_typing;
+    cfg.cb.on_typing2                       = &on_typing2;
+    
+    cfg.cb.on_nat_detect                    = &on_nat_detect;
+    
+    cfg.cb.on_call_redirected               = &on_call_redirected;
+    
+    cfg.cb.on_mwi_state                     = &on_mwi_state;
+    cfg.cb.on_mwi_info                      = &on_mwi_info;
+    
+    cfg.cb.on_transport_state               = &on_transport_state;
+    cfg.cb.on_call_media_transport_state    = &on_call_media_transport_state;
+    cfg.cb.on_ice_transport_error           = &on_ice_transport_error;
+    cfg.cb.on_snd_dev_operation             = &on_snd_dev_operation;
+    
+    cfg.cb.on_call_media_event              = &on_call_media_event;
+    cfg.cb.on_create_media_transport        = &on_create_media_transport;
+    cfg.cb.on_acc_find_for_incoming         = &on_acc_find_for_incoming;
+    
+    //
     pjsua_logging_config_default(&log_cfg);
     log_cfg.console_level = 4;
     
@@ -89,22 +164,22 @@
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_init()", status);
         [self releasePjsua];
-        return MSPMyPJSUAManagerResultInitPjsuaError;
+        return MSPMyPjsuaManagerResultInitPjsuaError;
     }
     
-    self.initStatus |= MSPMyPjsuaManagerInitStatusInitedPjsua;
-    return MSPMyPJSUAManagerResultSuccess;
+    self.initStatus |= MSPMyPjsuaManagerStatusInitedPjsua;
+    return MSPMyPjsuaManagerResultSuccess;
 }
 
 - (MSPMyPjsuaManagerResult)initPjsuaTransport {
-    if (!(self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua)) {
+    if (!(self.initStatus & MSPMyPjsuaManagerStatusInitedPjsua)) {
         NSLog(@"Error! pjsua not init, please init pjsua before init pjsua transport.");
-        return MSPMyPJSUAManagerResultPjsuaNotInitedError;
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
-    if (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua) {
+    if (self.initStatus & MSPMyPjsuaManagerStatusStartedPjsua) {
         NSLog(@"Pjsua is running!!");
-        return MSPMyPJSUAManagerResultSuccess;
+        return MSPMyPjsuaManagerResultSuccess;
     }
 
     pj_status_t status;
@@ -114,43 +189,44 @@
     pjsua_transport_config cfg;
     pjsua_transport_config_default(&cfg);
     cfg.port = 5060;
+    cfg.port_range = 500;
     
     //Add UDP transport.
     status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &cfg, &transport_id);
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_transport_create(PJSIP_TRANSPORT_UDP)", status);
         [self releasePjsua];
-        return MSPMyPJSUAManagerResultCreateTransportUDPError;
+        return MSPMyPjsuaManagerResultCreateTransportUDPError;
     }
 
     //Add TCP transport.
-    status = pjsua_transport_create(PJSIP_TRANSPORT_TCP, &cfg, &transport_id);
-    if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_transport_create(PJSIP_TRANSPORT_TCP)", status);
-        [self releasePjsua];
-        return MSPMyPJSUAManagerResultCreateTransportTCPError;
-    }
+//    status = pjsua_transport_create(PJSIP_TRANSPORT_TCP, &cfg, &transport_id);
+//    if (status != PJ_SUCCESS) {
+//        NSLog(@"Status ID : %d - Error in pjsua_transport_create(PJSIP_TRANSPORT_TCP)", status);
+//        [self releasePjsua];
+//        return MSPMyPjsuaManagerResultCreateTransportTCPError;
+//    }
     
     if (transport_id == TRANSPORTID_NONE) {
         NSLog(@"Status ID : %d - Error no transport is configured", TRANSPORTID_NONE);
         [self releasePjsua];
-        return MSPMyPJSUAManagerResultCreateTransportError;
+        return MSPMyPjsuaManagerResultCreateTransportError;
     }
     
-    self.initStatus |= MSPMyPjsuaManagerInitStatusInitedTransport;
-    return MSPMyPJSUAManagerResultSuccess;
+    self.initStatus |= MSPMyPjsuaManagerStatusInitedTransport;
+    return MSPMyPjsuaManagerResultSuccess;
 }
 
 - (MSPMyPjsuaManagerResult)startPjsua {
-    if (!(self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua) ||
-        !(self.initStatus & MSPMyPjsuaManagerInitStatusInitedTransport)) {
+    if (!(self.initStatus & MSPMyPjsuaManagerStatusInitedPjsua) ||
+        !(self.initStatus & MSPMyPjsuaManagerStatusInitedTransport)) {
         NSLog(@"Error! pjsua not init or transport not init, please init them before start pjsua.");
-        return MSPMyPJSUAManagerResultPjsuaNotInitedError;
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
-    if (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua) {
+    if (self.initStatus & MSPMyPjsuaManagerStatusStartedPjsua) {
         NSLog(@"Pjsua is running!!");
-        return MSPMyPJSUAManagerResultSuccess;
+        return MSPMyPjsuaManagerResultSuccess;
     }
     
     pj_status_t status;
@@ -160,24 +236,247 @@
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_start()", status);
         [self releasePjsua];
-        return MSPMyPJSUAManagerResultStartPjsuaError;
+        return MSPMyPjsuaManagerResultStartPjsuaError;
     }
     
-    self.initStatus |= MSPMyPjsuaManagerInitStatusStartedPjsua;
-    return MSPMyPJSUAManagerResultSuccess;
+    self.initStatus |= MSPMyPjsuaManagerStatusStartedPjsua;
+    return MSPMyPjsuaManagerResultSuccess;
 }
 
-#pragma mark - PJSUA call back
+- (MSPMyPjsuaManagerResult)registerSipServer {
+    if (!(self.initStatus & MSPMyPjsuaManagerStatusStartedPjsua)) {
+        NSLog(@"Error! pjsua not init, transport not init or not start, please init them before register sip server.");
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
+    }
+    
+    pj_status_t status;
+    pjsua_acc_config cfg;
+    
+    pjsua_acc_config_default(&cfg);
+    cfg.id = pj_str((char *)[[NSString stringWithFormat:@"sip:%@@%@", sipUser, sipDomain] UTF8String]);
+    cfg.reg_uri = pj_str((char *)[[NSString stringWithFormat:@"sip:%@", sipDomain] UTF8String]);
+    cfg.cred_count = 1;
+    cfg.cred_info[0].realm = pj_str("*");
+    cfg.cred_info[0].scheme = pj_str("digest");
+    cfg.cred_info[0].username = pj_str((char *)[sipUser UTF8String]);
+    cfg.cred_info[0].data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
+    cfg.cred_info[0].data = pj_str((char *)[sipPassword UTF8String]);
+    
+    NSLog(@"");
+    NSLog(@"----------------- cred_info -----------------");
+    NSLog(@"id : %s", cfg.id.ptr);
+    NSLog(@"reg_uri : %s", cfg.reg_uri.ptr);
+    NSLog(@"cred_count : %d", cfg.cred_count);
+    NSLog(@"cred_info[0].realm : %s", cfg.cred_info[0].realm.ptr);
+    NSLog(@"cred_info[0].scheme : %s", cfg.cred_info[0].scheme.ptr);
+    NSLog(@"cred_info[0].username : %s", cfg.cred_info[0].username.ptr);
+    NSLog(@"cred_info[0].data_type : %d", cfg.cred_info[0].data_type);
+    NSLog(@"cred_info[0].data : %s", cfg.cred_info[0].data.ptr);
+    NSLog(@"----------------- cred_info end -----------------");
+    
+    status = pjsua_acc_add(&cfg, PJ_TRUE, &pjsuaAccountId);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Status ID : %d - Error in pjsua_start()", status);
+        return MSPMyPjsuaManagerResultRegisterSipServerError;
+    }
+    
+    self.initStatus |= MSPMyPjsuaManagerStatusRegisterredSipServer;
+    return MSPMyPjsuaManagerResultSuccess;
+}
 
-void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata) {
+- (MSPMyPjsuaManagerResult)makeCall {
+    if (!(self.initStatus & MSPMyPjsuaManagerStatusStartedPjsua)) {
+        NSLog(@"Error! pjsua not init, transport not init or not start, please init them before register sip server.");
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
+    }
+    
+    if (!(self.initStatus & MSPMyPjsuaManagerStatusRegisterredSipServer)) {
+        NSLog(@"Error! Not register a sip server, please register a sip server.");
+        return MSPMyPjsuaManagerResultRegisterSipServerError;
+    }
+    
+    pj_status_t status;
+    pj_str_t uri;
+    pjsua_call_setting call_opt;
+    
+    uri = pj_str((char *)[[NSString stringWithFormat:@"sip:%@@%@", sipCallToUser, sipDomain] UTF8String]);
+    pjsua_call_setting_default(&call_opt);
+    call_opt.vid_cnt = 0;
+    call_opt.flag = 0;
+    
+    NSLog(@"----------------- pjsua_call_make_call info -----------------");
+    NSLog(@"acc_id : %d", pjsuaAccountId);
+    NSLog(@"dst_uri : %s", uri.ptr);
+    NSLog(@"call_opt.flag : %d", call_opt.flag);
+    NSLog(@"call_opt.req_keyframe_method : %d", call_opt.req_keyframe_method);
+    NSLog(@"call_opt.aud_cnt : %d", call_opt.aud_cnt);
+    NSLog(@"call_opt.vid_cnt : %d", call_opt.vid_cnt);
+    NSLog(@"------------------------------------------------------------");
+    
+    status = pjsua_call_make_call(pjsuaAccountId, &uri, &call_opt, NULL, NULL, NULL);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Status ID : %d - Error in pjsua_call_make_call()", status);
+        return MSPMyPjsuaManagerResultMakeCallError;
+    }
+    
+    return MSPMyPjsuaManagerResultSuccess;
+}
+
+#pragma mark - PJSUA callback
+
+static void on_call_state(pjsua_call_id call_id, pjsip_event *e) {
     
 }
 
-void on_call_media_state(pjsua_call_id call_id) {
+static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata) {
     
 }
 
-void on_call_state(pjsua_call_id call_id, pjsip_event *e) {
+static void on_call_tsx_state(pjsua_call_id call_id, pjsip_transaction *tsx, pjsip_event *e) {
+    
+}
+
+static void on_call_media_state(pjsua_call_id call_id) {
+    
+}
+
+static void on_call_sdp_created(pjsua_call_id call_id, pjmedia_sdp_session *sdp, pj_pool_t *pool, const pjmedia_sdp_session *rem_sdp) {
+    
+}
+
+static void on_stream_created(pjsua_call_id call_id, pjmedia_stream *strm, unsigned stream_idx, pjmedia_port **p_port) {
+    
+}
+
+static void on_stream_destroyed(pjsua_call_id call_id, pjmedia_stream *strm, unsigned stream_idx) {
+    
+}
+
+static void on_dtmf_digit(pjsua_call_id call_id, int digit) {
+    
+}
+
+static void on_call_transfer_request(pjsua_call_id call_id, const pj_str_t *dst, pjsip_status_code *code) {
+    
+}
+
+static void on_call_transfer_request2(pjsua_call_id call_id, const pj_str_t *dst, pjsip_status_code *code, pjsua_call_setting *opt) {
+    
+}
+
+static void on_call_transfer_status(pjsua_call_id call_id, int st_code, const pj_str_t *st_text, pj_bool_t final, pj_bool_t *p_cont) {
+    
+}
+
+static void on_call_replace_request(pjsua_call_id call_id, pjsip_rx_data *rdata, int *st_code, pj_str_t *st_text) {
+    
+}
+
+static void on_call_replace_request2(pjsua_call_id call_id, pjsip_rx_data *rdata, int *st_code, pj_str_t *st_text, pjsua_call_setting *opt) {
+    
+}
+
+static void on_call_replaced(pjsua_call_id old_call_id, pjsua_call_id new_call_id) {
+    
+}
+
+static void on_call_rx_offer(pjsua_call_id call_id, const pjmedia_sdp_session *offer, void *reserved, pjsip_status_code *code, pjsua_call_setting *opt) {
+    
+}
+
+static void on_reg_started(pjsua_acc_id acc_id, pj_bool_t renew) {
+    
+}
+
+static void on_reg_state(pjsua_acc_id acc_id) {
+    
+}
+
+static void on_reg_state2(pjsua_acc_id acc_id, pjsua_reg_info *info) {
+    
+}
+
+static void on_incoming_subscribe(pjsua_acc_id acc_id, pjsua_srv_pres *srv_pres, pjsua_buddy_id buddy_id, const pj_str_t *from, pjsip_rx_data *rdata, pjsip_status_code *code, pj_str_t *reason, pjsua_msg_data *msg_data) {
+    
+}
+
+static void on_srv_subscribe_state(pjsua_acc_id acc_id, pjsua_srv_pres *srv_pres, const pj_str_t *remote_uri, pjsip_evsub_state state, pjsip_event *event) {
+    
+}
+
+static void on_buddy_state(pjsua_buddy_id buddy_id) {
+    
+}
+
+static void on_buddy_evsub_state(pjsua_buddy_id buddy_id, pjsip_evsub *sub, pjsip_event *event) {
+    
+}
+
+static void on_pager(pjsua_call_id call_id, const pj_str_t *from, const pj_str_t *to, const pj_str_t *contact, const pj_str_t *mime_type, const pj_str_t *body) {
+    
+}
+
+static void on_pager2(pjsua_call_id call_id, const pj_str_t *from, const pj_str_t *to, const pj_str_t *contact, const pj_str_t *mime_type, const pj_str_t *body, pjsip_rx_data *rdata, pjsua_acc_id acc_id) {
+    
+}
+
+static void on_pager_status(pjsua_call_id call_id, const pj_str_t *to, const pj_str_t *body, void *user_data, pjsip_status_code status, const pj_str_t *reason) {
+    
+}
+
+static void on_pager_status2(pjsua_call_id call_id, const pj_str_t *to, const pj_str_t *body, void *user_data, pjsip_status_code status, const pj_str_t *reason, pjsip_tx_data *tdata, pjsip_rx_data *rdata, pjsua_acc_id acc_id) {
+    
+}
+
+static void on_typing(pjsua_call_id call_id, const pj_str_t *from, const pj_str_t *to, const pj_str_t *contact, pj_bool_t is_typing) {
+    
+}
+
+static void on_typing2(pjsua_call_id call_id, const pj_str_t *from, const pj_str_t *to, const pj_str_t *contact, pj_bool_t is_typing, pjsip_rx_data *rdata, pjsua_acc_id acc_id) {
+    
+}
+
+static void on_nat_detect(const pj_stun_nat_detect_result *res) {
+    
+}
+
+static pjsip_redirect_op on_call_redirected(pjsua_call_id call_id, const pjsip_uri *target, const pjsip_event *e) {
+    return PJSIP_REDIRECT_ACCEPT_REPLACE;
+}
+
+static void on_mwi_state(pjsua_acc_id acc_id, pjsip_evsub *evsub) {
+    
+}
+
+static void on_mwi_info(pjsua_acc_id acc_id, pjsua_mwi_info *mwi_info) {
+    
+}
+
+static void on_transport_state(pjsip_transport *tp, pjsip_transport_state state, const pjsip_transport_state_info *info) {
+    
+}
+
+static pj_status_t on_call_media_transport_state(pjsua_call_id call_id, const pjsua_med_tp_state_info *info) {
+    return PJ_SUCCESS;
+}
+
+static void on_ice_transport_error(int index, pj_ice_strans_op op, pj_status_t status, void *param) {
+    
+}
+
+static pj_status_t on_snd_dev_operation(int operation) {
+    return PJ_SUCCESS;
+}
+
+static void on_call_media_event(pjsua_call_id call_id, unsigned med_idx, pjmedia_event *event) {
+    
+}
+
+static pjmedia_transport* on_create_media_transport(pjsua_call_id call_id, unsigned media_idx, pjmedia_transport *base_tp, unsigned flags) {
+    return NULL;
+}
+
+static void on_acc_find_for_incoming(const pjsip_rx_data *rdata, pjsua_acc_id* acc_id) {
     
 }
 
