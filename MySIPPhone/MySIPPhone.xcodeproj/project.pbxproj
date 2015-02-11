@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9248DD421A8B063F0092C61E /* MSPMyPJSUAManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */; };
 		92B1AE701A8B02DD0093CDC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE6F1A8B02DD0093CDC1 /* main.m */; };
 		92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE951A8B03770093CDC1 /* AppDelegate.m */; };
 		92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE981A8B03770093CDC1 /* ViewController.m */; };
 		92B1AEA01A8B03770093CDC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9B1A8B03770093CDC1 /* Images.xcassets */; };
 		92B1AEA11A8B03770093CDC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9C1A8B03770093CDC1 /* LaunchScreen.xib */; };
 		92B1AEA21A8B03770093CDC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9D1A8B03770093CDC1 /* Main.storyboard */; };
+		BAA68A17F8D2CE0037FAA18B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E4D0CBD64F9C48D710FAEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67E4D0CBD64F9C48D710FAEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9248DD401A8B063F0092C61E /* MSPMyPJSUAManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMyPJSUAManager.h; sourceTree = "<group>"; };
+		9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMyPJSUAManager.m; sourceTree = "<group>"; };
 		92B1AE6A1A8B02DD0093CDC1 /* MySIPPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySIPPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1AE6E1A8B02DD0093CDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B1AE6F1A8B02DD0093CDC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		92B1AE881A8B02DE0093CDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92B1AE891A8B02DE0093CDC1 /* MySIPPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySIPPhoneTests.m; sourceTree = "<group>"; };
 		92B1AE941A8B03770093CDC1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92B1AE951A8B03770093CDC1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		92B1AE971A8B03770093CDC1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -28,6 +31,8 @@
 		92B1AE9B1A8B03770093CDC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92B1AE9C1A8B03770093CDC1 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		92B1AE9D1A8B03770093CDC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B468C3655CA577B7DFB40323 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EABA022B742ADFAD4E9EA2FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,18 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA68A17F8D2CE0037FAA18B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69C560FAC16C362A0819B245 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67E4D0CBD64F9C48D710FAEF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92B1AE611A8B02DD0093CDC1 = {
 			isa = PBXGroup;
 			children = (
 				92B1AE6C1A8B02DD0093CDC1 /* MySIPPhone */,
-				92B1AE861A8B02DE0093CDC1 /* MySIPPhoneTests */,
 				92B1AE6B1A8B02DD0093CDC1 /* Products */,
+				CDDDCAACA2F0A1145C21066F /* Pods */,
+				69C560FAC16C362A0819B245 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,23 +91,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		92B1AE861A8B02DE0093CDC1 /* MySIPPhoneTests */ = {
-			isa = PBXGroup;
-			children = (
-				92B1AE891A8B02DE0093CDC1 /* MySIPPhoneTests.m */,
-				92B1AE871A8B02DE0093CDC1 /* Supporting Files */,
-			);
-			path = MySIPPhoneTests;
-			sourceTree = "<group>";
-		};
-		92B1AE871A8B02DE0093CDC1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				92B1AE881A8B02DE0093CDC1 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		92B1AE931A8B03770093CDC1 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +115,8 @@
 		92B1AE991A8B03770093CDC1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9248DD401A8B063F0092C61E /* MSPMyPJSUAManager.h */,
+				9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +131,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CDDDCAACA2F0A1145C21066F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B468C3655CA577B7DFB40323 /* Pods.debug.xcconfig */,
+				EABA022B742ADFAD4E9EA2FF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92B1AE8D1A8B02DE0093CDC1 /* Build configuration list for PBXNativeTarget "MySIPPhone" */;
 			buildPhases = (
+				289752ACF30356E09E3C6C21 /* Check Pods Manifest.lock */,
 				92B1AE661A8B02DD0093CDC1 /* Sources */,
 				92B1AE671A8B02DD0093CDC1 /* Frameworks */,
 				92B1AE681A8B02DD0093CDC1 /* Resources */,
+				AB022F5CC86B696A7CD04272 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,12 +207,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		289752ACF30356E09E3C6C21 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB022F5CC86B696A7CD04272 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		92B1AE661A8B02DD0093CDC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */,
+				9248DD421A8B063F0092C61E /* MSPMyPJSUAManager.m in Sources */,
 				92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */,
 				92B1AE701A8B02DD0093CDC1 /* main.m in Sources */,
 			);
@@ -288,6 +333,7 @@
 		};
 		92B1AE8E1A8B02DE0093CDC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B468C3655CA577B7DFB40323 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MySIPPhone/Info.plist;
@@ -298,6 +344,7 @@
 		};
 		92B1AE8F1A8B02DE0093CDC1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EABA022B742ADFAD4E9EA2FF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MySIPPhone/Info.plist;
