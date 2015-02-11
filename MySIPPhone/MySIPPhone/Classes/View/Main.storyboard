@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="30" id="4X0-QW-N8v"/>
                                     <constraint firstAttribute="width" constant="200" id="Ysu-C5-cdK"/>
                                 </constraints>
-                                <state key="normal" title="Init PJSUA">
+                                <state key="normal" title="Init Pjsua">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -39,7 +39,59 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="initPJSUAButtone:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="giG-q2-9l0"/>
+                                    <action selector="initPjsuaButtone:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sP8-cT-RfB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-8j-5n4">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="fcg-XV-QcC"/>
+                                    <constraint firstAttribute="height" constant="30" id="wHt-jL-wod"/>
+                                </constraints>
+                                <state key="normal" title="Init Pjsua Transport">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fcg-XV-QcC"/>
+                                        <exclude reference="wHt-jL-wod"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fcg-XV-QcC"/>
+                                        <include reference="wHt-jL-wod"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="initPjsuaTransportButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LNR-2E-CfG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1v-xL-d6x">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Uwu-3B-1VD"/>
+                                    <constraint firstAttribute="height" constant="30" id="fqp-dq-fM6"/>
+                                </constraints>
+                                <state key="normal" title="Start Pjsua">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Uwu-3B-1VD"/>
+                                        <exclude reference="fqp-dq-fM6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Uwu-3B-1VD"/>
+                                        <include reference="fqp-dq-fM6"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="startPjsuaButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OPg-TA-Qqa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -49,23 +101,43 @@
                             <constraint firstItem="kz0-fi-lJs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="365" id="K8F-Ll-JEp">
                                 <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                             </constraint>
+                            <constraint firstItem="YNd-8j-5n4" firstAttribute="top" secondItem="kz0-fi-lJs" secondAttribute="bottom" constant="19" id="nEk-nn-owh">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="c1v-xL-d6x" secondAttribute="centerX" id="qPk-4A-Hid"/>
+                            <constraint firstItem="c1v-xL-d6x" firstAttribute="top" secondItem="YNd-8j-5n4" secondAttribute="bottom" constant="33" id="w9T-dk-Kkj">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="YNd-8j-5n4" secondAttribute="centerX" id="wyg-iQ-o1J"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="kz0-fi-lJs"/>
+                                <exclude reference="YNd-8j-5n4"/>
+                                <exclude reference="c1v-xL-d6x"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ACW-yL-SfR"/>
                                 <exclude reference="K8F-Ll-JEp"/>
+                                <exclude reference="nEk-nn-owh"/>
+                                <exclude reference="wyg-iQ-o1J"/>
+                                <exclude reference="qPk-4A-Hid"/>
+                                <exclude reference="w9T-dk-Kkj"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="kz0-fi-lJs"/>
+                                <include reference="YNd-8j-5n4"/>
+                                <include reference="c1v-xL-d6x"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="ACW-yL-SfR"/>
                                 <include reference="K8F-Ll-JEp"/>
+                                <include reference="nEk-nn-owh"/>
+                                <include reference="wyg-iQ-o1J"/>
+                                <include reference="qPk-4A-Hid"/>
+                                <include reference="w9T-dk-Kkj"/>
                             </mask>
                         </variation>
                     </view>

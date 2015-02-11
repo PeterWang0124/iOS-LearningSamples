@@ -1,5 +1,5 @@
 //
-//  MSPMyPJSUAManager.h
+//  MSPMyPjsuaManager.h
 //  MySIPPhone
 //
 //  Created by PeterWang on 2/11/15.
@@ -8,21 +8,43 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, MSPMyPJSUAManagerResult) {
-    MSPMyPJSUAManagerResultSuccess              = 0,
-    MSPMyPJSUAManagerResultCreatePjsuaError     = 1,
-    MSPMyPJSUAManagerResultInitPjsuaError       = 2,
+#define TRANSPORTID_NONE -1
+
+typedef NS_OPTIONS(NSUInteger, MSPMyPjsuaManagerInitStatus) {
+    MSPMyPjsuaManagerInitStatusNone             = 0,
+    MSPMyPjsuaManagerInitStatusInitedPjsua      = 1 << 0,
+    MSPMyPjsuaManagerInitStatusInitedTransport  = 1 << 1,
+    MSPMyPjsuaManagerInitStatusStartedPjsua     = 1 << 2,
 };
 
-@interface MSPMyPJSUAManager : NSObject
+typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
+    MSPMyPJSUAManagerResultSuccess              = 0,
+    
+    //Pjsua Init Error Code.
+    MSPMyPJSUAManagerResultCreatePjsuaError,
+    MSPMyPJSUAManagerResultInitPjsuaError,
+    MSPMyPJSUAManagerResultPjsuaNotInitedError,
+    
+    //Pjsua Start Error Code.
+    MSPMyPJSUAManagerResultStartPjsuaError,
+    
+    //Transport Error Code.
+    MSPMyPJSUAManagerResultCreateTransportError,
+    MSPMyPJSUAManagerResultCreateTransportUDPError,
+    MSPMyPJSUAManagerResultCreateTransportTCPError,
+};
 
-@property (assign, nonatomic, readonly, getter=isPjsuaInited) BOOL pjsuaInited;
+@interface MSPMyPjsuaManager : NSObject
+
+@property (assign, nonatomic, readonly) MSPMyPjsuaManagerInitStatus initStatus;
 
 + (instancetype)sharedManager;
 
 - (void)start;
 
 //Test
-- (MSPMyPJSUAManagerResult)initPJSUA;
+- (MSPMyPjsuaManagerResult)initPjsua;
+- (MSPMyPjsuaManagerResult)initPjsuaTransport;
+- (MSPMyPjsuaManagerResult)startPjsua;
 
 @end

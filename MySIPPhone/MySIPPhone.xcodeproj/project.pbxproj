@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9248DD421A8B063F0092C61E /* MSPMyPJSUAManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */; };
+		9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */; };
 		92B1AE701A8B02DD0093CDC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE6F1A8B02DD0093CDC1 /* main.m */; };
 		92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE951A8B03770093CDC1 /* AppDelegate.m */; };
 		92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE981A8B03770093CDC1 /* ViewController.m */; };
@@ -19,8 +19,8 @@
 
 /* Begin PBXFileReference section */
 		67E4D0CBD64F9C48D710FAEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9248DD401A8B063F0092C61E /* MSPMyPJSUAManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMyPJSUAManager.h; sourceTree = "<group>"; };
-		9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMyPJSUAManager.m; sourceTree = "<group>"; };
+		9248DD401A8B063F0092C61E /* MSPMyPjsuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMyPjsuaManager.h; sourceTree = "<group>"; };
+		9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMyPjsuaManager.m; sourceTree = "<group>"; };
 		92B1AE6A1A8B02DD0093CDC1 /* MySIPPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySIPPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1AE6E1A8B02DD0093CDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B1AE6F1A8B02DD0093CDC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		92B1AE991A8B03770093CDC1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9248DD401A8B063F0092C61E /* MSPMyPJSUAManager.h */,
-				9248DD411A8B063F0092C61E /* MSPMyPJSUAManager.m */,
+				9248DD401A8B063F0092C61E /* MSPMyPjsuaManager.h */,
+				9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */,
-				9248DD421A8B063F0092C61E /* MSPMyPJSUAManager.m in Sources */,
+				9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */,
 				92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */,
 				92B1AE701A8B02DD0093CDC1 /* main.m in Sources */,
 			);

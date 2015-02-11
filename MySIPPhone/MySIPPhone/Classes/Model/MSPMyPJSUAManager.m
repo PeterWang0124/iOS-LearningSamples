@@ -1,22 +1,22 @@
 //
-//  MSPMyPJSUAManager.m
+//  MSPMyPjsuaManager.m
 //  MySIPPhone
 //
 //  Created by PeterWang on 2/11/15.
 //  Copyright (c) 2015 PeterWang. All rights reserved.
 //
 
-#import "MSPMyPJSUAManager.h"
+#import "MSPMyPjsuaManager.h"
 #import <pjlib.h>
 #import <pjsua.h>
 
-@interface MSPMyPJSUAManager ()
+@interface MSPMyPjsuaManager ()
 
-@property (assign, nonatomic, readwrite) BOOL pjsuaInited;
+@property (assign, nonatomic, readwrite) MSPMyPjsuaManagerInitStatus initStatus;
 
 @end
 
-@implementation MSPMyPJSUAManager
+@implementation MSPMyPjsuaManager
 
 + (instancetype)sharedManager {
     static id instance = nil;
@@ -32,24 +32,35 @@
     self = [super init];
     
     if (self) {
+        self.initStatus = MSPMyPjsuaManagerInitStatusNone;
     }
     
     return self;
 }
 
+- (void)dealloc {
+    [self releasePjsua];
+}
+
+- (void)releasePjsua {
+    pjsua_destroy();
+    
+    self.initStatus = MSPMyPjsuaManagerInitStatusNone;
+}
+
 #pragma mark - Register Process Method
 
 - (void)start {
-    MSPMyPJSUAManagerResult result = [self initPJSUA];
+    MSPMyPjsuaManagerResult result = [self initPjsua];
     if (result != MSPMyPJSUAManagerResultSuccess) {
         return;
     }
-    
-    
 }
 
-- (MSPMyPJSUAManagerResult)initPJSUA {
-    if (self.isPjsuaInited) {
+- (MSPMyPjsuaManagerResult)initPjsua {
+    if ((self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua) ||
+        (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua)) {
+        NSLog(@"Pjsua is inited or running!!");
         return MSPMyPJSUAManagerResultSuccess;
     }
     
@@ -59,6 +70,7 @@
     status = pjsua_create();
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_create()", status);
+        [self releasePjsua];
         return MSPMyPJSUAManagerResultCreatePjsuaError;
     }
     
@@ -76,11 +88,82 @@
     status = pjsua_init(&cfg, &log_cfg, NULL);
     if (status != PJ_SUCCESS) {
         NSLog(@"Status ID : %d - Error in pjsua_init()", status);
-        pjsua_destroy();
+        [self releasePjsua];
         return MSPMyPJSUAManagerResultInitPjsuaError;
     }
     
-    self.pjsuaInited = YES;
+    self.initStatus |= MSPMyPjsuaManagerInitStatusInitedPjsua;
+    return MSPMyPJSUAManagerResultSuccess;
+}
+
+- (MSPMyPjsuaManagerResult)initPjsuaTransport {
+    if (!(self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua)) {
+        NSLog(@"Error! pjsua not init, please init pjsua before init pjsua transport.");
+        return MSPMyPJSUAManagerResultPjsuaNotInitedError;
+    }
+    
+    if (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua) {
+        NSLog(@"Pjsua is running!!");
+        return MSPMyPJSUAManagerResultSuccess;
+    }
+
+    pj_status_t status;
+    pjsua_transport_id transport_id = TRANSPORTID_NONE;
+    
+    //Init transport config structure
+    pjsua_transport_config cfg;
+    pjsua_transport_config_default(&cfg);
+    cfg.port = 5060;
+    
+    //Add UDP transport.
+    status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &cfg, &transport_id);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Status ID : %d - Error in pjsua_transport_create(PJSIP_TRANSPORT_UDP)", status);
+        [self releasePjsua];
+        return MSPMyPJSUAManagerResultCreateTransportUDPError;
+    }
+
+    //Add TCP transport.
+    status = pjsua_transport_create(PJSIP_TRANSPORT_TCP, &cfg, &transport_id);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Status ID : %d - Error in pjsua_transport_create(PJSIP_TRANSPORT_TCP)", status);
+        [self releasePjsua];
+        return MSPMyPJSUAManagerResultCreateTransportTCPError;
+    }
+    
+    if (transport_id == TRANSPORTID_NONE) {
+        NSLog(@"Status ID : %d - Error no transport is configured", TRANSPORTID_NONE);
+        [self releasePjsua];
+        return MSPMyPJSUAManagerResultCreateTransportError;
+    }
+    
+    self.initStatus |= MSPMyPjsuaManagerInitStatusInitedTransport;
+    return MSPMyPJSUAManagerResultSuccess;
+}
+
+- (MSPMyPjsuaManagerResult)startPjsua {
+    if (!(self.initStatus & MSPMyPjsuaManagerInitStatusInitedPjsua) ||
+        !(self.initStatus & MSPMyPjsuaManagerInitStatusInitedTransport)) {
+        NSLog(@"Error! pjsua not init or transport not init, please init them before start pjsua.");
+        return MSPMyPJSUAManagerResultPjsuaNotInitedError;
+    }
+    
+    if (self.initStatus & MSPMyPjsuaManagerInitStatusStartedPjsua) {
+        NSLog(@"Pjsua is running!!");
+        return MSPMyPJSUAManagerResultSuccess;
+    }
+    
+    pj_status_t status;
+    
+    //Initialization is done, now start pjsua
+    status = pjsua_start();
+    if (status != PJ_SUCCESS) {
+        NSLog(@"Status ID : %d - Error in pjsua_start()", status);
+        [self releasePjsua];
+        return MSPMyPJSUAManagerResultStartPjsuaError;
+    }
+    
+    self.initStatus |= MSPMyPjsuaManagerInitStatusStartedPjsua;
     return MSPMyPJSUAManagerResultSuccess;
 }
 

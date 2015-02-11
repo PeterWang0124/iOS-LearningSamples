@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MSPMyPJSUAManager.h"
+#import "MSPMyPjsuaManager.h"
 
 @interface ViewController ()
 
@@ -25,8 +25,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)initPJSUAButtone:(id)sender {
-    [[MSPMyPJSUAManager sharedManager] initPJSUA];
+- (IBAction)initPjsuaButtone:(id)sender {
+    [[MSPMyPjsuaManager sharedManager] initPjsua];
+}
+
+- (IBAction)initPjsuaTransportButton:(id)sender {
+    [[MSPMyPjsuaManager sharedManager] initPjsuaTransport];
+}
+
+- (IBAction)startPjsuaButton:(id)sender {
+    [[MSPMyPjsuaManager sharedManager] startPjsua];
 }
 
 @end
