@@ -17,6 +17,7 @@ NSString const * sipPassword = @"1234";
 //NSString const * sipDomain = @"10.2.0.45";
 NSString const * sipDomain = @"10.2.0.56";
 NSString const * sipCallToUser = @"1001";
+NSUInteger const transportConfigPort = 5063;
 
 @interface MSPMyPjsuaManager () {
     pj_pool_t *appPool;
@@ -56,8 +57,12 @@ NSString const * sipCallToUser = @"1001";
 }
 
 - (void)releasePjsua {
-    pj_pool_release(appPool);
-    pj_pool_release(tmpPool);
+    if (appPool) {
+        pj_pool_release(appPool);
+    }
+    if (tmpPool) {
+        pj_pool_release(tmpPool);
+    }
     pjsua_destroy();
     
     self.initStatus = MSPMyPjsuaManagerStatusNone;
@@ -103,58 +108,58 @@ NSString const * sipCallToUser = @"1001";
     cfg.cb.on_call_state                    = &on_call_state;
     cfg.cb.on_incoming_call                 = &on_incoming_call;
     
-    cfg.cb.on_call_tsx_state                = &on_call_tsx_state;
     cfg.cb.on_call_media_state              = &on_call_media_state;
-    cfg.cb.on_call_sdp_created              = &on_call_sdp_created;
-    
-    cfg.cb.on_stream_created                = &on_stream_created;
-    cfg.cb.on_stream_destroyed              = &on_stream_destroyed;
-    
-    cfg.cb.on_dtmf_digit                    = &on_dtmf_digit;
-    
-    cfg.cb.on_call_transfer_request         = &on_call_transfer_request;
-    cfg.cb.on_call_transfer_request2        = &on_call_transfer_request2;
-    cfg.cb.on_call_transfer_status          = &on_call_transfer_status;
-    
-    cfg.cb.on_call_replace_request          = &on_call_replace_request;
-    cfg.cb.on_call_replace_request2         = &on_call_replace_request2;
-    cfg.cb.on_call_replaced                 = &on_call_replaced;
-    
-    cfg.cb.on_call_rx_offer                 = &on_call_rx_offer;
-    
-    cfg.cb.on_reg_started                   = &on_reg_started;
-    cfg.cb.on_reg_state                     = &on_reg_state;
-    cfg.cb.on_reg_state2                    = &on_reg_state2;
-    
-    cfg.cb.on_incoming_subscribe            = &on_incoming_subscribe;
-    cfg.cb.on_srv_subscribe_state           = &on_srv_subscribe_state;
-    
-    cfg.cb.on_buddy_state                   = &on_buddy_state;
-    cfg.cb.on_buddy_evsub_state             = &on_buddy_evsub_state;
-    
-    cfg.cb.on_pager                         = &on_pager;
-    cfg.cb.on_pager2                        = &on_pager2;
-    cfg.cb.on_pager_status                  = &on_pager_status;
-    cfg.cb.on_pager_status2                 = &on_pager_status2;
-    
-    cfg.cb.on_typing                        = &on_typing;
-    cfg.cb.on_typing2                       = &on_typing2;
-    
-    cfg.cb.on_nat_detect                    = &on_nat_detect;
-    
-    cfg.cb.on_call_redirected               = &on_call_redirected;
-    
-    cfg.cb.on_mwi_state                     = &on_mwi_state;
-    cfg.cb.on_mwi_info                      = &on_mwi_info;
-    
-    cfg.cb.on_transport_state               = &on_transport_state;
-    cfg.cb.on_call_media_transport_state    = &on_call_media_transport_state;
-    cfg.cb.on_ice_transport_error           = &on_ice_transport_error;
-    cfg.cb.on_snd_dev_operation             = &on_snd_dev_operation;
-    
-    cfg.cb.on_call_media_event              = &on_call_media_event;
-    cfg.cb.on_create_media_transport        = &on_create_media_transport;
-    cfg.cb.on_acc_find_for_incoming         = &on_acc_find_for_incoming;
+//    cfg.cb.on_call_sdp_created              = &on_call_sdp_created;
+//    cfg.cb.on_call_tsx_state                = &on_call_tsx_state;
+//    
+//    cfg.cb.on_stream_created                = &on_stream_created;
+//    cfg.cb.on_stream_destroyed              = &on_stream_destroyed;
+//    
+//    cfg.cb.on_dtmf_digit                    = &on_dtmf_digit;
+//    
+//    cfg.cb.on_call_transfer_request         = &on_call_transfer_request;
+//    cfg.cb.on_call_transfer_request2        = &on_call_transfer_request2;
+//    cfg.cb.on_call_transfer_status          = &on_call_transfer_status;
+//    
+//    cfg.cb.on_call_replace_request          = &on_call_replace_request;
+//    cfg.cb.on_call_replace_request2         = &on_call_replace_request2;
+//    cfg.cb.on_call_replaced                 = &on_call_replaced;
+//    
+//    cfg.cb.on_call_rx_offer                 = &on_call_rx_offer;
+//    
+//    cfg.cb.on_reg_started                   = &on_reg_started;
+//    cfg.cb.on_reg_state                     = &on_reg_state;
+//    cfg.cb.on_reg_state2                    = &on_reg_state2;
+//    
+//    cfg.cb.on_incoming_subscribe            = &on_incoming_subscribe;
+//    cfg.cb.on_srv_subscribe_state           = &on_srv_subscribe_state;
+//    
+//    cfg.cb.on_buddy_state                   = &on_buddy_state;
+//    cfg.cb.on_buddy_evsub_state             = &on_buddy_evsub_state;
+//    
+//    cfg.cb.on_pager                         = &on_pager;
+//    cfg.cb.on_pager2                        = &on_pager2;
+//    cfg.cb.on_pager_status                  = &on_pager_status;
+//    cfg.cb.on_pager_status2                 = &on_pager_status2;
+//    
+//    cfg.cb.on_typing                        = &on_typing;
+//    cfg.cb.on_typing2                       = &on_typing2;
+//    
+//    cfg.cb.on_nat_detect                    = &on_nat_detect;
+//    
+//    cfg.cb.on_call_redirected               = &on_call_redirected;
+//    
+//    cfg.cb.on_mwi_state                     = &on_mwi_state;
+//    cfg.cb.on_mwi_info                      = &on_mwi_info;
+//    
+//    cfg.cb.on_transport_state               = &on_transport_state;
+//    cfg.cb.on_call_media_transport_state    = &on_call_media_transport_state;
+//    cfg.cb.on_ice_transport_error           = &on_ice_transport_error;
+//    cfg.cb.on_snd_dev_operation             = &on_snd_dev_operation;
+//    
+//    cfg.cb.on_call_media_event              = &on_call_media_event;
+//    cfg.cb.on_create_media_transport        = &on_create_media_transport;
+//    cfg.cb.on_acc_find_for_incoming         = &on_acc_find_for_incoming;
     
     //
     pjsua_logging_config_default(&log_cfg);
@@ -188,8 +193,8 @@ NSString const * sipCallToUser = @"1001";
     //Init transport config structure
     pjsua_transport_config cfg;
     pjsua_transport_config_default(&cfg);
-    cfg.port = 5060;
-    cfg.port_range = 500;
+    cfg.port = transportConfigPort;
+//    cfg.port_range = 500;
     
     //Add UDP transport.
     status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &cfg, &transport_id);
@@ -325,18 +330,42 @@ NSString const * sipCallToUser = @"1001";
 #pragma mark - PJSUA callback
 
 static void on_call_state(pjsua_call_id call_id, pjsip_event *e) {
+    pjsua_call_info ci;
     
+    PJ_UNUSED_ARG(e);
+    
+    pjsua_call_get_info(call_id, &ci);
+    NSLog(@"...Call %d state=%s", call_id, ci.state_text.ptr);
 }
 
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata) {
+    pjsua_call_info ci;
     
-}
-
-static void on_call_tsx_state(pjsua_call_id call_id, pjsip_transaction *tsx, pjsip_event *e) {
+    PJ_UNUSED_ARG(acc_id);
+    PJ_UNUSED_ARG(rdata);
     
+    //Get calling info.
+    pjsua_call_get_info(call_id, &ci);
+    NSLog(@"...Incoming call from %s!!", ci.remote_info.ptr);
+    
+    //Automatically answer incoming calls with 200/OK
+    pjsua_call_answer(call_id, 200, NULL, NULL);
 }
 
 static void on_call_media_state(pjsua_call_id call_id) {
+    pjsua_call_info ci;
+    
+    pjsua_call_get_info(call_id, &ci);
+    NSLog(@"...Call media %d state=%s", call_id, ci.state_text.ptr);
+    
+    if (ci.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
+        // When media is active, connect call to sound device.
+        pjsua_conf_connect(ci.conf_slot, 0);
+        pjsua_conf_connect(0, ci.conf_slot);
+    }
+}
+
+static void on_call_tsx_state(pjsua_call_id call_id, pjsip_transaction *tsx, pjsip_event *e) {
     
 }
 
