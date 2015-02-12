@@ -4,3 +4,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'pjsip'
+pod 'JCDialPad'
+pod 'FontasticIcons'

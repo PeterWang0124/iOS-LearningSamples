@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */; };
+		9275FC971A8C5840001EBC45 /* MSPLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC961A8C5840001EBC45 /* MSPLoginTableViewController.m */; };
+		9275FC9A1A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC991A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m */; };
+		9275FC9D1A8C765C001EBC45 /* MSPPjsuaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC9C1A8C765C001EBC45 /* MSPPjsuaConfig.m */; };
+		9275FCA01A8C85AB001EBC45 /* MSPPjsuaSipAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC9F1A8C85AB001EBC45 /* MSPPjsuaSipAccount.m */; };
+		9275FCA31A8C88FC001EBC45 /* MSPPjsuaCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FCA21A8C88FC001EBC45 /* MSPPjsuaCall.m */; };
+		9275FCA61A8C966C001EBC45 /* MSPMakeCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */; };
 		92B1AE701A8B02DD0093CDC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE6F1A8B02DD0093CDC1 /* main.m */; };
 		92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE951A8B03770093CDC1 /* AppDelegate.m */; };
-		92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE981A8B03770093CDC1 /* ViewController.m */; };
+		92B1AE9F1A8B03770093CDC1 /* MSPProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE981A8B03770093CDC1 /* MSPProcessViewController.m */; };
 		92B1AEA01A8B03770093CDC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9B1A8B03770093CDC1 /* Images.xcassets */; };
 		92B1AEA11A8B03770093CDC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9C1A8B03770093CDC1 /* LaunchScreen.xib */; };
 		92B1AEA21A8B03770093CDC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9D1A8B03770093CDC1 /* Main.storyboard */; };
@@ -21,13 +27,25 @@
 		67E4D0CBD64F9C48D710FAEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9248DD401A8B063F0092C61E /* MSPMyPjsuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMyPjsuaManager.h; sourceTree = "<group>"; };
 		9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMyPjsuaManager.m; sourceTree = "<group>"; };
+		9275FC951A8C5840001EBC45 /* MSPLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPLoginTableViewController.h; sourceTree = "<group>"; };
+		9275FC961A8C5840001EBC45 /* MSPLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPLoginTableViewController.m; sourceTree = "<group>"; };
+		9275FC981A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPTransportTypeTableViewController.h; sourceTree = "<group>"; };
+		9275FC991A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPTransportTypeTableViewController.m; sourceTree = "<group>"; };
+		9275FC9B1A8C765C001EBC45 /* MSPPjsuaConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPPjsuaConfig.h; sourceTree = "<group>"; };
+		9275FC9C1A8C765C001EBC45 /* MSPPjsuaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPPjsuaConfig.m; sourceTree = "<group>"; };
+		9275FC9E1A8C85AB001EBC45 /* MSPPjsuaSipAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPPjsuaSipAccount.h; sourceTree = "<group>"; };
+		9275FC9F1A8C85AB001EBC45 /* MSPPjsuaSipAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPPjsuaSipAccount.m; sourceTree = "<group>"; };
+		9275FCA11A8C88FC001EBC45 /* MSPPjsuaCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPPjsuaCall.h; sourceTree = "<group>"; };
+		9275FCA21A8C88FC001EBC45 /* MSPPjsuaCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPPjsuaCall.m; sourceTree = "<group>"; };
+		9275FCA41A8C966C001EBC45 /* MSPMakeCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMakeCallViewController.h; sourceTree = "<group>"; };
+		9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMakeCallViewController.m; sourceTree = "<group>"; };
 		92B1AE6A1A8B02DD0093CDC1 /* MySIPPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySIPPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B1AE6E1A8B02DD0093CDC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92B1AE6F1A8B02DD0093CDC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		92B1AE941A8B03770093CDC1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		92B1AE951A8B03770093CDC1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		92B1AE971A8B03770093CDC1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		92B1AE981A8B03770093CDC1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		92B1AE971A8B03770093CDC1 /* MSPProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPProcessViewController.h; sourceTree = "<group>"; };
+		92B1AE981A8B03770093CDC1 /* MSPProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPProcessViewController.m; sourceTree = "<group>"; };
 		92B1AE9B1A8B03770093CDC1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92B1AE9C1A8B03770093CDC1 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		92B1AE9D1A8B03770093CDC1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -106,8 +124,14 @@
 		92B1AE961A8B03770093CDC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92B1AE971A8B03770093CDC1 /* ViewController.h */,
-				92B1AE981A8B03770093CDC1 /* ViewController.m */,
+				92B1AE971A8B03770093CDC1 /* MSPProcessViewController.h */,
+				92B1AE981A8B03770093CDC1 /* MSPProcessViewController.m */,
+				9275FC951A8C5840001EBC45 /* MSPLoginTableViewController.h */,
+				9275FC961A8C5840001EBC45 /* MSPLoginTableViewController.m */,
+				9275FC981A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.h */,
+				9275FC991A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m */,
+				9275FCA41A8C966C001EBC45 /* MSPMakeCallViewController.h */,
+				9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +141,12 @@
 			children = (
 				9248DD401A8B063F0092C61E /* MSPMyPjsuaManager.h */,
 				9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */,
+				9275FC9B1A8C765C001EBC45 /* MSPPjsuaConfig.h */,
+				9275FC9C1A8C765C001EBC45 /* MSPPjsuaConfig.m */,
+				9275FC9E1A8C85AB001EBC45 /* MSPPjsuaSipAccount.h */,
+				9275FC9F1A8C85AB001EBC45 /* MSPPjsuaSipAccount.m */,
+				9275FCA11A8C88FC001EBC45 /* MSPPjsuaCall.h */,
+				9275FCA21A8C88FC001EBC45 /* MSPPjsuaCall.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,10 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B1AE9F1A8B03770093CDC1 /* ViewController.m in Sources */,
+				9275FCA01A8C85AB001EBC45 /* MSPPjsuaSipAccount.m in Sources */,
+				92B1AE9F1A8B03770093CDC1 /* MSPProcessViewController.m in Sources */,
 				9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */,
+				9275FCA61A8C966C001EBC45 /* MSPMakeCallViewController.m in Sources */,
+				9275FCA31A8C88FC001EBC45 /* MSPPjsuaCall.m in Sources */,
+				9275FC9A1A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m in Sources */,
+				9275FC9D1A8C765C001EBC45 /* MSPPjsuaConfig.m in Sources */,
 				92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */,
 				92B1AE701A8B02DD0093CDC1 /* main.m in Sources */,
+				9275FC971A8C5840001EBC45 /* MSPLoginTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

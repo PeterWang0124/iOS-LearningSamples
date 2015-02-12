@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+//Model
+#import "MSPPjsuaConfig.h"
+#import "MSPPjsuaSipAccount.h"
+#import "MSPPjsuaCall.h"
+
 #define TRANSPORTID_NONE -1
 
 typedef NS_OPTIONS(NSUInteger, MSPMyPjsuaManagerStatus) {
@@ -17,6 +22,8 @@ typedef NS_OPTIONS(NSUInteger, MSPMyPjsuaManagerStatus) {
     MSPMyPjsuaManagerStatusStartedPjsua         = 1 << 2,
     
     MSPMyPjsuaManagerStatusRegisterredSipServer = 1 << 3,
+    
+    MSPMyPjsuaManagerStatusCalling              = 1 << 4,
 };
 
 typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
@@ -42,20 +49,24 @@ typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
     MSPMyPjsuaManagerResultMakeCallError,
 };
 
+/**
+ *  Manager of pjsua.
+ */
 @interface MSPMyPjsuaManager : NSObject
 
-@property (assign, nonatomic, readonly) MSPMyPjsuaManagerStatus initStatus;
+@property (assign, nonatomic, readonly) MSPMyPjsuaManagerStatus status;
 
 + (instancetype)sharedManager;
 
-- (void)start;
+- (void)loginWithConfig:(MSPPjsuaConfig *)pjsuaConfig accountConfig:(MSPPjsuaSipAccount *)accountConfig;
+- (void)logout;
 
-//Test
-- (MSPMyPjsuaManagerResult)initPjsua;
-- (MSPMyPjsuaManagerResult)initPjsuaTransport;
+//Process for test pjsua
+- (MSPMyPjsuaManagerResult)initPjsua:(MSPPjsuaConfig *)pjsuaConfig;
+- (MSPMyPjsuaManagerResult)initPjsuaTransport:(MSPPjsuaConfig *)pjsuaConfig;
 - (MSPMyPjsuaManagerResult)startPjsua;
 
-- (MSPMyPjsuaManagerResult)registerSipServer;
-- (MSPMyPjsuaManagerResult)makeCall;
+- (MSPMyPjsuaManagerResult)registerSipServer:(MSPPjsuaSipAccount *)sipAccount;
+- (MSPMyPjsuaManagerResult)makeCall:(MSPPjsuaCall*)call;
 
 @end

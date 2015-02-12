@@ -1,12 +1,21 @@
 PODS:
+  - FontasticIcons (0.5.0)
+  - JCDialPad (0.1.1):
+    - libPhoneNumber-iOS
+  - libPhoneNumber-iOS (0.8.2)
   - OpenSSL-Universal (1.0.1.k)
   - pjsip (2.3.0.7):
     - OpenSSL-Universal (= 1.0.1.k)
 
 DEPENDENCIES:
+  - FontasticIcons
+  - JCDialPad
   - pjsip
 
 SPEC CHECKSUMS:
+  FontasticIcons: a19672f86f2bf1b0ad51b21f1f7f1fad1ddd83f7
+  JCDialPad: 0b3dc3175b376f765dd1b47c39ed19e4ed36f326
+  libPhoneNumber-iOS: 2b5a6aeb7fd720ae856f133aea9937336bd47819
   OpenSSL-Universal: 60ee5ddf6530100c0aa702c2e0c9881cfd4a89a5
   pjsip: 446d8fdd65b9e43abedc84d5671c18ccb3f16c19
 
