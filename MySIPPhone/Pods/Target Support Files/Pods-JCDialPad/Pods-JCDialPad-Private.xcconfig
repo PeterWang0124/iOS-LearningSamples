@@ -1,0 +1,5 @@
+#include "Pods-JCDialPad.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/JCDialPad" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/FontasticIcons" "${PODS_ROOT}/Headers/Public/JCDialPad" "${PODS_ROOT}/Headers/Public/OpenSSL-Universal" "${PODS_ROOT}/Headers/Public/OpenSSL-Universal/openssl" "${PODS_ROOT}/Headers/Public/libPhoneNumber-iOS" "${PODS_ROOT}/Headers/Public/pjproject/src/pjlib-util/include" "${PODS_ROOT}/Headers/Public/pjproject/src/pjlib/include" "${PODS_ROOT}/Headers/Public/pjproject/src/pjmedia/include" "${PODS_ROOT}/Headers/Public/pjproject/src/pjnath/include" "${PODS_ROOT}/Headers/Public/pjproject/src/pjsip/include" "${PODS_ROOT}/Headers/Public/pjsip"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}
