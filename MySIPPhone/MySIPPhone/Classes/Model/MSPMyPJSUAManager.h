@@ -47,6 +47,12 @@ typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
     
     //Make Call Error Code.
     MSPMyPjsuaManagerResultMakeCallError,
+    
+    //Hang up Call Error Code.
+    MSPMyPjsuaManagerResultHangupCallError,
+    
+    //Answer Call Error Code.
+    MSPMyPjsuaManagerResultAnswerCallError,
 };
 
 /**
@@ -55,6 +61,8 @@ typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
 @interface MSPMyPjsuaManager : NSObject
 
 @property (assign, nonatomic, readonly) MSPMyPjsuaManagerStatus status;
+@property (strong, nonatomic, readonly) MSPPjsuaCall *currentCall;
+@property (strong, nonatomic) MSPPjsuaCall *currentIncomingCall;
 
 + (instancetype)sharedManager;
 
@@ -67,6 +75,15 @@ typedef NS_ENUM(NSInteger, MSPMyPjsuaManagerResult) {
 - (MSPMyPjsuaManagerResult)startPjsua;
 
 - (MSPMyPjsuaManagerResult)registerSipServer:(MSPPjsuaSipAccount *)sipAccount;
-- (MSPMyPjsuaManagerResult)makeCall:(MSPPjsuaCall*)call;
+- (MSPMyPjsuaManagerResult)makeCall:(MSPPjsuaCall *)call;
+- (MSPMyPjsuaManagerResult)hangupCall:(MSPPjsuaCall *)call;
+- (MSPMyPjsuaManagerResult)answerCall:(MSPPjsuaCall *)call;
 
 @end
+
+#pragma mark - Notifications
+
+extern NSString * const MSPCallIncomingNotification;
+extern NSString * const MSPCallAnswerNotification;
+extern NSString * const MSPCallhangupNotification;
+

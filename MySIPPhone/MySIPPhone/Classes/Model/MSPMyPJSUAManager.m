@@ -9,6 +9,13 @@
 #import "MSPMyPjsuaManager.h"
 #import <pjlib.h>
 #import <pjsua.h>
+#import "NSNotificationCenter+MSP.h"
+
+NSString * const MSPCallIncomingNotification = @"com.peter.MSPCallIncomingNotification";
+NSString * const MSPCallAnswerNotification = @"com.peter.MSPCallAnswerNotification";
+NSString * const MSPCallhangupNotification = @"com.peter.MSPCallhangupNotification";
+
+NSString * const MSPPjsuaQueueName = @"com.peter.MSPPjsuaQueueName";
 
 @interface MSPMyPjsuaManager () {
     pj_pool_t *appPool;
@@ -17,7 +24,10 @@
 
 @property (assign, nonatomic, readwrite) MSPMyPjsuaManagerStatus status;
 @property (strong, nonatomic) MSPPjsuaSipAccount *currentSipAccount;
-@property (strong, nonatomic) MSPPjsuaCall *currentCall;
+@property (strong, nonatomic, readwrite) MSPPjsuaCall *currentCall;
+
+@property (strong, nonatomic) NSMutableDictionary *calls;
+@property (strong, nonatomic) dispatch_queue_t pjsuaQueue;
 
 @end
 
@@ -38,6 +48,10 @@
     
     if (self) {
         self.status = MSPMyPjsuaManagerStatusNone;
+        self.calls = [[NSMutableDictionary alloc] init];
+        
+        //Create queue for pjsua to run.
+        //self.pjsuaQueue = dispatch_queue_create([MSPPjsuaQueueName UTF8String], NULL);
     }
     
     return self;
@@ -48,6 +62,7 @@
 }
 
 - (void)releasePjsua {
+    pjsua_call_hangup_all();
     if (appPool) {
         pj_pool_release(appPool);
         appPool = nil;
@@ -60,7 +75,7 @@
     
     self.status = MSPMyPjsuaManagerStatusNone;
     self.currentSipAccount = nil;
-    self.currentCall = nil;
+    [self.calls removeAllObjects];
 }
 
 #pragma mark - Easy connect APIs
@@ -101,7 +116,7 @@
 - (MSPMyPjsuaManagerResult)initPjsua:(MSPPjsuaConfig *)pjsuaConfig {
     if ((self.status & MSPMyPjsuaManagerStatusInitedPjsua) ||
         (self.status & MSPMyPjsuaManagerStatusStartedPjsua)) {
-        NSLog(@"Pjsua is inited or running!!");
+        NSLog(@"\n\nPjsua is inited or running!!\n\n");
         return MSPMyPjsuaManagerResultSuccess;
     }
     
@@ -110,7 +125,7 @@
     //Create pjsua.
     status = pjsua_create();
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_create()", status);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_create()\n\n", status);
         [self releasePjsua];
         return MSPMyPjsuaManagerResultCreatePjsuaError;
     }
@@ -186,11 +201,12 @@
     //Set logging config to default.
     pjsua_logging_config_default(&log_cfg);
     log_cfg.console_level = [pjsuaConfig.consoleLevel unsignedIntValue];
+    log_cfg.msg_logging = false;
     
     //Init pjsua
     status = pjsua_init(&cfg, &log_cfg, NULL);
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_init()", status);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_init()\n\n", status);
         [self releasePjsua];
         return MSPMyPjsuaManagerResultInitPjsuaError;
     }
@@ -201,12 +217,12 @@
 
 - (MSPMyPjsuaManagerResult)initPjsuaTransport:(MSPPjsuaConfig *)pjsuaConfig {
     if (!(self.status & MSPMyPjsuaManagerStatusInitedPjsua)) {
-        NSLog(@"Error! pjsua not init, please init pjsua before init pjsua transport.");
+        NSLog(@"\n\nError! pjsua not init, please init pjsua before init pjsua transport.\n\n");
         return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
     if (self.status & MSPMyPjsuaManagerStatusStartedPjsua) {
-        NSLog(@"Pjsua is running!!");
+        NSLog(@"\n\nPjsua is running!!\n\n");
         return MSPMyPjsuaManagerResultSuccess;
     }
 
@@ -229,7 +245,7 @@
     //Add transport.
     status = pjsua_transport_create(transportType, &cfg, &transport_id);
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_transport_create(%d)", status, transportType);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_transport_create(%d)\n\n", status, transportType);
         [self releasePjsua];
         if (pjsuaConfig.transportype == MSPTransportTypeUDP) {
             return MSPMyPjsuaManagerResultCreateTransportUDPError;
@@ -243,7 +259,7 @@
     }
     
     if (transport_id == TRANSPORTID_NONE) {
-        NSLog(@"Status ID : %d - Error no transport is configured", TRANSPORTID_NONE);
+        NSLog(@"\n\nStatus ID : %d - Error no transport is configured\n\n", TRANSPORTID_NONE);
         [self releasePjsua];
         return MSPMyPjsuaManagerResultCreateTransportError;
     }
@@ -255,12 +271,12 @@
 - (MSPMyPjsuaManagerResult)startPjsua {
     if (!(self.status & MSPMyPjsuaManagerStatusInitedPjsua) ||
         !(self.status & MSPMyPjsuaManagerStatusInitedTransport)) {
-        NSLog(@"Error! pjsua not init or transport not init, please init them before start pjsua.");
+        NSLog(@"\n\nError! pjsua not init or transport not init, please init them before start pjsua.\n\n");
         return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
     if (self.status & MSPMyPjsuaManagerStatusStartedPjsua) {
-        NSLog(@"Pjsua is running!!");
+        NSLog(@"\n\nPjsua is running!!\n\n");
         return MSPMyPjsuaManagerResultSuccess;
     }
     
@@ -269,7 +285,7 @@
     //Initialization is done, now start pjsua
     status = pjsua_start();
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_start()", status);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_start()\n\n", status);
         [self releasePjsua];
         return MSPMyPjsuaManagerResultStartPjsuaError;
     }
@@ -280,7 +296,7 @@
 
 - (MSPMyPjsuaManagerResult)registerSipServer:(MSPPjsuaSipAccount *)sipAccount {
     if (!(self.status & MSPMyPjsuaManagerStatusStartedPjsua)) {
-        NSLog(@"Error! pjsua not init, transport not init or not start, please init them before register sip server.");
+        NSLog(@"\n\nError! pjsua not init, transport not init or not start, please init them before register sip server.\n\n");
         return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
@@ -304,8 +320,7 @@
     cfg.cred_info[0].data_type = PJSIP_CRED_DATA_PLAIN_PASSWD;
     cfg.cred_info[0].data = pj_str((char *)[sipAccount.password UTF8String]);
     
-//    NSLog(@"");
-//    NSLog(@"----------------- cred_info -----------------");
+//    NSLog(@"\n\n----------------- cred_info -----------------");
 //    NSLog(@"id : %s", cfg.id.ptr);
 //    NSLog(@"reg_uri : %s", cfg.reg_uri.ptr);
 //    NSLog(@"cred_count : %d", cfg.cred_count);
@@ -314,11 +329,11 @@
 //    NSLog(@"cred_info[0].username : %s", cfg.cred_info[0].username.ptr);
 //    NSLog(@"cred_info[0].data_type : %d", cfg.cred_info[0].data_type);
 //    NSLog(@"cred_info[0].data : %s", cfg.cred_info[0].data.ptr);
-//    NSLog(@"----------------- cred_info end -----------------");
+//    NSLog(@"----------------- cred_info end -----------------\n\n");
     
     status = pjsua_acc_add(&cfg, PJ_TRUE, &pjsuaAccountId);
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_start()", status);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_start()\n\n", status);
         self.currentSipAccount = nil;
         return MSPMyPjsuaManagerResultRegisterSipServerError;
     }
@@ -334,44 +349,130 @@
 
 - (MSPMyPjsuaManagerResult)makeCall:(MSPPjsuaCall *)call {
     if (!(self.status & MSPMyPjsuaManagerStatusStartedPjsua)) {
-        NSLog(@"Error! pjsua not init, transport not init or not start, please init them before register sip server.");
+        NSLog(@"\n\nError! pjsua not init, transport not init or not start, please init them before register sip server.\n\n");
         return MSPMyPjsuaManagerResultPjsuaNotInitedError;
     }
     
     if (!(self.status & MSPMyPjsuaManagerStatusRegisterredSipServer)) {
-        NSLog(@"Error! Not register a sip server, please register a sip server.");
+        NSLog(@"\n\nError! Not register a sip server, please register a sip server.\n\n");
         return MSPMyPjsuaManagerResultRegisterSipServerError;
     }
     
-    if (self.currentCall) {
-        pjsua_call_hangup_all();
-        self.currentCall = nil;
-        self.status &= ~MSPMyPjsuaManagerStatusCalling;
-    }
+    //Hangup same call.
+    [self hangupCall:call];
     
     pj_status_t status;
     pj_str_t uri;
     pjsua_call_setting call_opt;
+    pjsua_call_id call_id;
     
     uri = pj_str((char *)[[NSString stringWithFormat:@"sip:%@@%@", call.userName, self.currentSipAccount.domain] UTF8String]);
     pjsua_call_setting_default(&call_opt);
     call_opt.vid_cnt = 0;
     call_opt.flag = 0;
     
-//    NSLog(@"----------------- pjsua_call_make_call info -----------------");
+//    NSLog(@"\n\n----------------- pjsua_call_make_call info -----------------");
 //    NSLog(@"acc_id : %d", pjsuaAccountId);
 //    NSLog(@"dst_uri : %s", uri.ptr);
 //    NSLog(@"call_opt.flag : %d", call_opt.flag);
 //    NSLog(@"call_opt.req_keyframe_method : %d", call_opt.req_keyframe_method);
 //    NSLog(@"call_opt.aud_cnt : %d", call_opt.aud_cnt);
 //    NSLog(@"call_opt.vid_cnt : %d", call_opt.vid_cnt);
-//    NSLog(@"------------------------------------------------------------");
+//    NSLog(@"------------------------------------------------------------\n\n");
     
-    status = pjsua_call_make_call([self.currentSipAccount.accountId intValue], &uri, &call_opt, NULL, NULL, NULL);
+    status = pjsua_call_make_call([self.currentSipAccount.accountId intValue], &uri, &call_opt, NULL, NULL, &call_id);
     if (status != PJ_SUCCESS) {
-        NSLog(@"Status ID : %d - Error in pjsua_call_make_call()", status);
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_call_make_call()\n\n", status);
         return MSPMyPjsuaManagerResultMakeCallError;
     }
+    
+    call.callId = @(call_id);
+    [self.calls setObject:call forKey:call.callId];
+    self.currentCall = call;
+    
+    self.status |= MSPMyPjsuaManagerStatusCalling;
+    return MSPMyPjsuaManagerResultSuccess;
+}
+
+- (MSPMyPjsuaManagerResult)hangupCall:(MSPPjsuaCall *)call {
+    if (!(self.status & MSPMyPjsuaManagerStatusStartedPjsua)) {
+        NSLog(@"\n\nError! pjsua not init, transport not init or not start, please init them before register sip server.\n\n");
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
+    }
+    
+    if (!(self.status & MSPMyPjsuaManagerStatusRegisterredSipServer)) {
+        NSLog(@"\n\nError! Not register a sip server, please register a sip server.\n\n");
+        return MSPMyPjsuaManagerResultRegisterSipServerError;
+    }
+    
+    if (!call) {
+        return MSPMyPjsuaManagerResultHangupCallError;
+    }
+    
+    MSPPjsuaCall *findCall = self.calls[call.callId];
+    if (findCall) {
+        pjsua_call_hangup([findCall.callId intValue], 0, NULL, NULL);
+        [self.calls removeObjectForKey:findCall.callId];
+
+        if ([self.currentCall.callId isEqualToNumber:findCall.callId]) {
+            self.currentCall = nil;
+            
+            [[NSNotificationCenter defaultCenter] postToMainThreadWithNotificationName:MSPCallhangupNotification object:[MSPMyPjsuaManager sharedManager]];
+        }
+        
+        if (self.calls.count == 0) {
+            self.status &= ~MSPMyPjsuaManagerStatusCalling;
+        }
+        return MSPMyPjsuaManagerResultSuccess;
+    }
+    else {
+        if ([self.currentIncomingCall.callId isEqualToNumber:call.callId]) {
+            pjsua_call_hangup([call.callId intValue], 0, NULL, NULL);
+            self.currentIncomingCall = nil;
+            
+            [[NSNotificationCenter defaultCenter] postToMainThreadWithNotificationName:MSPCallhangupNotification object:[MSPMyPjsuaManager sharedManager]];
+            
+            if (self.calls.count == 0) {
+                self.status &= ~MSPMyPjsuaManagerStatusCalling;
+            }
+            return MSPMyPjsuaManagerResultSuccess;
+        }
+        else {
+            return MSPMyPjsuaManagerResultHangupCallError;
+        }
+    }
+}
+
+- (MSPMyPjsuaManagerResult)answerCall:(MSPPjsuaCall *)call {
+    if (!(self.status & MSPMyPjsuaManagerStatusStartedPjsua)) {
+        NSLog(@"\n\nError! pjsua not init, transport not init or not start, please init them before register sip server.\n\n");
+        return MSPMyPjsuaManagerResultPjsuaNotInitedError;
+    }
+    
+    if (!(self.status & MSPMyPjsuaManagerStatusRegisterredSipServer)) {
+        NSLog(@"\n\nError! Not register a sip server, please register a sip server.\n\n");
+        return MSPMyPjsuaManagerResultRegisterSipServerError;
+    }
+    
+    //Hangup current call.
+    [self hangupCall:self.currentCall];
+    
+    if (!call) {
+        return MSPMyPjsuaManagerResultHangupCallError;
+    }
+    
+    pj_status_t status;
+    status = pjsua_call_answer([call.callId intValue], 200, NULL, NULL);
+    if (status != PJ_SUCCESS) {
+        NSLog(@"\n\nStatus ID : %d - Error in pjsua_call_answer()\n\n", status);
+        return MSPMyPjsuaManagerResultAnswerCallError;
+    }
+    
+    [self.calls setObject:call forKey:call.callId];
+    self.currentCall = call;
+    self.currentIncomingCall = nil;
+    
+    [[NSNotificationCenter defaultCenter] postToMainThreadWithNotificationName:MSPCallAnswerNotification object:[MSPMyPjsuaManager sharedManager]];
     
     self.status |= MSPMyPjsuaManagerStatusCalling;
     return MSPMyPjsuaManagerResultSuccess;
@@ -385,7 +486,33 @@ static void on_call_state(pjsua_call_id call_id, pjsip_event *e) {
     PJ_UNUSED_ARG(e);
     
     pjsua_call_get_info(call_id, &ci);
-    NSLog(@"...Call %d state=%s", call_id, ci.state_text.ptr);
+    NSLog(@"\n\n...Call %d state=%s\n\n", call_id, ci.state_text.ptr);
+    
+    NSLog(@"\n\n----------------- pjsua_call_info incoming info -----------------");
+    NSLog(@"id : %d", ci.id);
+    NSLog(@"acc_id : %d", ci.acc_id);
+    NSLog(@"local_info : %s", ci.local_info.ptr);
+    NSLog(@"local_contact : %s", ci.local_contact.ptr);
+    NSLog(@"remote_info : %s", ci.remote_info.ptr);
+    NSLog(@"remote_contact : %s", ci.remote_contact.ptr);
+    NSLog(@"call_id : %s", ci.call_id.ptr);
+    NSLog(@"state_text : %s", ci.state_text.ptr);
+    NSLog(@"last_status_text : %s", ci.last_status_text.ptr);
+    NSLog(@"conf_slot : %d", ci.conf_slot);
+    NSLog(@"media_cnt : %d", ci.media_cnt);
+    NSLog(@"prov_media_cnt : %d", ci.prov_media_cnt);
+    NSLog(@"connect_duration : %ld s, %ld ms", ci.connect_duration.sec, ci.connect_duration.msec);
+    NSLog(@"total_duration : %ld s, %ld ms", ci.total_duration.sec, ci.total_duration.msec);
+    NSLog(@"rem_offerer : %d", ci.rem_offerer);
+    NSLog(@"rem_aud_cnt : %d", ci.rem_aud_cnt);
+    NSLog(@"rem_vid_cnt : %d", ci.rem_vid_cnt);
+    NSLog(@"------------------------------------------------------------\n\n");
+    
+    if (ci.state == PJSIP_INV_STATE_DISCONNECTED) {
+        MSPPjsuaCall *disconnectCall = [[MSPPjsuaCall alloc] init];
+        disconnectCall.callId = @(call_id);
+        [[MSPMyPjsuaManager sharedManager] hangupCall:disconnectCall];
+    }
 }
 
 static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata) {
@@ -396,17 +523,53 @@ static void on_incoming_call(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_r
     
     //Get calling info.
     pjsua_call_get_info(call_id, &ci);
-    NSLog(@"...Incoming call from %s!!", ci.remote_info.ptr);
+    NSLog(@"\n\n...Incoming call from %s\n\n", ci.remote_info.ptr);
     
-    //Automatically answer incoming calls with 200/OK
-    pjsua_call_answer(call_id, 200, NULL, NULL);
+    //If is in calling, reject.
+    if ([[MSPMyPjsuaManager sharedManager] currentCall] || [[MSPMyPjsuaManager sharedManager] currentIncomingCall]) {
+        pj_str_t reason = pj_str("busy");
+        pjsua_call_hangup(call_id, 0, &reason, NULL);
+    }
+    else {
+//        NSLog(@"\n\n----------------- pjsua_call_info incoming info -----------------");
+//        NSLog(@"id : %d", ci.id);
+//        NSLog(@"acc_id : %d", ci.acc_id);
+//        NSLog(@"local_info : %s", ci.local_info.ptr);
+//        NSLog(@"local_contact : %s", ci.local_contact.ptr);
+//        NSLog(@"remote_info : %s", ci.remote_info.ptr);
+//        NSLog(@"remote_contact : %s", ci.remote_contact.ptr);
+//        NSLog(@"call_id : %s", ci.call_id.ptr);
+//        NSLog(@"state_text : %s", ci.state_text.ptr);
+//        NSLog(@"last_status_text : %s", ci.last_status_text.ptr);
+//        NSLog(@"conf_slot : %d", ci.conf_slot);
+//        NSLog(@"media_cnt : %d", ci.media_cnt);
+//        NSLog(@"prov_media_cnt : %d", ci.prov_media_cnt);
+//        NSLog(@"connect_duration : %ld s, %ld ms", ci.connect_duration.sec, ci.connect_duration.msec);
+//        NSLog(@"total_duration : %ld s, %ld ms", ci.total_duration.sec, ci.total_duration.msec);
+//        NSLog(@"rem_offerer : %d", ci.rem_offerer);
+//        NSLog(@"rem_aud_cnt : %d", ci.rem_aud_cnt);
+//        NSLog(@"rem_vid_cnt : %d", ci.rem_vid_cnt);
+//        NSLog(@"------------------------------------------------------------\n\n");
+        
+        MSPPjsuaCall *incomingCall = [[MSPPjsuaCall alloc] init];
+        NSString *info = [NSString stringWithUTF8String:ci.remote_info.ptr];
+        NSRange range = [info rangeOfString:@"\""];
+        info = [info substringFromIndex:range.location + range.length];
+        range = [info rangeOfString:@"\""];
+        info = [info substringToIndex:range.location];
+        incomingCall.userName = info;
+        incomingCall.callId = @(call_id);
+        [MSPMyPjsuaManager sharedManager].currentIncomingCall = incomingCall;
+        
+        [[NSNotificationCenter defaultCenter] postToMainThreadWithNotificationName:MSPCallIncomingNotification object:[MSPMyPjsuaManager sharedManager]];
+    }
 }
 
 static void on_call_media_state(pjsua_call_id call_id) {
     pjsua_call_info ci;
     
     pjsua_call_get_info(call_id, &ci);
-    NSLog(@"...Call media %d state=%s", call_id, ci.state_text.ptr);
+    NSLog(@"\n\n...Call media %d state=%s\n\n", call_id, ci.state_text.ptr);
     
     if (ci.media_status == PJSUA_CALL_MEDIA_ACTIVE) {
         // When media is active, connect call to sound device.

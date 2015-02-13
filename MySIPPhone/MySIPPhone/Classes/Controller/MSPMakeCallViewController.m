@@ -16,9 +16,12 @@
 #import "JCPadButton.h"
 #import "FontasticIcons.h"
 
-NSString * const callButtonIdentifier = @"call";
-NSString * const delButtonIdentifier = @"del";
-NSString * const emptyButtonIdentifier = @"empty";
+//Controller
+#import "MSPCallingViewController.h"
+
+NSString * const MSPCallButtonIdentifier    = @"call";
+NSString * const MSPDelButtonIdentifier     = @"del";
+NSString * const MSPEmptyButtonIdentifier   = @"empty";
 
 @interface MSPMakeCallViewController () <JCDialPadDelegate>
 
@@ -33,7 +36,7 @@ NSString * const emptyButtonIdentifier = @"empty";
     [super viewDidLoad];
     
     NSMutableArray *buttons = [[NSMutableArray alloc] init];
-    NSArray *mains = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", emptyButtonIdentifier, @"0", delButtonIdentifier];
+    NSArray *mains = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", MSPEmptyButtonIdentifier, @"0", MSPDelButtonIdentifier];
     [mains enumerateObjectsUsingBlock:^(NSString *main, NSUInteger idx, BOOL *stop) {
         JCPadButton *button = [[JCPadButton alloc] initWithMainLabel:main subLabel:@""];
         button.borderColor = [UIColor blackColor];
@@ -41,7 +44,7 @@ NSString * const emptyButtonIdentifier = @"empty";
         button.selectedColor = [UIColor lightGrayColor];
         button.hightlightedTextColor = [UIColor whiteColor];
         
-        if ([main isEqualToString:emptyButtonIdentifier]) {
+        if ([main isEqualToString:MSPEmptyButtonIdentifier]) {
             button.hidden = YES;
         }
         [buttons addObject:button];
@@ -62,7 +65,7 @@ NSString * const emptyButtonIdentifier = @"empty";
     iconView.icon = [FIFontAwesomeIcon phoneIcon];
     iconView.padding = 15;
     iconView.iconColor = [UIColor whiteColor];
-    JCPadButton *callButton = [[JCPadButton alloc] initWithInput:callButtonIdentifier iconView:iconView subLabel:@""];
+    JCPadButton *callButton = [[JCPadButton alloc] initWithInput:MSPCallButtonIdentifier iconView:iconView subLabel:@""];
     callButton.backgroundColor = [UIColor colorWithRed:0.261 green:0.837 blue:0.319 alpha:1.000];
     callButton.borderColor = [UIColor colorWithRed:0.261 green:0.837 blue:0.319 alpha:1.000];
     return callButton;
@@ -71,14 +74,18 @@ NSString * const emptyButtonIdentifier = @"empty";
 #pragma mark - JCDialPadDelegate
 
 - (BOOL)dialPad:(JCDialPad *)dialPad shouldInsertText:(NSString *)text forButtonPress:(JCPadButton *)button {
-    NSLog(@"shouldInsertText: %@ forButtonPress: %@", text, button.input);
-    if ([text isEqualToString:callButtonIdentifier]) {
-        //Make Call
-        MSPPjsuaCall *call = [[MSPPjsuaCall alloc] init];
-        call.userName = self.callNumberTextField.text;
-        [[MSPMyPjsuaManager sharedManager] makeCall:call];
+    if ([text isEqualToString:MSPCallButtonIdentifier]) {
+        //Navigate to calling
+        MSPCallingViewController *controller = [[MSPCallingViewController alloc] initWithNibName:NSStringFromClass([MSPCallingViewController class]) bundle:[NSBundle mainBundle]];
+        
+        [self presentViewController:controller animated:YES completion:^{
+            //Make Call
+            MSPPjsuaCall *call = [[MSPPjsuaCall alloc] init];
+            call.userName = self.callNumberTextField.text;
+            [[MSPMyPjsuaManager sharedManager] makeCall:call];
+        }];
     }
-    else if ([text isEqualToString:delButtonIdentifier]) {
+    else if ([text isEqualToString:MSPDelButtonIdentifier]) {
         if (self.callNumberTextField.text.length) {
             self.callNumberTextField.text = [self.callNumberTextField.text substringToIndex:self.callNumberTextField.text.length - 1];
         }
@@ -89,15 +96,5 @@ NSString * const emptyButtonIdentifier = @"empty";
     
     return YES;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

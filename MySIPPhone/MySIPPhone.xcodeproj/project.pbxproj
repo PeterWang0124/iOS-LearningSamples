@@ -7,24 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923A24F41A8DAB6900B68EDB /* MSPCallingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923A24F21A8DAB6900B68EDB /* MSPCallingViewController.m */; };
+		923A24F51A8DAB6900B68EDB /* MSPCallingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923A24F31A8DAB6900B68EDB /* MSPCallingViewController.xib */; };
+		923A24F91A8DD81200B68EDB /* NSNotificationCenter+MSP.m in Sources */ = {isa = PBXBuildFile; fileRef = 923A24F81A8DD81200B68EDB /* NSNotificationCenter+MSP.m */; };
+		923A24FC1A8DE68700B68EDB /* UINavigationController+ReplaceStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 923A24FB1A8DE68700B68EDB /* UINavigationController+ReplaceStack.m */; };
 		9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */; };
 		9275FC971A8C5840001EBC45 /* MSPLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC961A8C5840001EBC45 /* MSPLoginTableViewController.m */; };
 		9275FC9A1A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC991A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m */; };
 		9275FC9D1A8C765C001EBC45 /* MSPPjsuaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC9C1A8C765C001EBC45 /* MSPPjsuaConfig.m */; };
 		9275FCA01A8C85AB001EBC45 /* MSPPjsuaSipAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FC9F1A8C85AB001EBC45 /* MSPPjsuaSipAccount.m */; };
 		9275FCA31A8C88FC001EBC45 /* MSPPjsuaCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FCA21A8C88FC001EBC45 /* MSPPjsuaCall.m */; };
-		9275FCA61A8C966C001EBC45 /* MSPMakeCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */; };
 		92B1AE701A8B02DD0093CDC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE6F1A8B02DD0093CDC1 /* main.m */; };
 		92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE951A8B03770093CDC1 /* AppDelegate.m */; };
 		92B1AE9F1A8B03770093CDC1 /* MSPProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B1AE981A8B03770093CDC1 /* MSPProcessViewController.m */; };
 		92B1AEA01A8B03770093CDC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9B1A8B03770093CDC1 /* Images.xcassets */; };
 		92B1AEA11A8B03770093CDC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9C1A8B03770093CDC1 /* LaunchScreen.xib */; };
 		92B1AEA21A8B03770093CDC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92B1AE9D1A8B03770093CDC1 /* Main.storyboard */; };
+		92C5D1351A8D9A4400C60EEA /* MSPMakeCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */; };
 		BAA68A17F8D2CE0037FAA18B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E4D0CBD64F9C48D710FAEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		67E4D0CBD64F9C48D710FAEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		923A24F11A8DAB6900B68EDB /* MSPCallingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPCallingViewController.h; sourceTree = "<group>"; };
+		923A24F21A8DAB6900B68EDB /* MSPCallingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPCallingViewController.m; sourceTree = "<group>"; };
+		923A24F31A8DAB6900B68EDB /* MSPCallingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSPCallingViewController.xib; sourceTree = "<group>"; };
+		923A24F71A8DD81200B68EDB /* NSNotificationCenter+MSP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+MSP.h"; sourceTree = "<group>"; };
+		923A24F81A8DD81200B68EDB /* NSNotificationCenter+MSP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+MSP.m"; sourceTree = "<group>"; };
+		923A24FA1A8DE68700B68EDB /* UINavigationController+ReplaceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ReplaceStack.h"; sourceTree = "<group>"; };
+		923A24FB1A8DE68700B68EDB /* UINavigationController+ReplaceStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ReplaceStack.m"; sourceTree = "<group>"; };
 		9248DD401A8B063F0092C61E /* MSPMyPjsuaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPMyPjsuaManager.h; sourceTree = "<group>"; };
 		9248DD411A8B063F0092C61E /* MSPMyPjsuaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPMyPjsuaManager.m; sourceTree = "<group>"; };
 		9275FC951A8C5840001EBC45 /* MSPLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPLoginTableViewController.h; sourceTree = "<group>"; };
@@ -73,6 +84,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		923A24F61A8DD81200B68EDB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				923A24F71A8DD81200B68EDB /* NSNotificationCenter+MSP.h */,
+				923A24F81A8DD81200B68EDB /* NSNotificationCenter+MSP.m */,
+				923A24FA1A8DE68700B68EDB /* UINavigationController+ReplaceStack.h */,
+				923A24FB1A8DE68700B68EDB /* UINavigationController+ReplaceStack.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		92B1AE611A8B02DD0093CDC1 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +136,7 @@
 			children = (
 				92B1AE941A8B03770093CDC1 /* AppDelegate.h */,
 				92B1AE951A8B03770093CDC1 /* AppDelegate.m */,
+				923A24F61A8DD81200B68EDB /* Category */,
 				92B1AE961A8B03770093CDC1 /* Controller */,
 				92B1AE991A8B03770093CDC1 /* Model */,
 				92B1AE9A1A8B03770093CDC1 /* View */,
@@ -132,6 +155,9 @@
 				9275FC991A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m */,
 				9275FCA41A8C966C001EBC45 /* MSPMakeCallViewController.h */,
 				9275FCA51A8C966C001EBC45 /* MSPMakeCallViewController.m */,
+				923A24F11A8DAB6900B68EDB /* MSPCallingViewController.h */,
+				923A24F21A8DAB6900B68EDB /* MSPCallingViewController.m */,
+				923A24F31A8DAB6900B68EDB /* MSPCallingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +229,7 @@
 				TargetAttributes = {
 					92B1AE691A8B02DD0093CDC1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = CX9E482595;
 					};
 				};
 			};
@@ -232,6 +259,7 @@
 				92B1AEA21A8B03770093CDC1 /* Main.storyboard in Resources */,
 				92B1AEA11A8B03770093CDC1 /* LaunchScreen.xib in Resources */,
 				92B1AEA01A8B03770093CDC1 /* Images.xcassets in Resources */,
+				923A24F51A8DAB6900B68EDB /* MSPCallingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,14 +304,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9275FCA01A8C85AB001EBC45 /* MSPPjsuaSipAccount.m in Sources */,
+				923A24F41A8DAB6900B68EDB /* MSPCallingViewController.m in Sources */,
+				923A24FC1A8DE68700B68EDB /* UINavigationController+ReplaceStack.m in Sources */,
 				92B1AE9F1A8B03770093CDC1 /* MSPProcessViewController.m in Sources */,
 				9248DD421A8B063F0092C61E /* MSPMyPjsuaManager.m in Sources */,
-				9275FCA61A8C966C001EBC45 /* MSPMakeCallViewController.m in Sources */,
 				9275FCA31A8C88FC001EBC45 /* MSPPjsuaCall.m in Sources */,
+				92C5D1351A8D9A4400C60EEA /* MSPMakeCallViewController.m in Sources */,
 				9275FC9A1A8C5EAA001EBC45 /* MSPTransportTypeTableViewController.m in Sources */,
 				9275FC9D1A8C765C001EBC45 /* MSPPjsuaConfig.m in Sources */,
 				92B1AE9E1A8B03770093CDC1 /* AppDelegate.m in Sources */,
 				92B1AE701A8B02DD0093CDC1 /* main.m in Sources */,
+				923A24F91A8DD81200B68EDB /* NSNotificationCenter+MSP.m in Sources */,
 				9275FC971A8C5840001EBC45 /* MSPLoginTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,5 +11,6 @@
 @interface MSPPjsuaCall : NSObject
 
 @property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSNumber *callId;
 
 @end
