@@ -65,6 +65,9 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	
 	[2015/01/29]  
 	Take off Flickr API Key. If you want to run this project, please go Flickr to obtain [Flickr API Key](https://www.flickr.com/services/api/misc.api_keys.html).
+* MySIPPhone Project - (2015/02/13)  
+	This project take apractice of [PJSIP](http://www.pjsip.org) in PJSUA to do the sip phone call.
+	And I use [miniSIPServer](http://www.myvoipapp.com/download/index.html) to be my sip server and install [Telephone](https://itunes.apple.com/us/app/telephone/id406825478?mt=12) on mac, to test the calling.
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
