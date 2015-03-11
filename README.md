@@ -9,25 +9,30 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	This project practices for SQLite for iOS, follow the articles below:
 	- Ray Wenderlich, ["SQLite Tutorial for iOS: Creating and Scripting"](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting).
 	- Ray Wenderlich, ["SQLite Tutorial for iOS: Making Our App"](http://www.raywenderlich.com/913/sqlite-tutorial-for-ios-making-our-app).
-* CoreDataLearning Project - (2015/01/05)  
+
+* CoreDataLearning Project - (2015/01/05)
 * CoreDataImportLearning Project - (2014/12/31)  
 	These two projects practice CoreData for iOS, follow the articles below:
 	- Adam Burkepile, ["Core Data Tutorial for iOS: Getting Started"](http://www.raywenderlich.com/934/core-data-tutorial-for-ios-getting-started).
 	- Adam Burkepile, ["Core Data on iOS 5 Tutorial: How To Preload and Import Existing Data"](http://www.raywenderlich.com/12170/core-data-tutorial-how-to-preloadimport-existing-data-updated).
 	- Adam Burkepile, ["Core Data Tutorial for iOS: How To Use NSFetchedResultsController"](http://www.raywenderlich.com/999/core-data-tutorial-for-ios-how-to-use-nsfetchedresultscontroller).
+
 * RealmLearning Project - (2015/01/07)  
 	This project practices Realm for iOS using Objective - C, follow the articles below:
 	- Bill Kastanakis, ["Introduction to Realm"](http://www.raywenderlich.com/81615/introduction-to-realm).(Swift)
 	- David McGraw, ["Getting Started with Realm Database for iOS"](http://www.xmcgraw.com/getting-started-with-realm-database-for-ios/).(Swift)
 	- Piet Brauer, ["Tutorial: Building a To-Do App with Realm"](http://realm.io/news/tutorial-building-a-todo-app-with-realm/).(Swift)
+
 * Matchismo Projcet - (2015/01/14)  
 	This project take a practice of Stanford CS193P Lecture 1~3 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	  
 	It was practice about creating new project in Xcode, IBAction of click button, using image, model creating, lazy initialization, getter & setter override, objective-c ...etc.
+
 * Attributor Project - (2015/01/15)  
 	This project take a practive of Stanford CS193P Lecture 4~5 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
 	
 	It was practice about attribute string of changing color, outlining string, using notification center to do the radio station for using preferred fonts and using a little bit of the view controller lifecycle.
+
 * Matchismo2 Project - (2015/01/21)  
 	This project take a practice of Stanford CS193P Lecture 6 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	
@@ -42,6 +47,7 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	This project take a practice of Stanford CS193P Lecture 6 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	
 	It was practice about analyze attribute string of color and outlined, add navitgation controller, segue to next view controller, add tab bar controller.
+
 * SuperCard Project - (2015/01/20)  
 	This project take a practice of Stanford CS193P Lecture 7 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
 	
@@ -53,10 +59,12 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	It was practice about view dynamic animation of UIDynamicAnimator, UIGravityBehavior, UICollisionBehavior, custom UIDynamicBehavior, UIDynamicAnimatorDelegate.  
 	  
 	-(void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator; method would pause untill no item animate.
+
 * Imaginarium Project - (2015/01/27)  
 	This project take a practice of Stanford CS193P Lecture 10 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
 	
 	It was practice about get image from NSURL, NSURLRequest to download image by another thread, dispatch to main thread.
+
 * Shutterbug Project - (2015/01/29)  
 	This project take a practice of Stanford CS193P Lecture 11 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).  
 	
@@ -65,9 +73,17 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 	
 	[2015/01/29]  
 	Take off Flickr API Key. If you want to run this project, please go Flickr to obtain [Flickr API Key](https://www.flickr.com/services/api/misc.api_keys.html).
+
 * MySIPPhone Project - (2015/02/13)  
 	This project take apractice of [PJSIP](http://www.pjsip.org) in PJSUA to do the sip phone call.
 	And I use [miniSIPServer](http://www.myvoipapp.com/download/index.html) to be my sip server and install [Telephone](https://itunes.apple.com/us/app/telephone/id406825478?mt=12) on mac, to test the calling.
+	
+* Shutterbug2 Project - (2015/02/15, unfinished)  
+	This project take a practice of Stanford CS193P Lecture 12 from iTunes ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550).
+
+* SwiftTutorialLearning Project - (2015/03/11)  
+	This project practice usage of Swift playground, follow the articles below:  
+	- Ray Wenderlich, ["Swift Tutorial: A Quick Start"](http://www.raywenderlich.com/74438/swift-tutorial-a-quick-start).
 
 ## Reference
 1. Ray Wenderlich, [SQLite Tutorial for iOS: Creating and Scripting](http://www.raywenderlich.com/902/sqlite-tutorial-for-ios-creating-and-scripting), April 6, 2010.
@@ -79,3 +95,4 @@ Each sample is the practice sample for me to learn the usage of element, UI, or 
 7. David McGraw, ["Getting Started with Realm Database for iOS"](http://www.xmcgraw.com/getting-started-with-realm-database-for-ios/), December 18, 2014.
 8. Piet Brauer, ["Tutorial: Building a To-Do App with Realm"](http://realm.io/news/tutorial-building-a-todo-app-with-realm/), September 5, 2014.
 9. Stanford CS193P form iTunes, ["Developing iOS 7 Apps for iPhone and iPad"](https://itunes.apple.com/tw/course/developing-ios-7-apps-for/id733644550), October 28, 2013.
+10. Ray Wenderlich, ["Swift Tutorial: A Quick Start"](http://www.raywenderlich.com/74438/swift-tutorial-a-quick-start), June 11, 2014.
